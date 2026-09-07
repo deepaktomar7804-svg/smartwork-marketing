@@ -1,0 +1,1281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SMARTWORK // CYBER-RECON ENGINE [333 DISTRICTS]</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700;800&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-void: #010804;
+            --surface-glass: rgba(3, 14, 8, 0.88);
+            --card-glass: rgba(4, 20, 10, 0.82);
+            --border-glass: rgba(0, 255, 102, 0.32);
+            --border-faint: rgba(10, 45, 22, 0.55);
+            --text-main: #f0fdf4;
+            --text-dim: #86efac;
+            --hacker-green: #00ff66;
+            --hacker-green-bright: #39ff14;
+            --hacker-green-dim: #22c55e;
+            --wa-terminal: #00ff66;
+            --font-mono: 'JetBrains Mono', 'Fira Code', 'Share Tech Mono', Consolas, monospace;
+        }
+
+        * {
+            box-sizing: border-box;
+            font-family: var(--font-mono);
+            letter-spacing: -0.2px;
+        }
+
+        html, body {
+            background-color: var(--bg-void);
+            background-image: 
+                linear-gradient(rgba(0, 255, 102, 0.04) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 255, 102, 0.04) 1px, transparent 1px);
+            background-size: 32px 32px;
+            color: var(--text-main);
+            margin: 0;
+            padding: 8px;
+            height: 100vh;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .main-container {
+            position: relative;
+            z-index: 3;
+            display: grid;
+            grid-template-columns: 370px 1fr;
+            gap: 10px;
+            height: calc(100vh - 16px);
+        }
+
+        /* FLOATING HUD HEADER */
+        .terminal-hud {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 5px 8px;
+            margin-bottom: 8px;
+            background: rgba(2, 12, 6, 0.7);
+            border: 1px solid var(--border-glass);
+            border-radius: 4px;
+            font-size: 10.5px;
+            font-weight: 700;
+        }
+        .hud-left {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            color: var(--hacker-green);
+        }
+        .hud-pulse {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: #00ff66;
+            box-shadow: 0 0 8px #00ff66;
+            animation: pulseGlow 1.8s infinite;
+        }
+        @keyframes pulseGlow {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.3; transform: scale(0.7); box-shadow: 0 0 2px #00ff66; }
+        }
+        .hud-title {
+            letter-spacing: 0.5px;
+            color: #00ff66;
+            cursor: pointer;
+            text-shadow: 0 0 6px rgba(0, 255, 102, 0.7);
+        }
+        .hud-right {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .hud-badge {
+            background: rgba(0, 255, 102, 0.12);
+            border: 1px solid rgba(0, 255, 102, 0.5);
+            color: #86efac;
+            padding: 1px 6px;
+            border-radius: 3px;
+            font-size: 10px;
+        }
+        .hud-telemetry {
+            color: #86efac;
+            font-size: 10px;
+            font-weight: 600;
+        }
+
+        /* LEFT PANEL: Pure Hacker Green Terminal HUD */
+        .left-panel {
+            background: var(--surface-glass);
+            border: 1.5px solid var(--border-glass);
+            border-radius: 6px;
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            overflow: hidden;
+            box-shadow: 0 0 25px rgba(0, 0, 0, 0.85), inset 0 0 2px rgba(0, 255, 102, 0.25);
+        }
+
+        /* Auto-Harvest Master Button */
+        .btn-auto-harvest {
+            background: rgba(0, 255, 102, 0.08);
+            border: 1.5px solid #00ff66;
+            color: #00ff66;
+            text-shadow: 0 0 8px rgba(0, 255, 102, 0.8);
+            box-shadow: 0 0 14px rgba(0, 255, 102, 0.3), inset 0 0 8px rgba(0, 255, 102, 0.1);
+            padding: 10px 12px;
+            border-radius: 4px;
+            font-size: 11.5px;
+            font-weight: 800;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            transition: all 0.18s ease;
+            margin-bottom: 8px;
+            animation: cyberPulseGlow 3.5s infinite ease-in-out;
+        }
+        @keyframes cyberPulseGlow {
+            0%, 100% {
+                box-shadow: 0 0 10px rgba(0, 255, 102, 0.25), inset 0 0 6px rgba(0, 255, 102, 0.05);
+                border-color: rgba(0, 255, 102, 0.7);
+            }
+            50% {
+                box-shadow: 0 0 22px rgba(0, 255, 102, 0.65), inset 0 0 10px rgba(0, 255, 102, 0.2);
+                border-color: #00ff66;
+            }
+        }
+        .btn-auto-harvest:hover {
+            background: #00ff66;
+            color: #010502;
+            text-shadow: none;
+            box-shadow: 0 0 25px rgba(0, 255, 102, 0.95);
+            transform: translateY(-1px);
+        }
+        .btn-auto-harvest:active { transform: translateY(0) scale(0.98); }
+
+        /* Quick Utility Bar */
+        .left-utility-bar {
+            display: flex;
+            gap: 6px;
+            margin-bottom: 8px;
+        }
+        .btn-mini-util {
+            flex: 1;
+            background: rgba(2, 12, 6, 0.6);
+            border: 1px solid var(--border-glass);
+            color: #86efac;
+            padding: 5px 8px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: 700;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 4px;
+            transition: all 0.15s;
+            text-transform: uppercase;
+        }
+        .btn-mini-util:hover {
+            background: rgba(0, 255, 102, 0.18);
+            border-color: var(--hacker-green);
+            color: #00ff66;
+            box-shadow: 0 0 12px rgba(0, 255, 102, 0.4);
+        }
+
+        /* CLI COMMAND LINE PROMPT WRAPPER */
+        .cli-prompt-bar {
+            display: flex;
+            align-items: center;
+            background: rgba(2, 12, 6, 0.65);
+            border: 1.5px solid var(--border-glass);
+            border-radius: 4px;
+            padding: 0 8px;
+            margin-bottom: 8px;
+            transition: all 0.2s ease;
+        }
+        .cli-prompt-bar:focus-within {
+            border-color: var(--hacker-green);
+            box-shadow: 0 0 14px rgba(0, 255, 102, 0.5), inset 0 0 6px rgba(0, 255, 102, 0.15);
+        }
+        .cli-prefix {
+            font-size: 11px;
+            font-weight: 800;
+            color: var(--hacker-green);
+            text-shadow: 0 0 6px rgba(0, 255, 102, 0.6);
+            margin-right: 4px;
+            user-select: none;
+            white-space: nowrap;
+            display: flex;
+            align-items: center;
+        }
+        .cli-prefix::after {
+            content: '█';
+            font-size: 9px;
+            margin-left: 3px;
+            color: #00ff66;
+            animation: blinkCaret 1s infinite steps(2, start);
+        }
+        @keyframes blinkCaret {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
+        }
+        .district-search {
+            background: transparent;
+            border: none;
+            color: #ffffff;
+            font-size: 12px;
+            font-weight: 600;
+            padding: 8px 4px;
+            width: 100%;
+            outline: none;
+            caret-color: var(--hacker-green);
+        }
+        .district-search::placeholder {
+            color: #4ade80;
+            opacity: 0.5;
+            font-weight: 500;
+        }
+        .district-search:focus {
+            color: #00ff66;
+            text-shadow: 0 0 4px rgba(0, 255, 102, 0.6);
+        }
+
+        /* Total Districts Summary Box */
+        .total-districts-card {
+            background: rgba(2, 12, 6, 0.6);
+            border: 1px dashed var(--border-glass);
+            border-radius: 4px;
+            padding: 8px 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 8px;
+            cursor: default;
+            pointer-events: none;
+            user-select: none;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        }
+        .td-left { display: flex; flex-direction: column; gap: 1px; }
+        .td-title {
+            font-size: 11.5px;
+            font-weight: 800;
+            color: #ffffff;
+            letter-spacing: 0.3px;
+            text-shadow: 0 0 4px rgba(0, 0, 0, 0.9);
+        }
+        .td-sub {
+            font-size: 10px;
+            color: #86efac;
+            letter-spacing: 0.2px;
+        }
+        .td-badge {
+            background: rgba(0, 255, 102, 0.15);
+            border: 1px solid rgba(0, 255, 102, 0.6);
+            color: #00ff66;
+            text-shadow: 0 0 6px rgba(0, 255, 102, 0.7);
+            font-size: 11px;
+            font-weight: 800;
+            padding: 3px 8px;
+            border-radius: 3px;
+            letter-spacing: 0.3px;
+        }
+
+        /* Scrollable States & Districts List */
+        .districts-scroll {
+            flex: 1;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            padding-right: 3px;
+            background: transparent;
+        }
+        .districts-scroll::-webkit-scrollbar { width: 4px; }
+        .districts-scroll::-webkit-scrollbar-track { background: transparent; }
+        .districts-scroll::-webkit-scrollbar-thumb { background: rgba(0, 255, 102, 0.4); border-radius: 2px; }
+
+        /* State Group & Accordion Header */
+        .state-group {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 3px;
+            background: transparent;
+        }
+        .state-card {
+            background: rgba(3, 14, 8, 0.65);
+            border: 1px solid var(--border-faint);
+            border-radius: 4px;
+            padding: 8px 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            transition: all 0.18s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            user-select: none;
+        }
+        .state-card:hover {
+            background: rgba(0, 255, 102, 0.12);
+            border-color: var(--hacker-green);
+            transform: translateY(-1px);
+            box-shadow: 0 0 12px rgba(0, 255, 102, 0.4);
+        }
+        .state-card.expanded {
+            background: rgba(0, 255, 102, 0.08);
+            border-color: var(--hacker-green);
+            box-shadow: 0 0 14px rgba(0, 255, 102, 0.4);
+        }
+        .state-card.active-state {
+            background: rgba(0, 255, 102, 0.22) !important;
+            border-color: #00ff66 !important;
+            box-shadow: 0 0 16px rgba(0, 255, 102, 0.55), inset 0 0 8px rgba(0, 255, 102, 0.2) !important;
+        }
+        .sc-left {
+            display: flex;
+            flex-direction: column;
+            gap: 1px;
+        }
+        .sc-name {
+            font-size: 12px;
+            font-weight: 800;
+            color: #ffffff;
+            letter-spacing: 0.3px;
+            text-transform: uppercase;
+            text-shadow: 0 0 4px rgba(0, 0, 0, 0.95);
+        }
+        .sc-count {
+            font-size: 10px;
+            color: #86efac;
+        }
+        .sc-right {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .sc-badge {
+            font-size: 10px;
+            font-weight: 800;
+            padding: 2px 6px;
+            border-radius: 3px;
+            letter-spacing: 0.2px;
+        }
+        .sc-badge-active {
+            background: rgba(0, 255, 102, 0.18);
+            color: #00ff66;
+            border: 1px solid #00ff66;
+            text-shadow: 0 0 6px rgba(0, 255, 102, 0.8);
+            box-shadow: 0 0 8px rgba(0, 255, 102, 0.35);
+        }
+        .sc-badge-zero {
+            background: rgba(20, 50, 28, 0.3);
+            color: #4ade80;
+            border: 1px solid rgba(34, 197, 94, 0.25);
+        }
+        .sc-chevron {
+            font-size: 9px;
+            color: #4ade80;
+            transition: transform 0.2s ease;
+        }
+        .state-card.expanded .sc-chevron {
+            color: var(--hacker-green);
+        }
+
+        /* Collapsible Districts List */
+        .state-districts-list {
+            display: none;
+            flex-direction: column;
+            gap: 3px;
+            padding: 4px 0 4px 6px;
+            border-left: 2px solid rgba(0, 255, 102, 0.45);
+            margin-left: 8px;
+            margin-top: 3px;
+            background: transparent;
+        }
+        .state-districts-list.open {
+            display: flex;
+        }
+
+        /* District Card inside State */
+        .d-item {
+            background: rgba(2, 12, 6, 0.6);
+            border: 1px solid var(--border-faint);
+            border-radius: 4px;
+            padding: 6px 9px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+        .d-item:hover {
+            background: rgba(0, 255, 102, 0.15);
+            border-color: var(--hacker-green);
+            transform: translateX(4px);
+            box-shadow: 0 0 12px rgba(0, 255, 102, 0.4);
+        }
+        .d-item.active {
+            background: rgba(0, 255, 102, 0.22);
+            border-color: var(--hacker-green);
+            box-shadow: 0 0 16px rgba(0, 255, 102, 0.55);
+        }
+        .d-info-name {
+            font-weight: 700;
+            font-size: 11.5px;
+            color: #ffffff;
+            text-transform: uppercase;
+            text-shadow: 0 0 4px rgba(0, 0, 0, 0.95);
+        }
+        .d-badge-count {
+            background: rgba(0, 255, 102, 0.15);
+            color: #4ade80;
+            border: 1px solid rgba(0, 255, 102, 0.5);
+            font-size: 10px;
+            font-weight: 800;
+            padding: 1px 6px;
+            border-radius: 3px;
+            white-space: nowrap;
+        }
+        .btn-harvest-mini {
+            background: transparent;
+            border: 1px solid rgba(0, 255, 102, 0.4);
+            color: #4ade80;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-size: 10px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.15s ease;
+            white-space: nowrap;
+        }
+        .btn-harvest-mini:hover {
+            background: #00ff66;
+            color: #010502;
+            border-color: #00ff66;
+            box-shadow: 0 0 10px rgba(0, 255, 102, 0.7);
+        }
+
+        /* RIGHT PANEL: Pure Hacker Green Terminal Outreach CRM */
+        .right-panel {
+            background: var(--surface-glass);
+            border: 1.5px solid var(--border-glass);
+            border-radius: 6px;
+            padding: 10px 14px;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            overflow: hidden;
+            box-shadow: 0 0 25px rgba(0, 0, 0, 0.85), inset 0 0 2px rgba(0, 255, 102, 0.25);
+        }
+
+        /* Active District Banner */
+        .top-banner {
+            background: rgba(2, 12, 6, 0.65);
+            border: 1px solid var(--border-glass);
+            border-radius: 4px;
+            padding: 8px 14px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 8px;
+            position: relative;
+            overflow: hidden;
+        }
+        .tb-left { display: flex; align-items: baseline; gap: 10px; }
+        .tb-left h2 {
+            margin: 0;
+            font-size: 15px;
+            font-weight: 800;
+            color: #ffffff;
+            letter-spacing: 0.3px;
+            text-transform: uppercase;
+            text-shadow: 0 0 8px rgba(0, 255, 102, 0.6);
+        }
+        .tb-left span {
+            color: #86efac;
+            font-size: 11px;
+            font-weight: 600;
+        }
+
+        .tb-right { display: flex; gap: 8px; align-items: center; }
+        .btn-tb {
+            padding: 6px 12px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: 800;
+            cursor: pointer;
+            border: 1px solid transparent;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+            transition: all 0.18s ease;
+        }
+        .btn-tb-copy {
+            background: rgba(2, 12, 6, 0.6);
+            border: 1.5px solid var(--border-glass);
+            color: #86efac;
+        }
+        .btn-tb-copy:hover {
+            border-color: #00ff66;
+            color: #00ff66;
+            box-shadow: 0 0 14px rgba(0, 255, 102, 0.5);
+            transform: translateY(-1px);
+        }
+
+        /* District Harvest Button */
+        .btn-tb-harvest {
+            background: rgba(0, 255, 102, 0.1);
+            border: 1.5px solid #00ff66;
+            color: #00ff66;
+            text-shadow: 0 0 6px rgba(0, 255, 102, 0.7);
+            box-shadow: 0 0 10px rgba(0, 255, 102, 0.3), inset 0 0 6px rgba(0, 255, 102, 0.1);
+            animation: cyberPulseGlow 4s infinite ease-in-out;
+        }
+        .btn-tb-harvest:hover {
+            background: #00ff66;
+            color: #010502;
+            text-shadow: none;
+            box-shadow: 0 0 22px rgba(0, 255, 102, 0.95);
+            transform: translateY(-1px);
+        }
+
+        /* CLI Filter Strip */
+        .filter-strip {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 8px;
+            align-items: center;
+        }
+        .cli-search-box {
+            display: flex;
+            align-items: center;
+            background: rgba(2, 12, 6, 0.65);
+            border: 1.5px solid var(--border-glass);
+            border-radius: 4px;
+            padding: 0 10px;
+            flex: 1;
+            transition: all 0.2s ease;
+        }
+        .cli-search-box:focus-within {
+            border-color: var(--hacker-green);
+            box-shadow: 0 0 14px rgba(0, 255, 102, 0.5), inset 0 0 6px rgba(0, 255, 102, 0.15);
+        }
+        .search-field {
+            background: transparent;
+            border: none;
+            color: #ffffff;
+            padding: 7px 4px;
+            font-size: 12px;
+            font-weight: 600;
+            width: 100%;
+            outline: none;
+            caret-color: var(--hacker-green);
+        }
+        .search-field::placeholder { color: #4ade80; opacity: 0.5; }
+        .search-field:focus {
+            color: #00ff66;
+            text-shadow: 0 0 4px rgba(0, 255, 102, 0.6);
+        }
+
+        .cat-select {
+            background: rgba(2, 12, 6, 0.8);
+            border: 1.5px solid var(--border-glass);
+            color: #f0fdf4;
+            padding: 7px 10px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: 700;
+            outline: none;
+            cursor: pointer;
+        }
+        .cat-select:focus { border-color: var(--hacker-green); }
+
+        .btn-submit-search {
+            background: rgba(0, 255, 102, 0.15);
+            border: 1.5px solid #00ff66;
+            color: #00ff66;
+            padding: 7px 14px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: 800;
+            cursor: pointer;
+            text-transform: uppercase;
+            transition: all 0.15s ease;
+        }
+        .btn-submit-search:hover {
+            background: #00ff66;
+            color: #010502;
+            box-shadow: 0 0 14px rgba(0, 255, 102, 0.8);
+        }
+        .btn-reset-search {
+            background: rgba(2, 12, 6, 0.6);
+            border: 1.5px solid var(--border-faint);
+            color: #86efac;
+            padding: 7px 10px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: 700;
+            text-decoration: none;
+            text-transform: uppercase;
+            transition: all 0.15s ease;
+        }
+        .btn-reset-search:hover { color: #ffffff; border-color: #00ff66; }
+
+        /* Table & Scroll Container */
+        .table-scroll {
+            flex: 1;
+            overflow-y: auto;
+            border: 1.5px solid var(--border-glass);
+            border-radius: 4px;
+            background: rgba(2, 10, 5, 0.6);
+            box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.5);
+            position: relative;
+        }
+        .table-scroll::-webkit-scrollbar { width: 5px; }
+        .table-scroll::-webkit-scrollbar-thumb { background: rgba(0, 255, 102, 0.4); border-radius: 2px; }
+
+        table { width: 100%; border-collapse: collapse; text-align: left; position: relative; z-index: 2; background: transparent; }
+        thead th {
+            position: sticky;
+            top: 0;
+            background: rgba(2, 10, 5, 0.95);
+            color: #86efac;
+            font-size: 10px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.6px;
+            padding: 9px 12px;
+            border-bottom: 1.5px solid var(--border-glass);
+            z-index: 6;
+        }
+        tbody td {
+            padding: 8px 12px;
+            border-bottom: 1px solid rgba(10, 45, 22, 0.4);
+            font-size: 11.5px;
+            vertical-align: middle;
+            color: #ffffff;
+            text-shadow: 0 0 3px rgba(0, 0, 0, 0.95);
+        }
+        tbody tr {
+            background: transparent;
+            transition: all 0.12s ease;
+            animation: terminalRowSlide 0.25s cubic-bezier(0.2, 0, 0.2, 1) forwards;
+        }
+        @keyframes terminalRowSlide {
+            0% { opacity: 0; transform: translateX(-6px); }
+            100% { opacity: 1; transform: translateX(0); }
+        }
+        tbody tr:hover {
+            background: rgba(0, 255, 102, 0.12);
+            box-shadow: inset 3px 0 0 #00ff66, 0 0 15px rgba(0, 255, 102, 0.2);
+        }
+
+        /* Hacker Badges */
+        .cat-badge {
+            display: inline-block;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-size: 10px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+        }
+        .cat-stamp {
+            background: rgba(2, 22, 10, 0.7);
+            color: #86efac;
+            border: 1px solid rgba(34, 197, 94, 0.8);
+            text-shadow: 0 0 4px rgba(134, 239, 172, 0.6);
+        }
+        .cat-csc {
+            background: rgba(2, 26, 12, 0.7);
+            color: #00ff66;
+            border: 1px solid rgba(0, 255, 102, 0.8);
+            text-shadow: 0 0 4px rgba(0, 255, 102, 0.6);
+        }
+        .cat-typist {
+            background: rgba(3, 20, 10, 0.7);
+            color: #4ade80;
+            border: 1px solid rgba(74, 222, 128, 0.8);
+            text-shadow: 0 0 4px rgba(74, 222, 128, 0.6);
+        }
+        .cat-advocate {
+            background: rgba(5, 18, 9, 0.7);
+            color: #a7f3d0;
+            border: 1px solid rgba(52, 211, 153, 0.8);
+        }
+        .cat-gmaps {
+            background: rgba(2, 18, 12, 0.7);
+            color: #38bdf8;
+            border: 1px solid rgba(56, 189, 248, 0.8);
+            text-shadow: 0 0 4px rgba(56, 189, 248, 0.6);
+        }
+        .cat-jd {
+            background: rgba(20, 15, 2, 0.7);
+            color: #fbbf24;
+            border: 1px solid rgba(251, 191, 36, 0.8);
+            text-shadow: 0 0 4px rgba(251, 191, 36, 0.6);
+        }
+        .cat-trade {
+            background: rgba(18, 5, 20, 0.7);
+            color: #c084fc;
+            border: 1px solid rgba(192, 132, 252, 0.8);
+            text-shadow: 0 0 4px rgba(192, 132, 252, 0.6);
+        }
+
+        .phone-text {
+            font-size: 11.5px;
+            font-weight: 800;
+            color: #00ff66;
+            text-shadow: 0 0 6px rgba(0, 255, 102, 0.6);
+            background: rgba(2, 12, 6, 0.8);
+            border: 1px solid rgba(0, 255, 102, 0.4);
+            padding: 2px 6px;
+            border-radius: 3px;
+            letter-spacing: 0.5px;
+        }
+        .btn-cp {
+            background: rgba(2, 12, 6, 0.7);
+            border: 1px solid var(--border-glass);
+            color: #86efac;
+            padding: 2px 5px;
+            border-radius: 3px;
+            cursor: pointer;
+            font-size: 10px;
+            font-weight: 800;
+            margin-left: 5px;
+            transition: all 0.12s;
+        }
+        .btn-cp:hover {
+            background: #00ff66;
+            color: #010502;
+            border-color: #00ff66;
+        }
+
+        /* WhatsApp Action (Terminal Phosphor Green Wireframe) */
+        .btn-wa-hacker {
+            background: rgba(1, 10, 5, 0.7);
+            border: 1px solid #00ff66;
+            color: #00ff66;
+            text-shadow: 0 0 6px rgba(0, 255, 102, 0.8);
+            box-shadow: 0 0 8px rgba(0, 255, 102, 0.3);
+            padding: 3px 8px;
+            border-radius: 3px;
+            font-size: 10.5px;
+            font-weight: 800;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            letter-spacing: 0.3px;
+            white-space: nowrap;
+            transition: all 0.15s ease;
+            animation: waPulse 2.8s infinite ease-in-out;
+        }
+        @keyframes waPulse {
+            0%, 100% {
+                box-shadow: 0 0 6px rgba(0, 255, 102, 0.25);
+                border-color: rgba(0, 255, 102, 0.7);
+            }
+            50% {
+                box-shadow: 0 0 14px rgba(0, 255, 102, 0.7);
+                border-color: #00ff66;
+            }
+        }
+        .btn-wa-hacker:hover {
+            background: #00ff66;
+            color: #010402;
+            text-shadow: none;
+            box-shadow: 0 0 18px rgba(0, 255, 102, 0.95);
+            transform: translateY(-1px);
+        }
+
+        /* Compact In-Scroll Pagination */
+        .scroll-pagination {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 12px;
+            padding: 10px;
+            background: rgba(2, 10, 5, 0.7);
+            border-top: 1px solid var(--border-glass);
+        }
+        .btn-mini-page {
+            background: rgba(2, 12, 6, 0.7);
+            border: 1px solid var(--border-glass);
+            color: #4ade80;
+            padding: 4px 10px;
+            border-radius: 3px;
+            font-size: 11px;
+            font-weight: 800;
+            text-decoration: none;
+            text-transform: uppercase;
+            transition: all 0.15s;
+        }
+        .btn-mini-page:hover:not(.disabled) {
+            background: #00ff66;
+            color: #010502;
+            box-shadow: 0 0 10px rgba(0, 255, 102, 0.7);
+        }
+        .btn-mini-page.disabled { opacity: 0.25; pointer-events: none; }
+        .page-indicator {
+            font-size: 10.5px;
+            color: #86efac;
+            font-weight: 700;
+            letter-spacing: 0.3px;
+        }
+    </style>
+</head>
+<body>
+    <div class="main-container">
+        <!-- LEFT PANEL: 333 Districts Recon -->
+        <div class="left-panel">
+            <!-- Terminal HUD Bar -->
+            <div class="terminal-hud">
+                <div class="hud-left">
+                    <span class="hud-pulse"></span>
+                    <span class="hud-title" onmouseenter="decryptText(this)">[SYS_OP: RECON_333]</span>
+                </div>
+                <div class="hud-right">
+                    <span class="hud-badge">10 STATES</span>
+                    <span class="hud-badge">ONLINE</span>
+                </div>
+            </div>
+
+            <!-- Master Auto-Harvest Button (Terminal Command Wireframe) -->
+            <button onclick="triggerAutoHarvestBatch()" class="btn-auto-harvest" title="Inspects completed places and automatically harvests all next pending districts with all tools & gov sources">
+                [ &gt;_ EXECUTE: AUTO_HARVEST_BATCH ]
+            </button>
+
+            <!-- Quick Utility Bar -->
+            <div class="left-utility-bar">
+                <a href="/download" class="btn-mini-util" title="Download Master Database (.xlsx)">[ EXCEL_DB ({{ total_master_leads }}) ]</a>
+                <a href="/?phones_only=1" class="btn-mini-util" id="btnMobileOnly" onclick="filterMobileOnly(event)" title="View all verified direct mobile leads">[ MOB.NO ({{ total_mobile_leads }}) ]</a>
+            </div>
+
+            <!-- CLI Search Districts Bar (Hacker Typing Experience) -->
+            <div class="cli-prompt-bar">
+                <span class="cli-prefix">root@recon:~$</span>
+                <input type="text" id="districtSearchInput" class="district-search" placeholder="filter --district (e.g. Haridwar)..." onkeyup="filterDistricts()" autocomplete="off" spellcheck="false">
+            </div>
+
+            <!-- Total Districts Summary Box (Non-Clickable, Distinct Styling) -->
+            <div class="total-districts-card">
+                <div class="td-left">
+                    <div class="td-title">[ ROOT_TARGETS // 333 DISTRICTS ]</div>
+                    <div class="td-sub">10 HINDI STATES // RECON MATRIX</div>
+                </div>
+                <div class="td-badge" id="totalLeadsBadge">{{ total_master_leads }} LEADS</div>
+            </div>
+
+            <!-- Scrollable States & Districts Drilldown List -->
+            <div id="statesList" class="districts-scroll">
+                {{ states_list_html }}
+            </div>
+        </div>
+
+        <!-- RIGHT PANEL: Outreach CRM & Terminal Grid -->
+        <div class="right-panel">
+            <!-- Terminal HUD Bar -->
+            <div class="terminal-hud">
+                <div class="hud-left">
+                    <span class="hud-pulse"></span>
+                    <span class="hud-title">[TARGET_SECTOR // <span id="hudDistrictName">{{ active_district }}</span>]</span>
+                </div>
+                <div class="hud-right">
+                    <span class="hud-telemetry">[ADDR: <span id="telemetryAddr">0x7F4A</span> // CLK: <span id="telemetryClock">--:--:--</span>]</span>
+                    <span class="hud-badge">ACQUIRED: {{ active_district_count }}</span>
+                </div>
+            </div>
+
+            <!-- Top District Banner -->
+            <div class="top-banner">
+                <div class="tb-left">
+                    <h2 id="activeBannerTitle">{{ active_district }}</h2>
+                    <span>[ {{ active_district_count }} TARGETS READY // STATE: {{ active_state }} ]</span>
+                </div>
+                <div class="tb-right">
+                    <button onclick="copyDistrictPhones()" class="btn-tb btn-tb-copy" title="Copy all numbers on this page to clipboard for AI WhatsApp bot">
+                        [ &gt;_ EXTRACT_KEYS ]
+                    </button>
+                    <button onclick="harvestCurrentDistrict()" class="btn-tb btn-tb-harvest" title="Run full multi-source harvest (Web + Gov + CSC) for {{ active_district }}">
+                        [ &gt;_ HARVEST // {{ active_district }} ]
+                    </button>
+                </div>
+            </div>
+
+            <!-- CLI Filter Strip -->
+            <form method="get" class="filter-strip">
+                <input type="hidden" name="district" value="{{ active_district }}">
+                <input type="hidden" name="state" value="{{ active_state }}">
+                <input type="hidden" name="phones_only" value="{{ phones_only }}">
+                
+                <div class="cli-search-box">
+                    <span class="cli-prefix">grep -i</span>
+                    <input type="text" name="search" class="search-field" placeholder="query --customer (name, mobile, court)..." value="{{ search }}" autocomplete="off" spellcheck="false">
+                </div>
+                
+                <select name="category" class="cat-select" onchange="this.form.submit()">
+                    <option value="">[ ALL CATEGORIES ]</option>
+                    {{ category_dropdown_options }}
+                </select>
+
+                <select name="source" class="cat-select" onchange="this.form.submit()">
+                    <option value="">[ ALL SOURCES ]</option>
+                    {{ source_dropdown_options }}
+                </select>
+
+                <button type="submit" class="btn-submit-search">[ EXEC_GREP ]</button>
+                <a href="/?district={{ active_district }}&state={{ active_state }}" class="btn-reset-search">[ RESET ]</a>
+            </form>
+
+            <!-- Customers Table (100% Transparent, No Radar Scanline) -->
+            <div class="table-scroll">
+                <table>
+                    <thead>
+                        <tr>
+                            <th style="width:45px;">#</th>
+                            <th style="width:145px;">[CLASS // SOURCE]</th>
+                            <th>[TARGET // ENTITY NAME]</th>
+                            <th style="width:180px;">[COMM_KEY // MOBILE]</th>
+                            <th>[COORDINATES // LOCATION]</th>
+                            <th style="width:115px; text-align:center;">[TRANSMIT]</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{ rows_html }}
+                    </tbody>
+                </table>
+
+                <!-- Compact In-Scroll Pagination -->
+                <div class="scroll-pagination">
+                    <a href="/?district={{ active_district }}&state={{ active_state }}&page={{ prev_page }}&search={{ search }}&category={{ category }}&source={{ source }}&phones_only={{ phones_only }}" class="btn-mini-page {{ prev_disabled }}">&larr; [ PREV ]</a>
+                    <span class="page-indicator">[ PAGE {{ page }} OF {{ total_pages }} // {{ filtered_count }} TARGETS ]</span>
+                    <a href="/?district={{ active_district }}&state={{ active_state }}&page={{ next_page }}&search={{ search }}&category={{ category }}&source={{ source }}&phones_only={{ phones_only }}" class="btn-mini-page {{ next_disabled }}">[ NEXT ] &rarr;</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 1. LIVE CYBER TEXT DECRYPT / SCRAMBLE ANIMATION
+        function decryptText(element, finalString, speed) {
+            if (!element) return;
+            var chars = "0123456789ABCDEF";
+            var iteration = 0;
+            var original = finalString || element.getAttribute("data-original") || element.innerText;
+            element.setAttribute("data-original", original);
+            clearInterval(element._decryptInterval);
+            
+            element._decryptInterval = setInterval(function() {
+                element.innerText = original.split("").map(function(char, index) {
+                    if (index < iteration) {
+                        return original[index];
+                    }
+                    if (char === " " || char === "\n") return char;
+                    return chars[Math.floor(Math.random() * chars.length)];
+                }).join("");
+                
+                if (iteration >= original.length) {
+                    clearInterval(element._decryptInterval);
+                }
+                iteration += 1 / (speed || 2);
+            }, 25);
+        }
+
+        // Run text scramble on load for banner and badge
+        window.addEventListener("DOMContentLoaded", function() {
+            var banner = document.getElementById("activeBannerTitle");
+            if (banner) decryptText(banner, null, 1.5);
+            var badge = document.getElementById("totalLeadsBadge");
+            if (badge) decryptText(badge, null, 2);
+        });
+
+        // 3. LIVE HUD CLOCK & TELEMETRY ADDRESS TICKER
+        (function initTelemetry() {
+            var clkEl = document.getElementById("telemetryClock");
+            var addrEl = document.getElementById("telemetryAddr");
+            var hexPool = ["0x7F4A", "0x3B8C", "0x9E01", "0x12FA", "0x6CD4", "0x44BE", "0x890F"];
+
+            function updateTime() {
+                var now = new Date();
+                var h = String(now.getHours()).padStart(2, '0');
+                var m = String(now.getMinutes()).padStart(2, '0');
+                var s = String(now.getSeconds()).padStart(2, '0');
+                if (clkEl) clkEl.innerText = h + ":" + m + ":" + s;
+            }
+            updateTime();
+            setInterval(updateTime, 1000);
+
+            setInterval(function() {
+                if (addrEl) {
+                    var r = hexPool[Math.floor(Math.random() * hexPool.length)];
+                    addrEl.innerText = r;
+                }
+            }, 3000);
+        })();
+
+        var stateOpenTimes = {};
+
+        // 4. SELECT STATE & LOAD STATE-WIDE LEADS VIA AJAX
+        function selectState(e, sname, slug, cardEl) {
+            var isChevron = e && e.target && e.target.classList && e.target.classList.contains("sc-chevron");
+            var list = document.getElementById("state-districts-" + slug);
+            var chevron = cardEl.querySelector(".sc-chevron");
+            var isOpen = list && list.classList.contains("open");
+
+            if (isChevron && isOpen) {
+                if (e.stopPropagation) e.stopPropagation();
+                list.classList.remove("open");
+                cardEl.classList.remove("expanded");
+                if (chevron) chevron.innerText = "▼";
+                return;
+            }
+
+            // Open accordion if closed
+            if (list && !isOpen) {
+                list.classList.add("open");
+                cardEl.classList.add("expanded");
+                if (chevron) chevron.innerText = "▲";
+                stateOpenTimes[slug] = Date.now();
+            }
+
+            // Active highlighting
+            document.querySelectorAll(".d-item").forEach(function(item) {
+                item.classList.remove("active");
+            });
+            document.querySelectorAll(".state-card").forEach(function(c) {
+                c.classList.remove("active-state");
+            });
+            cardEl.classList.add("active-state");
+
+            // Decrypt text
+            decryptText(cardEl.querySelector(".sc-name"), null, 1.5);
+
+            // Fetch state leads
+            var targetUrl = "/?state=" + encodeURIComponent(sname);
+            fetch(targetUrl)
+                .then(function(res) { return res.text(); })
+                .then(function(html) {
+                    var parser = new DOMParser();
+                    var doc = parser.parseFromString(html, "text/html");
+                    var newRight = doc.querySelector(".right-panel");
+                    if (newRight) {
+                        document.querySelector(".right-panel").innerHTML = newRight.innerHTML;
+                        var newTitle = document.getElementById("activeBannerTitle");
+                        if (newTitle) {
+                            decryptText(newTitle, sname.toUpperCase(), 1.5);
+                        }
+                    }
+                    window.history.pushState({}, "", targetUrl);
+                })
+                .catch(function() {
+                    window.location.href = targetUrl;
+                });
+        }
+
+        // DOUBLE-CLICK ACCORDION MINIMIZE / TOGGLE
+        function toggleStateAccordion(e, slug, cardEl) {
+            if (e) {
+                if (e.preventDefault) e.preventDefault();
+                if (e.stopPropagation) e.stopPropagation();
+            }
+            var list = document.getElementById("state-districts-" + slug);
+            var chevron = cardEl ? cardEl.querySelector(".sc-chevron") : null;
+            if (!list) return;
+
+            var lastOpened = stateOpenTimes[slug] || 0;
+            var justOpened = (Date.now() - lastOpened) < 450;
+
+            if (list.classList.contains("open")) {
+                if (!justOpened) {
+                    list.classList.remove("open");
+                    if (cardEl) cardEl.classList.remove("expanded");
+                    if (chevron) chevron.innerText = "▼";
+                }
+            } else {
+                list.classList.add("open");
+                if (cardEl) cardEl.classList.add("expanded");
+                if (chevron) chevron.innerText = "▲";
+                stateOpenTimes[slug] = Date.now();
+            }
+        }
+
+        // FILTER VERIFIED DIRECT MOBILES ONLY
+        function filterMobileOnly(e) {
+            if (e && e.preventDefault) e.preventDefault();
+            document.querySelectorAll(".state-card").forEach(function(c) {
+                c.classList.remove("active-state");
+            });
+            document.querySelectorAll(".d-item").forEach(function(item) {
+                item.classList.remove("active");
+            });
+
+            var targetUrl = "/?phones_only=1";
+            fetch(targetUrl)
+                .then(function(res) { return res.text(); })
+                .then(function(html) {
+                    var parser = new DOMParser();
+                    var doc = parser.parseFromString(html, "text/html");
+                    var newRight = doc.querySelector(".right-panel");
+                    if (newRight) {
+                        document.querySelector(".right-panel").innerHTML = newRight.innerHTML;
+                        var newTitle = document.getElementById("activeBannerTitle");
+                        if (newTitle) {
+                            decryptText(newTitle, "VERIFIED MOBILES", 1.5);
+                        }
+                    }
+                    window.history.pushState({}, "", targetUrl);
+                })
+                .catch(function() {
+                    window.location.href = targetUrl;
+                });
+        }
+
+        // 5. DISTRICT SELECTION VIA AJAX WITH TARGET DECRYPT ANIMATION
+        function selectDistrict(e, dname, dstate, el) {
+            e.preventDefault();
+            document.querySelectorAll(".state-card").forEach(function(c) {
+                c.classList.remove("active-state");
+            });
+            document.querySelectorAll(".d-item").forEach(function(item) {
+                item.classList.remove("active");
+            });
+            if (el) el.classList.add("active");
+
+            var targetUrl = "/?district=" + encodeURIComponent(dname) + "&state=" + encodeURIComponent(dstate);
+            fetch(targetUrl)
+                .then(function(res) { return res.text(); })
+                .then(function(html) {
+                    var parser = new DOMParser();
+                    var doc = parser.parseFromString(html, "text/html");
+                    var newRight = doc.querySelector(".right-panel");
+                    if (newRight) {
+                        document.querySelector(".right-panel").innerHTML = newRight.innerHTML;
+                        var newTitle = document.getElementById("activeBannerTitle");
+                        if (newTitle) {
+                            decryptText(newTitle, dname.toUpperCase(), 1.5);
+                        }
+                    }
+                    window.history.pushState({}, "", targetUrl);
+                })
+                .catch(function() {
+                    window.location.href = targetUrl;
+                });
+        }
+
+        // 6. SEARCH ACROSS STATES AND DISTRICTS
+        function filterDistricts() {
+            var q = document.getElementById("districtSearchInput").value.toLowerCase().trim();
+            var stateGroups = document.querySelectorAll(".state-group");
+            
+            stateGroups.forEach(function(group) {
+                var stateName = (group.getAttribute("data-state") || "").toLowerCase();
+                var districtItems = group.querySelectorAll(".d-item");
+                var hasMatch = false;
+                
+                districtItems.forEach(function(item) {
+                    var distName = (item.getAttribute("data-name") || "").toLowerCase();
+                    var matches = !q || distName.includes(q) || stateName.includes(q);
+                    if (matches) {
+                        item.style.display = "flex";
+                        hasMatch = true;
+                    } else {
+                        item.style.display = "none";
+                    }
+                });
+                
+                var list = group.querySelector(".state-districts-list");
+                var card = group.querySelector(".state-card");
+                var chevron = card ? card.querySelector(".sc-chevron") : null;
+                
+                if (q) {
+                    if (hasMatch) {
+                        group.style.display = "flex";
+                        if (list) list.classList.add("open");
+                        if (card) card.classList.add("expanded");
+                        if (chevron) chevron.innerText = "▲";
+                    } else {
+                        group.style.display = "none";
+                    }
+                } else {
+                    group.style.display = "flex";
+                    var hasActive = group.querySelector(".d-item.active");
+                    if (hasActive) {
+                        if (list) list.classList.add("open");
+                        if (card) card.classList.add("expanded");
+                        if (chevron) chevron.innerText = "▲";
+                    } else {
+                        if (list) list.classList.remove("open");
+                        if (card) card.classList.remove("expanded");
+                        if (chevron) chevron.innerText = "▼";
+                    }
+                }
+            });
+        }
+
+        // 7. COPY MOBILE NUMBERS
+        function copyDistrictPhones() {
+            var phones = [];
+            document.querySelectorAll(".phone-display, .phone-text").forEach(function(el) {
+                var p = el.innerText.trim();
+                if (p && p !== "—") {
+                    phones.push(p);
+                }
+            });
+            if (phones.length === 0) {
+                alert("[RECON_WARN] No phone numbers found on this page.");
+                return;
+            }
+            var text = phones.join("\n");
+            navigator.clipboard.writeText(text).then(function() {
+                alert("[COMM_KEYS EXTRACTED] Copied " + phones.length + " verified mobile numbers to clipboard!");
+            });
+        }
+
+        // 8. AUTO HARVEST NEXT BATCH
+        function triggerAutoHarvestBatch() {
+            if (confirm("[RECON_INIT] Inspect completed places and execute automated harvesting on next pending districts?")) {
+                fetch("/api/auto-harvest-batch", { method: "POST" })
+                    .then(r => r.json())
+                    .then(data => {
+                        alert(data.message);
+                    });
+            }
+        }
+
+        // 9. HARVEST SINGLE DISTRICT
+        function harvestDistrict(distName, stateName) {
+            if (confirm("[TARGET_ACQUIRE] Execute multi-source scraping for " + distName + " (" + stateName + ")?")) {
+                fetch("/api/harvest-district?district=" + encodeURIComponent(distName) + "&state=" + encodeURIComponent(stateName), { method: "POST" })
+                    .then(r => r.json())
+                    .then(data => {
+                        alert(data.message);
+                        window.location.href = "/?district=" + encodeURIComponent(distName) + "&state=" + encodeURIComponent(stateName);
+                    });
+            }
+        }
+
+        function harvestCurrentDistrict() {
+            var bannerTitle = document.getElementById("activeBannerTitle");
+            var distName = bannerTitle ? bannerTitle.innerText.trim() : "{{ active_district }}";
+            harvestDistrict(distName, "{{ active_state }}");
+        }
+    </script>
+</body>
+</html>
