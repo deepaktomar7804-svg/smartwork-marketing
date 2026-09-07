@@ -1,0 +1,3655 @@
+{
+  "total_districts": 456,
+  "states_count": 19,
+  "districts": [
+    {
+      "id": 1,
+      "state": "Uttarakhand",
+      "district": "Dehradun",
+      "status": "COMPLETED",
+      "total_leads_found": 450,
+      "last_scraped_at": "2026-09-07T13:53:21.545065+00:00"
+    },
+    {
+      "id": 2,
+      "state": "Uttarakhand",
+      "district": "Haridwar",
+      "status": "COMPLETED",
+      "total_leads_found": 178,
+      "last_scraped_at": "2026-09-07T13:53:21.545079+00:00"
+    },
+    {
+      "id": 3,
+      "state": "Uttarakhand",
+      "district": "Nainital",
+      "status": "COMPLETED",
+      "total_leads_found": 145,
+      "last_scraped_at": "2026-09-07T13:53:21.545084+00:00"
+    },
+    {
+      "id": 4,
+      "state": "Uttarakhand",
+      "district": "Udham Singh Nagar",
+      "status": "COMPLETED",
+      "total_leads_found": 202,
+      "last_scraped_at": "2026-09-07T13:53:21.545087+00:00"
+    },
+    {
+      "id": 5,
+      "state": "Uttarakhand",
+      "district": "Pauri Garhwal",
+      "status": "COMPLETED",
+      "total_leads_found": 136,
+      "last_scraped_at": "2026-09-07T13:53:21.545090+00:00"
+    },
+    {
+      "id": 6,
+      "state": "Uttarakhand",
+      "district": "Tehri Garhwal",
+      "status": "COMPLETED",
+      "total_leads_found": 31,
+      "last_scraped_at": "2026-09-07T13:53:21.545092+00:00"
+    },
+    {
+      "id": 7,
+      "state": "Uttarakhand",
+      "district": "Almora",
+      "status": "COMPLETED",
+      "total_leads_found": 83,
+      "last_scraped_at": "2026-09-07T13:53:21.545095+00:00"
+    },
+    {
+      "id": 8,
+      "state": "Uttarakhand",
+      "district": "Pithoragarh",
+      "status": "COMPLETED",
+      "total_leads_found": 48,
+      "last_scraped_at": "2026-09-07T13:53:21.545097+00:00"
+    },
+    {
+      "id": 9,
+      "state": "Uttarakhand",
+      "district": "Chamoli",
+      "status": "COMPLETED",
+      "total_leads_found": 84,
+      "last_scraped_at": "2026-09-07T13:53:21.545100+00:00"
+    },
+    {
+      "id": 10,
+      "state": "Uttarakhand",
+      "district": "Uttarkashi",
+      "status": "COMPLETED",
+      "total_leads_found": 36,
+      "last_scraped_at": "2026-09-07T13:53:21.545102+00:00"
+    },
+    {
+      "id": 11,
+      "state": "Uttarakhand",
+      "district": "Rudraprayag",
+      "status": "COMPLETED",
+      "total_leads_found": 33,
+      "last_scraped_at": "2026-09-07T13:53:21.545104+00:00"
+    },
+    {
+      "id": 12,
+      "state": "Uttarakhand",
+      "district": "Bageshwar",
+      "status": "COMPLETED",
+      "total_leads_found": 46,
+      "last_scraped_at": "2026-09-07T13:53:21.545106+00:00"
+    },
+    {
+      "id": 13,
+      "state": "Uttarakhand",
+      "district": "Champawat",
+      "status": "COMPLETED",
+      "total_leads_found": 45,
+      "last_scraped_at": "2026-09-07T13:53:21.545108+00:00"
+    },
+    {
+      "id": 14,
+      "state": "Delhi NCR",
+      "district": "Central Delhi (Tis Hazari Court)",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545111+00:00"
+    },
+    {
+      "id": 15,
+      "state": "Delhi NCR",
+      "district": "New Delhi (Patiala House Court)",
+      "status": "COMPLETED",
+      "total_leads_found": 7,
+      "last_scraped_at": "2026-09-07T13:53:21.545113+00:00"
+    },
+    {
+      "id": 16,
+      "state": "Delhi NCR",
+      "district": "South Delhi (Saket Court)",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545115+00:00"
+    },
+    {
+      "id": 17,
+      "state": "Delhi NCR",
+      "district": "South East Delhi",
+      "status": "COMPLETED",
+      "total_leads_found": 6,
+      "last_scraped_at": "2026-09-07T13:53:21.545118+00:00"
+    },
+    {
+      "id": 18,
+      "state": "Delhi NCR",
+      "district": "South West Delhi (Dwarka Court)",
+      "status": "COMPLETED",
+      "total_leads_found": 3,
+      "last_scraped_at": "2026-09-07T13:53:21.545120+00:00"
+    },
+    {
+      "id": 19,
+      "state": "Delhi NCR",
+      "district": "West Delhi",
+      "status": "COMPLETED",
+      "total_leads_found": 12,
+      "last_scraped_at": "2026-09-07T13:53:21.545123+00:00"
+    },
+    {
+      "id": 20,
+      "state": "Delhi NCR",
+      "district": "North Delhi (Rohini Court)",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545126+00:00"
+    },
+    {
+      "id": 21,
+      "state": "Delhi NCR",
+      "district": "North West Delhi",
+      "status": "COMPLETED",
+      "total_leads_found": 6,
+      "last_scraped_at": "2026-09-07T13:53:21.545128+00:00"
+    },
+    {
+      "id": 22,
+      "state": "Delhi NCR",
+      "district": "North East Delhi",
+      "status": "COMPLETED",
+      "total_leads_found": 3,
+      "last_scraped_at": "2026-09-07T13:53:21.545130+00:00"
+    },
+    {
+      "id": 23,
+      "state": "Delhi NCR",
+      "district": "East Delhi (Karkardooma Court)",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545132+00:00"
+    },
+    {
+      "id": 24,
+      "state": "Delhi NCR",
+      "district": "Shahdara",
+      "status": "COMPLETED",
+      "total_leads_found": 5,
+      "last_scraped_at": "2026-09-07T13:53:21.545135+00:00"
+    },
+    {
+      "id": 25,
+      "state": "Uttar Pradesh",
+      "district": "Agra",
+      "status": "COMPLETED",
+      "total_leads_found": 18,
+      "last_scraped_at": "2026-09-07T13:53:21.545137+00:00"
+    },
+    {
+      "id": 26,
+      "state": "Uttar Pradesh",
+      "district": "Aligarh",
+      "status": "COMPLETED",
+      "total_leads_found": 20,
+      "last_scraped_at": "2026-09-07T13:53:21.545140+00:00"
+    },
+    {
+      "id": 27,
+      "state": "Uttar Pradesh",
+      "district": "Ambedkar Nagar",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545142+00:00"
+    },
+    {
+      "id": 28,
+      "state": "Uttar Pradesh",
+      "district": "Amethi",
+      "status": "COMPLETED",
+      "total_leads_found": 1,
+      "last_scraped_at": "2026-09-07T13:53:21.545144+00:00"
+    },
+    {
+      "id": 29,
+      "state": "Uttar Pradesh",
+      "district": "Amroha",
+      "status": "COMPLETED",
+      "total_leads_found": 5,
+      "last_scraped_at": "2026-09-07T13:53:21.545147+00:00"
+    },
+    {
+      "id": 30,
+      "state": "Uttar Pradesh",
+      "district": "Auraiya",
+      "status": "COMPLETED",
+      "total_leads_found": 3,
+      "last_scraped_at": "2026-09-07T13:53:21.545149+00:00"
+    },
+    {
+      "id": 31,
+      "state": "Uttar Pradesh",
+      "district": "Ayodhya",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545151+00:00"
+    },
+    {
+      "id": 32,
+      "state": "Uttar Pradesh",
+      "district": "Azamgarh",
+      "status": "COMPLETED",
+      "total_leads_found": 11,
+      "last_scraped_at": "2026-09-07T13:53:21.545153+00:00"
+    },
+    {
+      "id": 33,
+      "state": "Uttar Pradesh",
+      "district": "Baghpat",
+      "status": "COMPLETED",
+      "total_leads_found": 2,
+      "last_scraped_at": "2026-09-07T13:53:21.545155+00:00"
+    },
+    {
+      "id": 34,
+      "state": "Uttar Pradesh",
+      "district": "Bahraich",
+      "status": "COMPLETED",
+      "total_leads_found": 12,
+      "last_scraped_at": "2026-09-07T13:53:21.545157+00:00"
+    },
+    {
+      "id": 35,
+      "state": "Uttar Pradesh",
+      "district": "Ballia",
+      "status": "COMPLETED",
+      "total_leads_found": 4,
+      "last_scraped_at": "2026-09-07T13:53:21.545160+00:00"
+    },
+    {
+      "id": 36,
+      "state": "Uttar Pradesh",
+      "district": "Balrampur",
+      "status": "COMPLETED",
+      "total_leads_found": 3,
+      "last_scraped_at": "2026-09-07T13:53:21.545162+00:00"
+    },
+    {
+      "id": 37,
+      "state": "Uttar Pradesh",
+      "district": "Banda",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545164+00:00"
+    },
+    {
+      "id": 38,
+      "state": "Uttar Pradesh",
+      "district": "Barabanki",
+      "status": "COMPLETED",
+      "total_leads_found": 5,
+      "last_scraped_at": "2026-09-07T13:53:21.545166+00:00"
+    },
+    {
+      "id": 39,
+      "state": "Uttar Pradesh",
+      "district": "Bareilly",
+      "status": "COMPLETED",
+      "total_leads_found": 3,
+      "last_scraped_at": "2026-09-07T13:53:21.545168+00:00"
+    },
+    {
+      "id": 40,
+      "state": "Uttar Pradesh",
+      "district": "Basti",
+      "status": "COMPLETED",
+      "total_leads_found": 1,
+      "last_scraped_at": "2026-09-07T13:53:21.545171+00:00"
+    },
+    {
+      "id": 41,
+      "state": "Uttar Pradesh",
+      "district": "Bhadohi",
+      "status": "COMPLETED",
+      "total_leads_found": 3,
+      "last_scraped_at": "2026-09-07T13:53:21.545173+00:00"
+    },
+    {
+      "id": 42,
+      "state": "Uttar Pradesh",
+      "district": "Bijnor",
+      "status": "COMPLETED",
+      "total_leads_found": 4,
+      "last_scraped_at": "2026-09-07T13:53:21.545175+00:00"
+    },
+    {
+      "id": 43,
+      "state": "Uttar Pradesh",
+      "district": "Budaun",
+      "status": "COMPLETED",
+      "total_leads_found": 2,
+      "last_scraped_at": "2026-09-07T13:53:21.545177+00:00"
+    },
+    {
+      "id": 44,
+      "state": "Uttar Pradesh",
+      "district": "Bulandshahr",
+      "status": "COMPLETED",
+      "total_leads_found": 24,
+      "last_scraped_at": "2026-09-07T13:53:21.545180+00:00"
+    },
+    {
+      "id": 45,
+      "state": "Uttar Pradesh",
+      "district": "Chandauli",
+      "status": "COMPLETED",
+      "total_leads_found": 7,
+      "last_scraped_at": "2026-09-07T13:53:21.545182+00:00"
+    },
+    {
+      "id": 46,
+      "state": "Uttar Pradesh",
+      "district": "Chitrakoot",
+      "status": "COMPLETED",
+      "total_leads_found": 2,
+      "last_scraped_at": "2026-09-07T13:53:21.545184+00:00"
+    },
+    {
+      "id": 47,
+      "state": "Uttar Pradesh",
+      "district": "Deoria",
+      "status": "COMPLETED",
+      "total_leads_found": 8,
+      "last_scraped_at": "2026-09-07T13:53:21.545187+00:00"
+    },
+    {
+      "id": 48,
+      "state": "Uttar Pradesh",
+      "district": "Etah",
+      "status": "COMPLETED",
+      "total_leads_found": 1,
+      "last_scraped_at": "2026-09-07T13:53:21.545189+00:00"
+    },
+    {
+      "id": 49,
+      "state": "Uttar Pradesh",
+      "district": "Etawah",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545191+00:00"
+    },
+    {
+      "id": 50,
+      "state": "Uttar Pradesh",
+      "district": "Farrukhabad",
+      "status": "COMPLETED",
+      "total_leads_found": 15,
+      "last_scraped_at": "2026-09-07T13:53:21.545193+00:00"
+    },
+    {
+      "id": 51,
+      "state": "Uttar Pradesh",
+      "district": "Fatehpur",
+      "status": "COMPLETED",
+      "total_leads_found": 1,
+      "last_scraped_at": "2026-09-07T13:53:21.545196+00:00"
+    },
+    {
+      "id": 52,
+      "state": "Uttar Pradesh",
+      "district": "Firozabad",
+      "status": "COMPLETED",
+      "total_leads_found": 4,
+      "last_scraped_at": "2026-09-07T13:53:21.545198+00:00"
+    },
+    {
+      "id": 53,
+      "state": "Uttar Pradesh",
+      "district": "Gautam Buddha Nagar (Noida)",
+      "status": "COMPLETED",
+      "total_leads_found": 25,
+      "last_scraped_at": "2026-09-07T13:53:21.545200+00:00"
+    },
+    {
+      "id": 54,
+      "state": "Uttar Pradesh",
+      "district": "Ghaziabad",
+      "status": "COMPLETED",
+      "total_leads_found": 27,
+      "last_scraped_at": "2026-09-07T13:53:21.545202+00:00"
+    },
+    {
+      "id": 55,
+      "state": "Uttar Pradesh",
+      "district": "Ghazipur",
+      "status": "COMPLETED",
+      "total_leads_found": 3,
+      "last_scraped_at": "2026-09-07T13:53:21.545204+00:00"
+    },
+    {
+      "id": 56,
+      "state": "Uttar Pradesh",
+      "district": "Gonda",
+      "status": "COMPLETED",
+      "total_leads_found": 1,
+      "last_scraped_at": "2026-09-07T13:53:21.545206+00:00"
+    },
+    {
+      "id": 57,
+      "state": "Uttar Pradesh",
+      "district": "Gorakhpur",
+      "status": "COMPLETED",
+      "total_leads_found": 20,
+      "last_scraped_at": "2026-09-07T13:53:21.545208+00:00"
+    },
+    {
+      "id": 58,
+      "state": "Uttar Pradesh",
+      "district": "Hamirpur",
+      "status": "COMPLETED",
+      "total_leads_found": 11,
+      "last_scraped_at": "2026-09-07T13:53:21.545210+00:00"
+    },
+    {
+      "id": 59,
+      "state": "Uttar Pradesh",
+      "district": "Hapur",
+      "status": "COMPLETED",
+      "total_leads_found": 9,
+      "last_scraped_at": "2026-09-07T13:53:21.545213+00:00"
+    },
+    {
+      "id": 60,
+      "state": "Uttar Pradesh",
+      "district": "Hardoi",
+      "status": "COMPLETED",
+      "total_leads_found": 5,
+      "last_scraped_at": "2026-09-07T13:53:21.545215+00:00"
+    },
+    {
+      "id": 61,
+      "state": "Uttar Pradesh",
+      "district": "Hathras",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545217+00:00"
+    },
+    {
+      "id": 62,
+      "state": "Uttar Pradesh",
+      "district": "Jalaun",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545219+00:00"
+    },
+    {
+      "id": 63,
+      "state": "Uttar Pradesh",
+      "district": "Jaunpur",
+      "status": "COMPLETED",
+      "total_leads_found": 12,
+      "last_scraped_at": "2026-09-07T13:53:21.545221+00:00"
+    },
+    {
+      "id": 64,
+      "state": "Uttar Pradesh",
+      "district": "Jhansi",
+      "status": "COMPLETED",
+      "total_leads_found": 17,
+      "last_scraped_at": "2026-09-07T13:53:21.545223+00:00"
+    },
+    {
+      "id": 65,
+      "state": "Uttar Pradesh",
+      "district": "Kannauj",
+      "status": "COMPLETED",
+      "total_leads_found": 2,
+      "last_scraped_at": "2026-09-07T13:53:21.545225+00:00"
+    },
+    {
+      "id": 66,
+      "state": "Uttar Pradesh",
+      "district": "Kanpur Dehat",
+      "status": "COMPLETED",
+      "total_leads_found": 26,
+      "last_scraped_at": "2026-09-07T13:53:21.545228+00:00"
+    },
+    {
+      "id": 67,
+      "state": "Uttar Pradesh",
+      "district": "Kanpur Nagar",
+      "status": "COMPLETED",
+      "total_leads_found": 8,
+      "last_scraped_at": "2026-09-07T13:53:21.545230+00:00"
+    },
+    {
+      "id": 68,
+      "state": "Uttar Pradesh",
+      "district": "Kasganj",
+      "status": "COMPLETED",
+      "total_leads_found": 4,
+      "last_scraped_at": "2026-09-07T13:53:21.545232+00:00"
+    },
+    {
+      "id": 69,
+      "state": "Uttar Pradesh",
+      "district": "Kaushambi",
+      "status": "COMPLETED",
+      "total_leads_found": 1,
+      "last_scraped_at": "2026-09-07T13:53:21.545234+00:00"
+    },
+    {
+      "id": 70,
+      "state": "Uttar Pradesh",
+      "district": "Kheri",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545236+00:00"
+    },
+    {
+      "id": 71,
+      "state": "Uttar Pradesh",
+      "district": "Kushinagar",
+      "status": "COMPLETED",
+      "total_leads_found": 13,
+      "last_scraped_at": "2026-09-07T13:53:21.545238+00:00"
+    },
+    {
+      "id": 72,
+      "state": "Uttar Pradesh",
+      "district": "Lalitpur",
+      "status": "COMPLETED",
+      "total_leads_found": 1,
+      "last_scraped_at": "2026-09-07T13:53:21.545240+00:00"
+    },
+    {
+      "id": 73,
+      "state": "Uttar Pradesh",
+      "district": "Lucknow",
+      "status": "COMPLETED",
+      "total_leads_found": 25,
+      "last_scraped_at": "2026-09-07T13:53:21.545242+00:00"
+    },
+    {
+      "id": 74,
+      "state": "Uttar Pradesh",
+      "district": "Maharajganj",
+      "status": "COMPLETED",
+      "total_leads_found": 5,
+      "last_scraped_at": "2026-09-07T13:53:21.545244+00:00"
+    },
+    {
+      "id": 75,
+      "state": "Uttar Pradesh",
+      "district": "Mahoba",
+      "status": "COMPLETED",
+      "total_leads_found": 2,
+      "last_scraped_at": "2026-09-07T13:53:21.545246+00:00"
+    },
+    {
+      "id": 76,
+      "state": "Uttar Pradesh",
+      "district": "Mainpuri",
+      "status": "COMPLETED",
+      "total_leads_found": 1,
+      "last_scraped_at": "2026-09-07T13:53:21.545248+00:00"
+    },
+    {
+      "id": 77,
+      "state": "Uttar Pradesh",
+      "district": "Mathura",
+      "status": "COMPLETED",
+      "total_leads_found": 7,
+      "last_scraped_at": "2026-09-07T13:53:21.545250+00:00"
+    },
+    {
+      "id": 78,
+      "state": "Uttar Pradesh",
+      "district": "Mau",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545252+00:00"
+    },
+    {
+      "id": 79,
+      "state": "Uttar Pradesh",
+      "district": "Meerut",
+      "status": "COMPLETED",
+      "total_leads_found": 15,
+      "last_scraped_at": "2026-09-07T13:53:21.545254+00:00"
+    },
+    {
+      "id": 80,
+      "state": "Uttar Pradesh",
+      "district": "Mirzapur",
+      "status": "COMPLETED",
+      "total_leads_found": 9,
+      "last_scraped_at": "2026-09-07T13:53:21.545256+00:00"
+    },
+    {
+      "id": 81,
+      "state": "Uttar Pradesh",
+      "district": "Moradabad",
+      "status": "COMPLETED",
+      "total_leads_found": 19,
+      "last_scraped_at": "2026-09-07T13:53:21.545258+00:00"
+    },
+    {
+      "id": 82,
+      "state": "Uttar Pradesh",
+      "district": "Muzaffarnagar",
+      "status": "COMPLETED",
+      "total_leads_found": 3,
+      "last_scraped_at": "2026-09-07T13:53:21.545260+00:00"
+    },
+    {
+      "id": 83,
+      "state": "Uttar Pradesh",
+      "district": "Pilibhit",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545262+00:00"
+    },
+    {
+      "id": 84,
+      "state": "Uttar Pradesh",
+      "district": "Pratapgarh",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545264+00:00"
+    },
+    {
+      "id": 85,
+      "state": "Uttar Pradesh",
+      "district": "Prayagraj",
+      "status": "COMPLETED",
+      "total_leads_found": 13,
+      "last_scraped_at": "2026-09-07T13:53:21.545266+00:00"
+    },
+    {
+      "id": 86,
+      "state": "Uttar Pradesh",
+      "district": "Raebareli",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545268+00:00"
+    },
+    {
+      "id": 87,
+      "state": "Uttar Pradesh",
+      "district": "Rampur",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545270+00:00"
+    },
+    {
+      "id": 88,
+      "state": "Uttar Pradesh",
+      "district": "Saharanpur",
+      "status": "COMPLETED",
+      "total_leads_found": 15,
+      "last_scraped_at": "2026-09-07T13:53:21.545272+00:00"
+    },
+    {
+      "id": 89,
+      "state": "Uttar Pradesh",
+      "district": "Sambhal",
+      "status": "COMPLETED",
+      "total_leads_found": 2,
+      "last_scraped_at": "2026-09-07T13:53:21.545274+00:00"
+    },
+    {
+      "id": 90,
+      "state": "Uttar Pradesh",
+      "district": "Sant Kabir Nagar",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545276+00:00"
+    },
+    {
+      "id": 91,
+      "state": "Uttar Pradesh",
+      "district": "Shahjahanpur",
+      "status": "COMPLETED",
+      "total_leads_found": 3,
+      "last_scraped_at": "2026-09-07T13:53:21.545278+00:00"
+    },
+    {
+      "id": 92,
+      "state": "Uttar Pradesh",
+      "district": "Shamli",
+      "status": "COMPLETED",
+      "total_leads_found": 8,
+      "last_scraped_at": "2026-09-07T13:53:21.545280+00:00"
+    },
+    {
+      "id": 93,
+      "state": "Uttar Pradesh",
+      "district": "Shravasti",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545282+00:00"
+    },
+    {
+      "id": 94,
+      "state": "Uttar Pradesh",
+      "district": "Siddharthnagar",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545284+00:00"
+    },
+    {
+      "id": 95,
+      "state": "Uttar Pradesh",
+      "district": "Sitapur",
+      "status": "COMPLETED",
+      "total_leads_found": 11,
+      "last_scraped_at": "2026-09-07T13:53:21.545286+00:00"
+    },
+    {
+      "id": 96,
+      "state": "Uttar Pradesh",
+      "district": "Sonbhadra",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545288+00:00"
+    },
+    {
+      "id": 97,
+      "state": "Uttar Pradesh",
+      "district": "Sultanpur",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545290+00:00"
+    },
+    {
+      "id": 98,
+      "state": "Uttar Pradesh",
+      "district": "Unnao",
+      "status": "COMPLETED",
+      "total_leads_found": 6,
+      "last_scraped_at": "2026-09-07T13:53:21.545292+00:00"
+    },
+    {
+      "id": 99,
+      "state": "Uttar Pradesh",
+      "district": "Varanasi",
+      "status": "COMPLETED",
+      "total_leads_found": 30,
+      "last_scraped_at": "2026-09-07T13:53:21.545294+00:00"
+    },
+    {
+      "id": 100,
+      "state": "Bihar",
+      "district": "Araria",
+      "status": "COMPLETED",
+      "total_leads_found": 3,
+      "last_scraped_at": "2026-09-07T13:53:21.545296+00:00"
+    },
+    {
+      "id": 101,
+      "state": "Bihar",
+      "district": "Arwal",
+      "status": "COMPLETED",
+      "total_leads_found": 2,
+      "last_scraped_at": "2026-09-07T13:53:21.545298+00:00"
+    },
+    {
+      "id": 102,
+      "state": "Bihar",
+      "district": "Aurangabad",
+      "status": "COMPLETED",
+      "total_leads_found": 21,
+      "last_scraped_at": "2026-09-07T13:53:21.545300+00:00"
+    },
+    {
+      "id": 103,
+      "state": "Bihar",
+      "district": "Banka",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545303+00:00"
+    },
+    {
+      "id": 104,
+      "state": "Bihar",
+      "district": "Begusarai",
+      "status": "COMPLETED",
+      "total_leads_found": 12,
+      "last_scraped_at": "2026-09-07T13:53:21.545305+00:00"
+    },
+    {
+      "id": 105,
+      "state": "Bihar",
+      "district": "Bhagalpur",
+      "status": "COMPLETED",
+      "total_leads_found": 14,
+      "last_scraped_at": "2026-09-07T13:53:21.545307+00:00"
+    },
+    {
+      "id": 106,
+      "state": "Bihar",
+      "district": "Bhojpur (Arrah)",
+      "status": "COMPLETED",
+      "total_leads_found": 12,
+      "last_scraped_at": "2026-09-07T13:53:21.545309+00:00"
+    },
+    {
+      "id": 107,
+      "state": "Bihar",
+      "district": "Buxar",
+      "status": "COMPLETED",
+      "total_leads_found": 14,
+      "last_scraped_at": "2026-09-07T13:53:21.545311+00:00"
+    },
+    {
+      "id": 108,
+      "state": "Bihar",
+      "district": "Darbhanga",
+      "status": "COMPLETED",
+      "total_leads_found": 10,
+      "last_scraped_at": "2026-09-07T13:53:21.545313+00:00"
+    },
+    {
+      "id": 109,
+      "state": "Bihar",
+      "district": "East Champaran (Motihari)",
+      "status": "COMPLETED",
+      "total_leads_found": 9,
+      "last_scraped_at": "2026-09-07T13:53:21.545316+00:00"
+    },
+    {
+      "id": 110,
+      "state": "Bihar",
+      "district": "Gaya",
+      "status": "COMPLETED",
+      "total_leads_found": 2,
+      "last_scraped_at": "2026-09-07T13:53:21.545318+00:00"
+    },
+    {
+      "id": 111,
+      "state": "Bihar",
+      "district": "Gopalganj",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545320+00:00"
+    },
+    {
+      "id": 112,
+      "state": "Bihar",
+      "district": "Jamui",
+      "status": "COMPLETED",
+      "total_leads_found": 1,
+      "last_scraped_at": "2026-09-07T13:53:21.545322+00:00"
+    },
+    {
+      "id": 113,
+      "state": "Bihar",
+      "district": "Jehanabad",
+      "status": "COMPLETED",
+      "total_leads_found": 6,
+      "last_scraped_at": "2026-09-07T13:53:21.545324+00:00"
+    },
+    {
+      "id": 114,
+      "state": "Bihar",
+      "district": "Kaimur (Bhabua)",
+      "status": "COMPLETED",
+      "total_leads_found": 9,
+      "last_scraped_at": "2026-09-07T13:53:21.545327+00:00"
+    },
+    {
+      "id": 115,
+      "state": "Bihar",
+      "district": "Katihar",
+      "status": "COMPLETED",
+      "total_leads_found": 13,
+      "last_scraped_at": "2026-09-07T13:53:21.545329+00:00"
+    },
+    {
+      "id": 116,
+      "state": "Bihar",
+      "district": "Khagaria",
+      "status": "COMPLETED",
+      "total_leads_found": 4,
+      "last_scraped_at": "2026-09-07T13:53:21.545331+00:00"
+    },
+    {
+      "id": 117,
+      "state": "Bihar",
+      "district": "Kishanganj",
+      "status": "COMPLETED",
+      "total_leads_found": 2,
+      "last_scraped_at": "2026-09-07T13:53:21.545333+00:00"
+    },
+    {
+      "id": 118,
+      "state": "Bihar",
+      "district": "Lakhisarai",
+      "status": "COMPLETED",
+      "total_leads_found": 2,
+      "last_scraped_at": "2026-09-07T13:53:21.545334+00:00"
+    },
+    {
+      "id": 119,
+      "state": "Bihar",
+      "district": "Madhepura",
+      "status": "COMPLETED",
+      "total_leads_found": 4,
+      "last_scraped_at": "2026-09-07T13:53:21.545337+00:00"
+    },
+    {
+      "id": 120,
+      "state": "Bihar",
+      "district": "Madhubani",
+      "status": "COMPLETED",
+      "total_leads_found": 3,
+      "last_scraped_at": "2026-09-07T13:53:21.545339+00:00"
+    },
+    {
+      "id": 121,
+      "state": "Bihar",
+      "district": "Munger",
+      "status": "COMPLETED",
+      "total_leads_found": 3,
+      "last_scraped_at": "2026-09-07T13:53:21.545341+00:00"
+    },
+    {
+      "id": 122,
+      "state": "Bihar",
+      "district": "Muzaffarpur",
+      "status": "COMPLETED",
+      "total_leads_found": 12,
+      "last_scraped_at": "2026-09-07T13:53:21.545343+00:00"
+    },
+    {
+      "id": 123,
+      "state": "Bihar",
+      "district": "Nalanda (Bihar Sharif)",
+      "status": "COMPLETED",
+      "total_leads_found": 19,
+      "last_scraped_at": "2026-09-07T13:53:21.545345+00:00"
+    },
+    {
+      "id": 124,
+      "state": "Bihar",
+      "district": "Nawada",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545347+00:00"
+    },
+    {
+      "id": 125,
+      "state": "Bihar",
+      "district": "Patna",
+      "status": "COMPLETED",
+      "total_leads_found": 14,
+      "last_scraped_at": "2026-09-07T13:53:21.545349+00:00"
+    },
+    {
+      "id": 126,
+      "state": "Bihar",
+      "district": "Purnia",
+      "status": "COMPLETED",
+      "total_leads_found": 17,
+      "last_scraped_at": "2026-09-07T13:53:21.545351+00:00"
+    },
+    {
+      "id": 127,
+      "state": "Bihar",
+      "district": "Rohtas (Sasaram)",
+      "status": "COMPLETED",
+      "total_leads_found": 9,
+      "last_scraped_at": "2026-09-07T13:53:21.545353+00:00"
+    },
+    {
+      "id": 128,
+      "state": "Bihar",
+      "district": "Saharsa",
+      "status": "COMPLETED",
+      "total_leads_found": 3,
+      "last_scraped_at": "2026-09-07T13:53:21.545354+00:00"
+    },
+    {
+      "id": 129,
+      "state": "Bihar",
+      "district": "Samastipur",
+      "status": "COMPLETED",
+      "total_leads_found": 7,
+      "last_scraped_at": "2026-09-07T13:53:21.545356+00:00"
+    },
+    {
+      "id": 130,
+      "state": "Bihar",
+      "district": "Saran (Chapra)",
+      "status": "COMPLETED",
+      "total_leads_found": 5,
+      "last_scraped_at": "2026-09-07T13:53:21.545358+00:00"
+    },
+    {
+      "id": 131,
+      "state": "Bihar",
+      "district": "Sheikhpura",
+      "status": "COMPLETED",
+      "total_leads_found": 1,
+      "last_scraped_at": "2026-09-07T13:53:21.545360+00:00"
+    },
+    {
+      "id": 132,
+      "state": "Bihar",
+      "district": "Sheohar",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545362+00:00"
+    },
+    {
+      "id": 133,
+      "state": "Bihar",
+      "district": "Sitamarhi",
+      "status": "COMPLETED",
+      "total_leads_found": 4,
+      "last_scraped_at": "2026-09-07T13:53:21.545364+00:00"
+    },
+    {
+      "id": 134,
+      "state": "Bihar",
+      "district": "Siwan",
+      "status": "COMPLETED",
+      "total_leads_found": 12,
+      "last_scraped_at": "2026-09-07T13:53:21.545366+00:00"
+    },
+    {
+      "id": 135,
+      "state": "Bihar",
+      "district": "Supaul",
+      "status": "COMPLETED",
+      "total_leads_found": 5,
+      "last_scraped_at": "2026-09-07T13:53:21.545368+00:00"
+    },
+    {
+      "id": 136,
+      "state": "Bihar",
+      "district": "Vaishali (Hajipur)",
+      "status": "COMPLETED",
+      "total_leads_found": 6,
+      "last_scraped_at": "2026-09-07T13:53:21.545370+00:00"
+    },
+    {
+      "id": 137,
+      "state": "Bihar",
+      "district": "West Champaran (Bettiah)",
+      "status": "COMPLETED",
+      "total_leads_found": 15,
+      "last_scraped_at": "2026-09-07T13:53:21.545373+00:00"
+    },
+    {
+      "id": 138,
+      "state": "Madhya Pradesh",
+      "district": "Agar Malwa",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545375+00:00"
+    },
+    {
+      "id": 139,
+      "state": "Madhya Pradesh",
+      "district": "Alirajpur",
+      "status": "COMPLETED",
+      "total_leads_found": 4,
+      "last_scraped_at": "2026-09-07T13:53:21.545377+00:00"
+    },
+    {
+      "id": 140,
+      "state": "Madhya Pradesh",
+      "district": "Anuppur",
+      "status": "COMPLETED",
+      "total_leads_found": 5,
+      "last_scraped_at": "2026-09-07T13:53:21.545379+00:00"
+    },
+    {
+      "id": 141,
+      "state": "Madhya Pradesh",
+      "district": "Ashoknagar",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545381+00:00"
+    },
+    {
+      "id": 142,
+      "state": "Madhya Pradesh",
+      "district": "Balaghat",
+      "status": "COMPLETED",
+      "total_leads_found": 4,
+      "last_scraped_at": "2026-09-07T13:53:21.545383+00:00"
+    },
+    {
+      "id": 143,
+      "state": "Madhya Pradesh",
+      "district": "Barwani",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545385+00:00"
+    },
+    {
+      "id": 144,
+      "state": "Madhya Pradesh",
+      "district": "Betul",
+      "status": "COMPLETED",
+      "total_leads_found": 2,
+      "last_scraped_at": "2026-09-07T13:53:21.545387+00:00"
+    },
+    {
+      "id": 145,
+      "state": "Madhya Pradesh",
+      "district": "Bhind",
+      "status": "COMPLETED",
+      "total_leads_found": 8,
+      "last_scraped_at": "2026-09-07T13:53:21.545389+00:00"
+    },
+    {
+      "id": 146,
+      "state": "Madhya Pradesh",
+      "district": "Bhopal",
+      "status": "COMPLETED",
+      "total_leads_found": 4,
+      "last_scraped_at": "2026-09-07T13:53:21.545392+00:00"
+    },
+    {
+      "id": 147,
+      "state": "Madhya Pradesh",
+      "district": "Burhanpur",
+      "status": "COMPLETED",
+      "total_leads_found": 3,
+      "last_scraped_at": "2026-09-07T13:53:21.545394+00:00"
+    },
+    {
+      "id": 148,
+      "state": "Madhya Pradesh",
+      "district": "Chhatarpur",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545395+00:00"
+    },
+    {
+      "id": 149,
+      "state": "Madhya Pradesh",
+      "district": "Chhindwara",
+      "status": "COMPLETED",
+      "total_leads_found": 9,
+      "last_scraped_at": "2026-09-07T13:53:21.545397+00:00"
+    },
+    {
+      "id": 150,
+      "state": "Madhya Pradesh",
+      "district": "Damoh",
+      "status": "COMPLETED",
+      "total_leads_found": 5,
+      "last_scraped_at": "2026-09-07T13:53:21.545399+00:00"
+    },
+    {
+      "id": 151,
+      "state": "Madhya Pradesh",
+      "district": "Datia",
+      "status": "COMPLETED",
+      "total_leads_found": 1,
+      "last_scraped_at": "2026-09-07T13:53:21.545401+00:00"
+    },
+    {
+      "id": 152,
+      "state": "Madhya Pradesh",
+      "district": "Dewas",
+      "status": "COMPLETED",
+      "total_leads_found": 3,
+      "last_scraped_at": "2026-09-07T13:53:21.545403+00:00"
+    },
+    {
+      "id": 153,
+      "state": "Madhya Pradesh",
+      "district": "Dhar",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545405+00:00"
+    },
+    {
+      "id": 154,
+      "state": "Madhya Pradesh",
+      "district": "Dindori",
+      "status": "COMPLETED",
+      "total_leads_found": 10,
+      "last_scraped_at": "2026-09-07T13:53:21.545407+00:00"
+    },
+    {
+      "id": 155,
+      "state": "Madhya Pradesh",
+      "district": "Guna",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545410+00:00"
+    },
+    {
+      "id": 156,
+      "state": "Madhya Pradesh",
+      "district": "Gwalior",
+      "status": "COMPLETED",
+      "total_leads_found": 19,
+      "last_scraped_at": "2026-09-07T13:53:21.545412+00:00"
+    },
+    {
+      "id": 157,
+      "state": "Madhya Pradesh",
+      "district": "Harda",
+      "status": "COMPLETED",
+      "total_leads_found": 2,
+      "last_scraped_at": "2026-09-07T13:53:21.545414+00:00"
+    },
+    {
+      "id": 158,
+      "state": "Madhya Pradesh",
+      "district": "Hoshangabad (Narmadapuram)",
+      "status": "COMPLETED",
+      "total_leads_found": 11,
+      "last_scraped_at": "2026-09-07T13:53:21.545416+00:00"
+    },
+    {
+      "id": 159,
+      "state": "Madhya Pradesh",
+      "district": "Indore",
+      "status": "COMPLETED",
+      "total_leads_found": 21,
+      "last_scraped_at": "2026-09-07T13:53:21.545418+00:00"
+    },
+    {
+      "id": 160,
+      "state": "Madhya Pradesh",
+      "district": "Jabalpur",
+      "status": "COMPLETED",
+      "total_leads_found": 18,
+      "last_scraped_at": "2026-09-07T13:53:21.545420+00:00"
+    },
+    {
+      "id": 161,
+      "state": "Madhya Pradesh",
+      "district": "Jhabua",
+      "status": "COMPLETED",
+      "total_leads_found": 1,
+      "last_scraped_at": "2026-09-07T13:53:21.545422+00:00"
+    },
+    {
+      "id": 162,
+      "state": "Madhya Pradesh",
+      "district": "Katni",
+      "status": "COMPLETED",
+      "total_leads_found": 14,
+      "last_scraped_at": "2026-09-07T13:53:21.545424+00:00"
+    },
+    {
+      "id": 163,
+      "state": "Madhya Pradesh",
+      "district": "Khandwa",
+      "status": "COMPLETED",
+      "total_leads_found": 7,
+      "last_scraped_at": "2026-09-07T13:53:21.545426+00:00"
+    },
+    {
+      "id": 164,
+      "state": "Madhya Pradesh",
+      "district": "Khargone",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545428+00:00"
+    },
+    {
+      "id": 165,
+      "state": "Madhya Pradesh",
+      "district": "Maihar",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545430+00:00"
+    },
+    {
+      "id": 166,
+      "state": "Madhya Pradesh",
+      "district": "Mandla",
+      "status": "COMPLETED",
+      "total_leads_found": 1,
+      "last_scraped_at": "2026-09-07T13:53:21.545432+00:00"
+    },
+    {
+      "id": 167,
+      "state": "Madhya Pradesh",
+      "district": "Mandsaur",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545434+00:00"
+    },
+    {
+      "id": 168,
+      "state": "Madhya Pradesh",
+      "district": "Mauganj",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545436+00:00"
+    },
+    {
+      "id": 169,
+      "state": "Madhya Pradesh",
+      "district": "Morena",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545438+00:00"
+    },
+    {
+      "id": 170,
+      "state": "Madhya Pradesh",
+      "district": "Narsinghpur",
+      "status": "COMPLETED",
+      "total_leads_found": 5,
+      "last_scraped_at": "2026-09-07T13:53:21.545440+00:00"
+    },
+    {
+      "id": 171,
+      "state": "Madhya Pradesh",
+      "district": "Neemuch",
+      "status": "COMPLETED",
+      "total_leads_found": 16,
+      "last_scraped_at": "2026-09-07T13:53:21.545442+00:00"
+    },
+    {
+      "id": 172,
+      "state": "Madhya Pradesh",
+      "district": "Niwari",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545444+00:00"
+    },
+    {
+      "id": 173,
+      "state": "Madhya Pradesh",
+      "district": "Pandhurna",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545446+00:00"
+    },
+    {
+      "id": 174,
+      "state": "Madhya Pradesh",
+      "district": "Panna",
+      "status": "COMPLETED",
+      "total_leads_found": 1,
+      "last_scraped_at": "2026-09-07T13:53:21.545448+00:00"
+    },
+    {
+      "id": 175,
+      "state": "Madhya Pradesh",
+      "district": "Raisen",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545450+00:00"
+    },
+    {
+      "id": 176,
+      "state": "Madhya Pradesh",
+      "district": "Rajgarh",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545452+00:00"
+    },
+    {
+      "id": 177,
+      "state": "Madhya Pradesh",
+      "district": "Ratlam",
+      "status": "COMPLETED",
+      "total_leads_found": 11,
+      "last_scraped_at": "2026-09-07T13:53:21.545454+00:00"
+    },
+    {
+      "id": 178,
+      "state": "Madhya Pradesh",
+      "district": "Rewa",
+      "status": "COMPLETED",
+      "total_leads_found": 1,
+      "last_scraped_at": "2026-09-07T13:53:21.545456+00:00"
+    },
+    {
+      "id": 179,
+      "state": "Madhya Pradesh",
+      "district": "Sagar",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545458+00:00"
+    },
+    {
+      "id": 180,
+      "state": "Madhya Pradesh",
+      "district": "Satna",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545460+00:00"
+    },
+    {
+      "id": 181,
+      "state": "Madhya Pradesh",
+      "district": "Sehore",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545462+00:00"
+    },
+    {
+      "id": 182,
+      "state": "Madhya Pradesh",
+      "district": "Seoni",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545464+00:00"
+    },
+    {
+      "id": 183,
+      "state": "Madhya Pradesh",
+      "district": "Shahdol",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545466+00:00"
+    },
+    {
+      "id": 184,
+      "state": "Madhya Pradesh",
+      "district": "Shajapur",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545468+00:00"
+    },
+    {
+      "id": 185,
+      "state": "Madhya Pradesh",
+      "district": "Sheopur",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545470+00:00"
+    },
+    {
+      "id": 186,
+      "state": "Madhya Pradesh",
+      "district": "Shivpuri",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545472+00:00"
+    },
+    {
+      "id": 187,
+      "state": "Madhya Pradesh",
+      "district": "Sidhi",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545473+00:00"
+    },
+    {
+      "id": 188,
+      "state": "Madhya Pradesh",
+      "district": "Singrauli",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545476+00:00"
+    },
+    {
+      "id": 189,
+      "state": "Madhya Pradesh",
+      "district": "Tikamgarh",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545478+00:00"
+    },
+    {
+      "id": 190,
+      "state": "Madhya Pradesh",
+      "district": "Ujjain",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545480+00:00"
+    },
+    {
+      "id": 191,
+      "state": "Madhya Pradesh",
+      "district": "Umaria",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545482+00:00"
+    },
+    {
+      "id": 192,
+      "state": "Madhya Pradesh",
+      "district": "Vidisha",
+      "status": "COMPLETED",
+      "total_leads_found": 1,
+      "last_scraped_at": "2026-09-07T13:53:21.545484+00:00"
+    },
+    {
+      "id": 193,
+      "state": "Rajasthan",
+      "district": "Ajmer",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545486+00:00"
+    },
+    {
+      "id": 194,
+      "state": "Rajasthan",
+      "district": "Alwar",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545488+00:00"
+    },
+    {
+      "id": 195,
+      "state": "Rajasthan",
+      "district": "Anupgarh",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545490+00:00"
+    },
+    {
+      "id": 196,
+      "state": "Rajasthan",
+      "district": "Balotra",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545492+00:00"
+    },
+    {
+      "id": 197,
+      "state": "Rajasthan",
+      "district": "Banswara",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545494+00:00"
+    },
+    {
+      "id": 198,
+      "state": "Rajasthan",
+      "district": "Baran",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545496+00:00"
+    },
+    {
+      "id": 199,
+      "state": "Rajasthan",
+      "district": "Barmer",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545498+00:00"
+    },
+    {
+      "id": 200,
+      "state": "Rajasthan",
+      "district": "Beawar",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545500+00:00"
+    },
+    {
+      "id": 201,
+      "state": "Rajasthan",
+      "district": "Bharatpur",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545502+00:00"
+    },
+    {
+      "id": 202,
+      "state": "Rajasthan",
+      "district": "Bhilwara",
+      "status": "COMPLETED",
+      "total_leads_found": 6,
+      "last_scraped_at": "2026-09-07T13:53:21.545504+00:00"
+    },
+    {
+      "id": 203,
+      "state": "Rajasthan",
+      "district": "Bikaner",
+      "status": "COMPLETED",
+      "total_leads_found": 9,
+      "last_scraped_at": "2026-09-07T13:53:21.545506+00:00"
+    },
+    {
+      "id": 204,
+      "state": "Rajasthan",
+      "district": "Bundi",
+      "status": "COMPLETED",
+      "total_leads_found": 2,
+      "last_scraped_at": "2026-09-07T13:53:21.545508+00:00"
+    },
+    {
+      "id": 205,
+      "state": "Rajasthan",
+      "district": "Chittorgarh",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545510+00:00"
+    },
+    {
+      "id": 206,
+      "state": "Rajasthan",
+      "district": "Churu",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545511+00:00"
+    },
+    {
+      "id": 207,
+      "state": "Rajasthan",
+      "district": "Dausa",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545513+00:00"
+    },
+    {
+      "id": 208,
+      "state": "Rajasthan",
+      "district": "Deeg",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545515+00:00"
+    },
+    {
+      "id": 209,
+      "state": "Rajasthan",
+      "district": "Didwana-Kuchaman",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545517+00:00"
+    },
+    {
+      "id": 210,
+      "state": "Rajasthan",
+      "district": "Dholpur",
+      "status": "COMPLETED",
+      "total_leads_found": 3,
+      "last_scraped_at": "2026-09-07T13:53:21.545519+00:00"
+    },
+    {
+      "id": 211,
+      "state": "Rajasthan",
+      "district": "Dungarpur",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545521+00:00"
+    },
+    {
+      "id": 212,
+      "state": "Rajasthan",
+      "district": "Dudu",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545523+00:00"
+    },
+    {
+      "id": 213,
+      "state": "Rajasthan",
+      "district": "Gangapur City",
+      "status": "COMPLETED",
+      "total_leads_found": 3,
+      "last_scraped_at": "2026-09-07T13:53:21.545525+00:00"
+    },
+    {
+      "id": 214,
+      "state": "Rajasthan",
+      "district": "Hanumangarh",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545527+00:00"
+    },
+    {
+      "id": 215,
+      "state": "Rajasthan",
+      "district": "Jaipur",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545530+00:00"
+    },
+    {
+      "id": 216,
+      "state": "Rajasthan",
+      "district": "Jaipur Rural",
+      "status": "COMPLETED",
+      "total_leads_found": 12,
+      "last_scraped_at": "2026-09-07T13:53:21.545532+00:00"
+    },
+    {
+      "id": 217,
+      "state": "Rajasthan",
+      "district": "Jaisalmer",
+      "status": "COMPLETED",
+      "total_leads_found": 1,
+      "last_scraped_at": "2026-09-07T13:53:21.545534+00:00"
+    },
+    {
+      "id": 218,
+      "state": "Rajasthan",
+      "district": "Jalore",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545536+00:00"
+    },
+    {
+      "id": 219,
+      "state": "Rajasthan",
+      "district": "Jhalawar",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545538+00:00"
+    },
+    {
+      "id": 220,
+      "state": "Rajasthan",
+      "district": "Jhunjhunu",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545540+00:00"
+    },
+    {
+      "id": 221,
+      "state": "Rajasthan",
+      "district": "Jodhpur",
+      "status": "COMPLETED",
+      "total_leads_found": 1,
+      "last_scraped_at": "2026-09-07T13:53:21.545542+00:00"
+    },
+    {
+      "id": 222,
+      "state": "Rajasthan",
+      "district": "Jodhpur Rural",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545544+00:00"
+    },
+    {
+      "id": 223,
+      "state": "Rajasthan",
+      "district": "Karauli",
+      "status": "COMPLETED",
+      "total_leads_found": 1,
+      "last_scraped_at": "2026-09-07T13:53:21.545546+00:00"
+    },
+    {
+      "id": 224,
+      "state": "Rajasthan",
+      "district": "Kekri",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545548+00:00"
+    },
+    {
+      "id": 225,
+      "state": "Rajasthan",
+      "district": "Khairthal-Tijara",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545550+00:00"
+    },
+    {
+      "id": 226,
+      "state": "Rajasthan",
+      "district": "Kota",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545552+00:00"
+    },
+    {
+      "id": 227,
+      "state": "Rajasthan",
+      "district": "Kotputli-Behror",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545554+00:00"
+    },
+    {
+      "id": 228,
+      "state": "Rajasthan",
+      "district": "Nagaur",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545556+00:00"
+    },
+    {
+      "id": 229,
+      "state": "Rajasthan",
+      "district": "Neem Ka Thana",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545558+00:00"
+    },
+    {
+      "id": 230,
+      "state": "Rajasthan",
+      "district": "Pali",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545560+00:00"
+    },
+    {
+      "id": 231,
+      "state": "Rajasthan",
+      "district": "Phalodi",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545562+00:00"
+    },
+    {
+      "id": 232,
+      "state": "Rajasthan",
+      "district": "Pratapgarh",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545564+00:00"
+    },
+    {
+      "id": 233,
+      "state": "Rajasthan",
+      "district": "Rajsamand",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545566+00:00"
+    },
+    {
+      "id": 234,
+      "state": "Rajasthan",
+      "district": "Salumbar",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545567+00:00"
+    },
+    {
+      "id": 235,
+      "state": "Rajasthan",
+      "district": "Sanchore",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545569+00:00"
+    },
+    {
+      "id": 236,
+      "state": "Rajasthan",
+      "district": "Sawai Madhopur",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545571+00:00"
+    },
+    {
+      "id": 237,
+      "state": "Rajasthan",
+      "district": "Shahpura",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545573+00:00"
+    },
+    {
+      "id": 238,
+      "state": "Rajasthan",
+      "district": "Sikar",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545575+00:00"
+    },
+    {
+      "id": 239,
+      "state": "Rajasthan",
+      "district": "Sirohi",
+      "status": "COMPLETED",
+      "total_leads_found": 1,
+      "last_scraped_at": "2026-09-07T13:53:21.545577+00:00"
+    },
+    {
+      "id": 240,
+      "state": "Rajasthan",
+      "district": "Sri Ganganagar",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545579+00:00"
+    },
+    {
+      "id": 241,
+      "state": "Rajasthan",
+      "district": "Tonk",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545581+00:00"
+    },
+    {
+      "id": 242,
+      "state": "Rajasthan",
+      "district": "Udaipur",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545583+00:00"
+    },
+    {
+      "id": 243,
+      "state": "Haryana",
+      "district": "Ambala",
+      "status": "COMPLETED",
+      "total_leads_found": 1,
+      "last_scraped_at": "2026-09-07T13:53:21.545585+00:00"
+    },
+    {
+      "id": 244,
+      "state": "Haryana",
+      "district": "Bhiwani",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545587+00:00"
+    },
+    {
+      "id": 245,
+      "state": "Haryana",
+      "district": "Charkhi Dadri",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545589+00:00"
+    },
+    {
+      "id": 246,
+      "state": "Haryana",
+      "district": "Faridabad",
+      "status": "COMPLETED",
+      "total_leads_found": 1,
+      "last_scraped_at": "2026-09-07T13:53:21.545591+00:00"
+    },
+    {
+      "id": 247,
+      "state": "Haryana",
+      "district": "Fatehabad",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545593+00:00"
+    },
+    {
+      "id": 248,
+      "state": "Haryana",
+      "district": "Gurugram",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545595+00:00"
+    },
+    {
+      "id": 249,
+      "state": "Haryana",
+      "district": "Hisar",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545597+00:00"
+    },
+    {
+      "id": 250,
+      "state": "Haryana",
+      "district": "Jhajjar",
+      "status": "COMPLETED",
+      "total_leads_found": 1,
+      "last_scraped_at": "2026-09-07T13:53:21.545600+00:00"
+    },
+    {
+      "id": 251,
+      "state": "Haryana",
+      "district": "Jind",
+      "status": "COMPLETED",
+      "total_leads_found": 1,
+      "last_scraped_at": "2026-09-07T13:53:21.545602+00:00"
+    },
+    {
+      "id": 252,
+      "state": "Haryana",
+      "district": "Kaithal",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545604+00:00"
+    },
+    {
+      "id": 253,
+      "state": "Haryana",
+      "district": "Karnal",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545606+00:00"
+    },
+    {
+      "id": 254,
+      "state": "Haryana",
+      "district": "Kurukshetra",
+      "status": "COMPLETED",
+      "total_leads_found": 1,
+      "last_scraped_at": "2026-09-07T13:53:21.545608+00:00"
+    },
+    {
+      "id": 255,
+      "state": "Haryana",
+      "district": "Mahendragarh",
+      "status": "COMPLETED",
+      "total_leads_found": 2,
+      "last_scraped_at": "2026-09-07T13:53:21.545610+00:00"
+    },
+    {
+      "id": 256,
+      "state": "Haryana",
+      "district": "Nuh",
+      "status": "COMPLETED",
+      "total_leads_found": 1,
+      "last_scraped_at": "2026-09-07T13:53:21.545612+00:00"
+    },
+    {
+      "id": 257,
+      "state": "Haryana",
+      "district": "Palwal",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545614+00:00"
+    },
+    {
+      "id": 258,
+      "state": "Haryana",
+      "district": "Panchkula",
+      "status": "COMPLETED",
+      "total_leads_found": 1,
+      "last_scraped_at": "2026-09-07T13:53:21.545616+00:00"
+    },
+    {
+      "id": 259,
+      "state": "Haryana",
+      "district": "Panipat",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545619+00:00"
+    },
+    {
+      "id": 260,
+      "state": "Haryana",
+      "district": "Rewari",
+      "status": "COMPLETED",
+      "total_leads_found": 1,
+      "last_scraped_at": "2026-09-07T13:53:21.545620+00:00"
+    },
+    {
+      "id": 261,
+      "state": "Haryana",
+      "district": "Rohtak",
+      "status": "COMPLETED",
+      "total_leads_found": 1,
+      "last_scraped_at": "2026-09-07T13:53:21.545622+00:00"
+    },
+    {
+      "id": 262,
+      "state": "Haryana",
+      "district": "Sirsa",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545624+00:00"
+    },
+    {
+      "id": 263,
+      "state": "Haryana",
+      "district": "Sonipat",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545626+00:00"
+    },
+    {
+      "id": 264,
+      "state": "Haryana",
+      "district": "Yamunanagar",
+      "status": "COMPLETED",
+      "total_leads_found": 2,
+      "last_scraped_at": "2026-09-07T13:53:21.545628+00:00"
+    },
+    {
+      "id": 265,
+      "state": "Himachal Pradesh",
+      "district": "Bilaspur",
+      "status": "COMPLETED",
+      "total_leads_found": 3,
+      "last_scraped_at": "2026-09-07T13:53:21.545630+00:00"
+    },
+    {
+      "id": 266,
+      "state": "Himachal Pradesh",
+      "district": "Chamba",
+      "status": "COMPLETED",
+      "total_leads_found": 4,
+      "last_scraped_at": "2026-09-07T13:53:21.545632+00:00"
+    },
+    {
+      "id": 267,
+      "state": "Himachal Pradesh",
+      "district": "Hamirpur",
+      "status": "COMPLETED",
+      "total_leads_found": 1,
+      "last_scraped_at": "2026-09-07T13:53:21.545634+00:00"
+    },
+    {
+      "id": 268,
+      "state": "Himachal Pradesh",
+      "district": "Kangra (Dharamshala)",
+      "status": "COMPLETED",
+      "total_leads_found": 6,
+      "last_scraped_at": "2026-09-07T13:53:21.545636+00:00"
+    },
+    {
+      "id": 269,
+      "state": "Himachal Pradesh",
+      "district": "Kinnaur",
+      "status": "COMPLETED",
+      "total_leads_found": 3,
+      "last_scraped_at": "2026-09-07T13:53:21.545638+00:00"
+    },
+    {
+      "id": 270,
+      "state": "Himachal Pradesh",
+      "district": "Kullu",
+      "status": "COMPLETED",
+      "total_leads_found": 1,
+      "last_scraped_at": "2026-09-07T13:53:21.545640+00:00"
+    },
+    {
+      "id": 271,
+      "state": "Himachal Pradesh",
+      "district": "Lahaul and Spiti",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545642+00:00"
+    },
+    {
+      "id": 272,
+      "state": "Himachal Pradesh",
+      "district": "Mandi",
+      "status": "COMPLETED",
+      "total_leads_found": 11,
+      "last_scraped_at": "2026-09-07T13:53:21.545644+00:00"
+    },
+    {
+      "id": 273,
+      "state": "Himachal Pradesh",
+      "district": "Shimla",
+      "status": "COMPLETED",
+      "total_leads_found": 595,
+      "last_scraped_at": "2026-09-07T13:53:21.545646+00:00"
+    },
+    {
+      "id": 274,
+      "state": "Himachal Pradesh",
+      "district": "Sirmaur (Nahan)",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545648+00:00"
+    },
+    {
+      "id": 275,
+      "state": "Himachal Pradesh",
+      "district": "Solan",
+      "status": "COMPLETED",
+      "total_leads_found": 5,
+      "last_scraped_at": "2026-09-07T13:53:21.545650+00:00"
+    },
+    {
+      "id": 276,
+      "state": "Himachal Pradesh",
+      "district": "Una",
+      "status": "COMPLETED",
+      "total_leads_found": 6,
+      "last_scraped_at": "2026-09-07T13:53:21.545652+00:00"
+    },
+    {
+      "id": 277,
+      "state": "Jharkhand",
+      "district": "Bokaro",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545655+00:00"
+    },
+    {
+      "id": 278,
+      "state": "Jharkhand",
+      "district": "Chatra",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545657+00:00"
+    },
+    {
+      "id": 279,
+      "state": "Jharkhand",
+      "district": "Deoghar",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545659+00:00"
+    },
+    {
+      "id": 280,
+      "state": "Jharkhand",
+      "district": "Dhanbad",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545661+00:00"
+    },
+    {
+      "id": 281,
+      "state": "Jharkhand",
+      "district": "Dumka",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545663+00:00"
+    },
+    {
+      "id": 282,
+      "state": "Jharkhand",
+      "district": "East Singhbhum (Jamshedpur)",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545665+00:00"
+    },
+    {
+      "id": 283,
+      "state": "Jharkhand",
+      "district": "Garhwa",
+      "status": "COMPLETED",
+      "total_leads_found": 1,
+      "last_scraped_at": "2026-09-07T13:53:21.545667+00:00"
+    },
+    {
+      "id": 284,
+      "state": "Jharkhand",
+      "district": "Giridih",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545668+00:00"
+    },
+    {
+      "id": 285,
+      "state": "Jharkhand",
+      "district": "Godda",
+      "status": "COMPLETED",
+      "total_leads_found": 1,
+      "last_scraped_at": "2026-09-07T13:53:21.545671+00:00"
+    },
+    {
+      "id": 286,
+      "state": "Jharkhand",
+      "district": "Gumla",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545673+00:00"
+    },
+    {
+      "id": 287,
+      "state": "Jharkhand",
+      "district": "Hazaribagh",
+      "status": "COMPLETED",
+      "total_leads_found": 2,
+      "last_scraped_at": "2026-09-07T13:53:21.545674+00:00"
+    },
+    {
+      "id": 288,
+      "state": "Jharkhand",
+      "district": "Jamtara",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545676+00:00"
+    },
+    {
+      "id": 289,
+      "state": "Jharkhand",
+      "district": "Khunti",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545678+00:00"
+    },
+    {
+      "id": 290,
+      "state": "Jharkhand",
+      "district": "Koderma",
+      "status": "COMPLETED",
+      "total_leads_found": 1,
+      "last_scraped_at": "2026-09-07T13:53:21.545680+00:00"
+    },
+    {
+      "id": 291,
+      "state": "Jharkhand",
+      "district": "Latehar",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545682+00:00"
+    },
+    {
+      "id": 292,
+      "state": "Jharkhand",
+      "district": "Lohardaga",
+      "status": "COMPLETED",
+      "total_leads_found": 1,
+      "last_scraped_at": "2026-09-07T13:53:21.545684+00:00"
+    },
+    {
+      "id": 293,
+      "state": "Jharkhand",
+      "district": "Pakur",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545686+00:00"
+    },
+    {
+      "id": 294,
+      "state": "Jharkhand",
+      "district": "Palamu",
+      "status": "COMPLETED",
+      "total_leads_found": 2,
+      "last_scraped_at": "2026-09-07T13:53:21.545688+00:00"
+    },
+    {
+      "id": 295,
+      "state": "Jharkhand",
+      "district": "Ramgarh",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545690+00:00"
+    },
+    {
+      "id": 296,
+      "state": "Jharkhand",
+      "district": "Ranchi",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545692+00:00"
+    },
+    {
+      "id": 297,
+      "state": "Jharkhand",
+      "district": "Sahibganj",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545694+00:00"
+    },
+    {
+      "id": 298,
+      "state": "Jharkhand",
+      "district": "Seraikela Kharsawan",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545696+00:00"
+    },
+    {
+      "id": 299,
+      "state": "Jharkhand",
+      "district": "Simdega",
+      "status": "COMPLETED",
+      "total_leads_found": 1,
+      "last_scraped_at": "2026-09-07T13:53:21.545698+00:00"
+    },
+    {
+      "id": 300,
+      "state": "Jharkhand",
+      "district": "West Singhbhum (Chaibasa)",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545700+00:00"
+    },
+    {
+      "id": 301,
+      "state": "Chhattisgarh",
+      "district": "Balod",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545702+00:00"
+    },
+    {
+      "id": 302,
+      "state": "Chhattisgarh",
+      "district": "Baloda Bazar",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545704+00:00"
+    },
+    {
+      "id": 303,
+      "state": "Chhattisgarh",
+      "district": "Balrampur",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545706+00:00"
+    },
+    {
+      "id": 304,
+      "state": "Chhattisgarh",
+      "district": "Bastar (Jagdalpur)",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545707+00:00"
+    },
+    {
+      "id": 305,
+      "state": "Chhattisgarh",
+      "district": "Bemetara",
+      "status": "COMPLETED",
+      "total_leads_found": 2,
+      "last_scraped_at": "2026-09-07T13:53:21.545709+00:00"
+    },
+    {
+      "id": 306,
+      "state": "Chhattisgarh",
+      "district": "Bijapur",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545711+00:00"
+    },
+    {
+      "id": 307,
+      "state": "Chhattisgarh",
+      "district": "Bilaspur",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545713+00:00"
+    },
+    {
+      "id": 308,
+      "state": "Chhattisgarh",
+      "district": "Dantewada",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545715+00:00"
+    },
+    {
+      "id": 309,
+      "state": "Chhattisgarh",
+      "district": "Dhamtari",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545717+00:00"
+    },
+    {
+      "id": 310,
+      "state": "Chhattisgarh",
+      "district": "Durg",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545719+00:00"
+    },
+    {
+      "id": 311,
+      "state": "Chhattisgarh",
+      "district": "Gariaband",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545721+00:00"
+    },
+    {
+      "id": 312,
+      "state": "Chhattisgarh",
+      "district": "Gaurela-Pendra-Marwahi",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545723+00:00"
+    },
+    {
+      "id": 313,
+      "state": "Chhattisgarh",
+      "district": "Janjgir-Champa",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545725+00:00"
+    },
+    {
+      "id": 314,
+      "state": "Chhattisgarh",
+      "district": "Jashpur",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545726+00:00"
+    },
+    {
+      "id": 315,
+      "state": "Chhattisgarh",
+      "district": "Kabirdham (Kawardha)",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545728+00:00"
+    },
+    {
+      "id": 316,
+      "state": "Chhattisgarh",
+      "district": "Kanker",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545730+00:00"
+    },
+    {
+      "id": 317,
+      "state": "Chhattisgarh",
+      "district": "Khairagarh-Chhuikhadan-Gandai",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545732+00:00"
+    },
+    {
+      "id": 318,
+      "state": "Chhattisgarh",
+      "district": "Kondagaon",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545734+00:00"
+    },
+    {
+      "id": 319,
+      "state": "Chhattisgarh",
+      "district": "Korba",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545736+00:00"
+    },
+    {
+      "id": 320,
+      "state": "Chhattisgarh",
+      "district": "Koriya",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545738+00:00"
+    },
+    {
+      "id": 321,
+      "state": "Chhattisgarh",
+      "district": "Mahasamund",
+      "status": "COMPLETED",
+      "total_leads_found": 3,
+      "last_scraped_at": "2026-09-07T13:53:21.545740+00:00"
+    },
+    {
+      "id": 322,
+      "state": "Chhattisgarh",
+      "district": "Manendragarh-Chirmiri-Bharatpur",
+      "status": "COMPLETED",
+      "total_leads_found": 1,
+      "last_scraped_at": "2026-09-07T13:53:21.545742+00:00"
+    },
+    {
+      "id": 323,
+      "state": "Chhattisgarh",
+      "district": "Mohla-Manpur-Ambagarh Chowki",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545744+00:00"
+    },
+    {
+      "id": 324,
+      "state": "Chhattisgarh",
+      "district": "Mungeli",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545746+00:00"
+    },
+    {
+      "id": 325,
+      "state": "Chhattisgarh",
+      "district": "Narayanpur",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545748+00:00"
+    },
+    {
+      "id": 326,
+      "state": "Chhattisgarh",
+      "district": "Raigarh",
+      "status": "COMPLETED",
+      "total_leads_found": 1,
+      "last_scraped_at": "2026-09-07T13:53:21.545749+00:00"
+    },
+    {
+      "id": 327,
+      "state": "Chhattisgarh",
+      "district": "Raipur",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545751+00:00"
+    },
+    {
+      "id": 328,
+      "state": "Chhattisgarh",
+      "district": "Rajnandgaon",
+      "status": "COMPLETED",
+      "total_leads_found": 1,
+      "last_scraped_at": "2026-09-07T13:53:21.545753+00:00"
+    },
+    {
+      "id": 329,
+      "state": "Chhattisgarh",
+      "district": "Sarangarh-Bilaigarh",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545755+00:00"
+    },
+    {
+      "id": 330,
+      "state": "Chhattisgarh",
+      "district": "Sakti",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545757+00:00"
+    },
+    {
+      "id": 331,
+      "state": "Chhattisgarh",
+      "district": "Sukma",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545759+00:00"
+    },
+    {
+      "id": 332,
+      "state": "Chhattisgarh",
+      "district": "Surajpur",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545761+00:00"
+    },
+    {
+      "id": 333,
+      "state": "Chhattisgarh",
+      "district": "Surguja (Ambikapur)",
+      "status": "COMPLETED",
+      "total_leads_found": 5,
+      "last_scraped_at": "2026-09-07T13:53:21.545763+00:00"
+    },
+    {
+      "id": 334,
+      "state": "Chandigarh",
+      "district": "Chandigarh",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545765+00:00"
+    },
+    {
+      "id": 335,
+      "state": "Jammu & Kashmir",
+      "district": "Jammu",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545767+00:00"
+    },
+    {
+      "id": 336,
+      "state": "Jammu & Kashmir",
+      "district": "Srinagar",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545769+00:00"
+    },
+    {
+      "id": 337,
+      "state": "Jammu & Kashmir",
+      "district": "Anantnag",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545770+00:00"
+    },
+    {
+      "id": 338,
+      "state": "Jammu & Kashmir",
+      "district": "Baramulla",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545773+00:00"
+    },
+    {
+      "id": 339,
+      "state": "Jammu & Kashmir",
+      "district": "Budgam",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545775+00:00"
+    },
+    {
+      "id": 340,
+      "state": "Jammu & Kashmir",
+      "district": "Pulwama",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545776+00:00"
+    },
+    {
+      "id": 341,
+      "state": "Jammu & Kashmir",
+      "district": "Kupwara",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545778+00:00"
+    },
+    {
+      "id": 342,
+      "state": "Jammu & Kashmir",
+      "district": "Shopian",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545780+00:00"
+    },
+    {
+      "id": 343,
+      "state": "Jammu & Kashmir",
+      "district": "Ganderbal",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545782+00:00"
+    },
+    {
+      "id": 344,
+      "state": "Jammu & Kashmir",
+      "district": "Kulgam",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545784+00:00"
+    },
+    {
+      "id": 345,
+      "state": "Jammu & Kashmir",
+      "district": "Kathua",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545785+00:00"
+    },
+    {
+      "id": 346,
+      "state": "Jammu & Kashmir",
+      "district": "Udhampur",
+      "status": "COMPLETED",
+      "total_leads_found": 4,
+      "last_scraped_at": "2026-09-07T13:53:21.545787+00:00"
+    },
+    {
+      "id": 347,
+      "state": "Jammu & Kashmir",
+      "district": "Doda",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545789+00:00"
+    },
+    {
+      "id": 348,
+      "state": "Jammu & Kashmir",
+      "district": "Rajouri",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545791+00:00"
+    },
+    {
+      "id": 349,
+      "state": "Jammu & Kashmir",
+      "district": "Poonch",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545793+00:00"
+    },
+    {
+      "id": 350,
+      "state": "Jammu & Kashmir",
+      "district": "Samba",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545795+00:00"
+    },
+    {
+      "id": 351,
+      "state": "Jammu & Kashmir",
+      "district": "Ramban",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545797+00:00"
+    },
+    {
+      "id": 352,
+      "state": "Jammu & Kashmir",
+      "district": "Kishtwar",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545799+00:00"
+    },
+    {
+      "id": 353,
+      "state": "Jammu & Kashmir",
+      "district": "Reasi",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545801+00:00"
+    },
+    {
+      "id": 354,
+      "state": "Jammu & Kashmir",
+      "district": "Bandipora",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545803+00:00"
+    },
+    {
+      "id": 355,
+      "state": "Ladakh",
+      "district": "Leh",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545805+00:00"
+    },
+    {
+      "id": 356,
+      "state": "Ladakh",
+      "district": "Kargil",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545807+00:00"
+    },
+    {
+      "id": 357,
+      "state": "Punjab",
+      "district": "Amritsar",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545809+00:00"
+    },
+    {
+      "id": 358,
+      "state": "Punjab",
+      "district": "Barnala",
+      "status": "COMPLETED",
+      "total_leads_found": 6,
+      "last_scraped_at": "2026-09-07T13:53:21.545810+00:00"
+    },
+    {
+      "id": 359,
+      "state": "Punjab",
+      "district": "Bathinda",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545813+00:00"
+    },
+    {
+      "id": 360,
+      "state": "Punjab",
+      "district": "Faridkot",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545814+00:00"
+    },
+    {
+      "id": 361,
+      "state": "Punjab",
+      "district": "Fatehgarh Sahib",
+      "status": "COMPLETED",
+      "total_leads_found": 9,
+      "last_scraped_at": "2026-09-07T13:53:21.545816+00:00"
+    },
+    {
+      "id": 362,
+      "state": "Punjab",
+      "district": "Fazilka",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545818+00:00"
+    },
+    {
+      "id": 363,
+      "state": "Punjab",
+      "district": "Ferozepur",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545820+00:00"
+    },
+    {
+      "id": 364,
+      "state": "Punjab",
+      "district": "Gurdaspur",
+      "status": "COMPLETED",
+      "total_leads_found": 9,
+      "last_scraped_at": "2026-09-07T13:53:21.545822+00:00"
+    },
+    {
+      "id": 365,
+      "state": "Punjab",
+      "district": "Hoshiarpur",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545824+00:00"
+    },
+    {
+      "id": 366,
+      "state": "Punjab",
+      "district": "Jalandhar",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545826+00:00"
+    },
+    {
+      "id": 367,
+      "state": "Punjab",
+      "district": "Kapurthala",
+      "status": "COMPLETED",
+      "total_leads_found": 9,
+      "last_scraped_at": "2026-09-07T13:53:21.545828+00:00"
+    },
+    {
+      "id": 368,
+      "state": "Punjab",
+      "district": "Ludhiana",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545829+00:00"
+    },
+    {
+      "id": 369,
+      "state": "Punjab",
+      "district": "Malerkotla",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545831+00:00"
+    },
+    {
+      "id": 370,
+      "state": "Punjab",
+      "district": "Mansa",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545833+00:00"
+    },
+    {
+      "id": 371,
+      "state": "Punjab",
+      "district": "Moga",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545835+00:00"
+    },
+    {
+      "id": 372,
+      "state": "Punjab",
+      "district": "Sri Muktsar Sahib",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545837+00:00"
+    },
+    {
+      "id": 373,
+      "state": "Punjab",
+      "district": "Pathankot",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545838+00:00"
+    },
+    {
+      "id": 374,
+      "state": "Punjab",
+      "district": "Patiala",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545841+00:00"
+    },
+    {
+      "id": 375,
+      "state": "Punjab",
+      "district": "Rupnagar",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545842+00:00"
+    },
+    {
+      "id": 376,
+      "state": "Punjab",
+      "district": "Sahibzada Ajit Singh Nagar (Mohali)",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545844+00:00"
+    },
+    {
+      "id": 377,
+      "state": "Punjab",
+      "district": "Shaheed Bhagat Singh Nagar",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545846+00:00"
+    },
+    {
+      "id": 378,
+      "state": "Punjab",
+      "district": "Sangrur",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545848+00:00"
+    },
+    {
+      "id": 379,
+      "state": "Punjab",
+      "district": "Tarn Taran",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545850+00:00"
+    },
+    {
+      "id": 380,
+      "state": "Maharashtra",
+      "district": "Mumbai City",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545852+00:00"
+    },
+    {
+      "id": 381,
+      "state": "Maharashtra",
+      "district": "Mumbai Suburban",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545854+00:00"
+    },
+    {
+      "id": 382,
+      "state": "Maharashtra",
+      "district": "Thane",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545855+00:00"
+    },
+    {
+      "id": 383,
+      "state": "Maharashtra",
+      "district": "Palghar",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545857+00:00"
+    },
+    {
+      "id": 384,
+      "state": "Maharashtra",
+      "district": "Pune",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545859+00:00"
+    },
+    {
+      "id": 385,
+      "state": "Maharashtra",
+      "district": "Nagpur",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545861+00:00"
+    },
+    {
+      "id": 386,
+      "state": "Maharashtra",
+      "district": "Nashik",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545863+00:00"
+    },
+    {
+      "id": 387,
+      "state": "Maharashtra",
+      "district": "Chhatrapati Sambhajinagar",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545865+00:00"
+    },
+    {
+      "id": 388,
+      "state": "Maharashtra",
+      "district": "Amravati",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545867+00:00"
+    },
+    {
+      "id": 389,
+      "state": "Maharashtra",
+      "district": "Akola",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545869+00:00"
+    },
+    {
+      "id": 390,
+      "state": "Maharashtra",
+      "district": "Wardha",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545870+00:00"
+    },
+    {
+      "id": 391,
+      "state": "Maharashtra",
+      "district": "Bhandara",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545872+00:00"
+    },
+    {
+      "id": 392,
+      "state": "Maharashtra",
+      "district": "Gondia",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545874+00:00"
+    },
+    {
+      "id": 393,
+      "state": "Maharashtra",
+      "district": "Chandrapur",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545876+00:00"
+    },
+    {
+      "id": 394,
+      "state": "Maharashtra",
+      "district": "Gadchiroli",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545878+00:00"
+    },
+    {
+      "id": 395,
+      "state": "Maharashtra",
+      "district": "Yavatmal",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545880+00:00"
+    },
+    {
+      "id": 396,
+      "state": "Maharashtra",
+      "district": "Nanded",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545881+00:00"
+    },
+    {
+      "id": 397,
+      "state": "Maharashtra",
+      "district": "Jalgaon",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545883+00:00"
+    },
+    {
+      "id": 398,
+      "state": "Maharashtra",
+      "district": "Dhule",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545885+00:00"
+    },
+    {
+      "id": 399,
+      "state": "Maharashtra",
+      "district": "Nandurbar",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545887+00:00"
+    },
+    {
+      "id": 400,
+      "state": "Maharashtra",
+      "district": "Ahmednagar",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545889+00:00"
+    },
+    {
+      "id": 401,
+      "state": "Maharashtra",
+      "district": "Kolhapur",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545891+00:00"
+    },
+    {
+      "id": 402,
+      "state": "Maharashtra",
+      "district": "Solapur",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545892+00:00"
+    },
+    {
+      "id": 403,
+      "state": "Maharashtra",
+      "district": "Sangli",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545894+00:00"
+    },
+    {
+      "id": 404,
+      "state": "Maharashtra",
+      "district": "Satara",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545896+00:00"
+    },
+    {
+      "id": 405,
+      "state": "Maharashtra",
+      "district": "Ratnagiri",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545898+00:00"
+    },
+    {
+      "id": 406,
+      "state": "Maharashtra",
+      "district": "Sindhudurg",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545900+00:00"
+    },
+    {
+      "id": 407,
+      "state": "Maharashtra",
+      "district": "Raigad",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545902+00:00"
+    },
+    {
+      "id": 408,
+      "state": "Maharashtra",
+      "district": "Beed",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545903+00:00"
+    },
+    {
+      "id": 409,
+      "state": "Maharashtra",
+      "district": "Jalna",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545905+00:00"
+    },
+    {
+      "id": 410,
+      "state": "Maharashtra",
+      "district": "Latur",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545907+00:00"
+    },
+    {
+      "id": 411,
+      "state": "Maharashtra",
+      "district": "Dharashiv",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545909+00:00"
+    },
+    {
+      "id": 412,
+      "state": "Maharashtra",
+      "district": "Parbhani",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545911+00:00"
+    },
+    {
+      "id": 413,
+      "state": "Maharashtra",
+      "district": "Hingoli",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545912+00:00"
+    },
+    {
+      "id": 414,
+      "state": "Maharashtra",
+      "district": "Buldhana",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545914+00:00"
+    },
+    {
+      "id": 415,
+      "state": "Maharashtra",
+      "district": "Washim",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545916+00:00"
+    },
+    {
+      "id": 416,
+      "state": "Gujarat",
+      "district": "Ahmedabad",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545918+00:00"
+    },
+    {
+      "id": 417,
+      "state": "Gujarat",
+      "district": "Surat",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545920+00:00"
+    },
+    {
+      "id": 418,
+      "state": "Gujarat",
+      "district": "Vadodara",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545922+00:00"
+    },
+    {
+      "id": 419,
+      "state": "Gujarat",
+      "district": "Rajkot",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545923+00:00"
+    },
+    {
+      "id": 420,
+      "state": "Gujarat",
+      "district": "Bhavnagar",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545925+00:00"
+    },
+    {
+      "id": 421,
+      "state": "Gujarat",
+      "district": "Jamnagar",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545927+00:00"
+    },
+    {
+      "id": 422,
+      "state": "Gujarat",
+      "district": "Junagadh",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545929+00:00"
+    },
+    {
+      "id": 423,
+      "state": "Gujarat",
+      "district": "Gandhinagar",
+      "status": "COMPLETED",
+      "total_leads_found": 4,
+      "last_scraped_at": "2026-09-07T13:53:21.545931+00:00"
+    },
+    {
+      "id": 424,
+      "state": "Gujarat",
+      "district": "Anand",
+      "status": "COMPLETED",
+      "total_leads_found": 1,
+      "last_scraped_at": "2026-09-07T13:53:21.545933+00:00"
+    },
+    {
+      "id": 425,
+      "state": "Gujarat",
+      "district": "Navsari",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545935+00:00"
+    },
+    {
+      "id": 426,
+      "state": "Gujarat",
+      "district": "Valsad",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545936+00:00"
+    },
+    {
+      "id": 427,
+      "state": "Gujarat",
+      "district": "Bharuch",
+      "status": "COMPLETED",
+      "total_leads_found": 3,
+      "last_scraped_at": "2026-09-07T13:53:21.545938+00:00"
+    },
+    {
+      "id": 428,
+      "state": "Gujarat",
+      "district": "Mehsana",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545940+00:00"
+    },
+    {
+      "id": 429,
+      "state": "Gujarat",
+      "district": "Banaskantha",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545942+00:00"
+    },
+    {
+      "id": 430,
+      "state": "Gujarat",
+      "district": "Sabarkantha",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545944+00:00"
+    },
+    {
+      "id": 431,
+      "state": "Gujarat",
+      "district": "Patan",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545946+00:00"
+    },
+    {
+      "id": 432,
+      "state": "Gujarat",
+      "district": "Kutch",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545947+00:00"
+    },
+    {
+      "id": 433,
+      "state": "Gujarat",
+      "district": "Kheda",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545949+00:00"
+    },
+    {
+      "id": 434,
+      "state": "Gujarat",
+      "district": "Panchmahal",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545951+00:00"
+    },
+    {
+      "id": 435,
+      "state": "Gujarat",
+      "district": "Dahod",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545953+00:00"
+    },
+    {
+      "id": 436,
+      "state": "Gujarat",
+      "district": "Mahisagar",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545955+00:00"
+    },
+    {
+      "id": 437,
+      "state": "Gujarat",
+      "district": "Aravalli",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545957+00:00"
+    },
+    {
+      "id": 438,
+      "state": "Gujarat",
+      "district": "Botad",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545958+00:00"
+    },
+    {
+      "id": 439,
+      "state": "Gujarat",
+      "district": "Chhota Udaipur",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545960+00:00"
+    },
+    {
+      "id": 440,
+      "state": "Gujarat",
+      "district": "Devbhumi Dwarka",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545962+00:00"
+    },
+    {
+      "id": 441,
+      "state": "Gujarat",
+      "district": "Gir Somnath",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545964+00:00"
+    },
+    {
+      "id": 442,
+      "state": "Gujarat",
+      "district": "Morbi",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545966+00:00"
+    },
+    {
+      "id": 443,
+      "state": "Gujarat",
+      "district": "Narmada",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545968+00:00"
+    },
+    {
+      "id": 444,
+      "state": "Gujarat",
+      "district": "Porbandar",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545969+00:00"
+    },
+    {
+      "id": 445,
+      "state": "Gujarat",
+      "district": "Tapi",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545971+00:00"
+    },
+    {
+      "id": 446,
+      "state": "Gujarat",
+      "district": "Dang",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545973+00:00"
+    },
+    {
+      "id": 447,
+      "state": "Gujarat",
+      "district": "Amreli",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545975+00:00"
+    },
+    {
+      "id": 448,
+      "state": "Gujarat",
+      "district": "Surendranagar",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545977+00:00"
+    },
+    {
+      "id": 449,
+      "state": "Dadra and Nagar Haveli and Daman and Diu",
+      "district": "Dadra and Nagar Haveli",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545979+00:00"
+    },
+    {
+      "id": 450,
+      "state": "Dadra and Nagar Haveli and Daman and Diu",
+      "district": "Daman",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545981+00:00"
+    },
+    {
+      "id": 451,
+      "state": "Dadra and Nagar Haveli and Daman and Diu",
+      "district": "Diu",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545983+00:00"
+    },
+    {
+      "id": 452,
+      "state": "Andaman and Nicobar Islands",
+      "district": "South Andaman (Port Blair)",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545985+00:00"
+    },
+    {
+      "id": 453,
+      "state": "Andaman and Nicobar Islands",
+      "district": "North and Middle Andaman",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545987+00:00"
+    },
+    {
+      "id": 454,
+      "state": "Andaman and Nicobar Islands",
+      "district": "Nicobar",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545989+00:00"
+    },
+    {
+      "id": 455,
+      "state": "Goa",
+      "district": "North Goa (Panaji)",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545991+00:00"
+    },
+    {
+      "id": 456,
+      "state": "Goa",
+      "district": "South Goa (Margao)",
+      "status": "COMPLETED",
+      "total_leads_found": 0,
+      "last_scraped_at": "2026-09-07T13:53:21.545993+00:00"
+    }
+  ],
+  "total_leads_in_db": 3585
+}
