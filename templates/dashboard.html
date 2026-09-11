@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SMARTWORK // CYBER-RECON ENGINE [333 DISTRICTS]</title>
+    <title>SMARTWORK // CUSTOMER OUTREACH & CRM CONSOLE [456 DISTRICTS]</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700;800&family=Share+Tech+Mono&display=swap" rel="stylesheet">
@@ -98,71 +98,55 @@
             background: rgba(0, 255, 102, 0.12);
             border: 1px solid rgba(0, 255, 102, 0.5);
             color: #86efac;
-            padding: 1px 6px;
+            padding: 2px 7px;
             border-radius: 3px;
-            font-size: 10px;
-        }
-        .hud-telemetry {
-            color: #86efac;
-            font-size: 10px;
-            font-weight: 600;
+            font-size: 9.5px;
+            font-weight: 800;
+            letter-spacing: 0.3px;
         }
 
-        /* LEFT PANEL: Pure Hacker Green Terminal HUD */
+        /* LEFT PANEL (Territories) */
         .left-panel {
             background: var(--surface-glass);
             border: 1.5px solid var(--border-glass);
             border-radius: 6px;
-            padding: 10px;
             display: flex;
             flex-direction: column;
-            height: 100%;
+            padding: 10px;
+            box-shadow: 0 0 20px rgba(0, 255, 102, 0.08), inset 0 0 15px rgba(0, 255, 102, 0.03);
+            backdrop-filter: blur(10px);
             overflow: hidden;
-            box-shadow: 0 0 25px rgba(0, 0, 0, 0.85), inset 0 0 2px rgba(0, 255, 102, 0.25);
         }
 
-        /* Auto-Harvest Master Button */
-        .btn-auto-harvest {
-            background: rgba(0, 255, 102, 0.08);
+        .btn-command-chat {
+            width: 100%;
+            padding: 9px 12px;
+            background: rgba(0, 255, 102, 0.15);
             border: 1.5px solid #00ff66;
             color: #00ff66;
-            text-shadow: 0 0 8px rgba(0, 255, 102, 0.8);
-            box-shadow: 0 0 14px rgba(0, 255, 102, 0.3), inset 0 0 8px rgba(0, 255, 102, 0.1);
-            padding: 10px 12px;
-            border-radius: 4px;
             font-size: 11.5px;
             font-weight: 800;
+            border-radius: 4px;
             cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 8px;
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 6px;
-            letter-spacing: 0.5px;
-            text-transform: uppercase;
-            transition: all 0.18s ease;
-            margin-bottom: 8px;
-            animation: cyberPulseGlow 3.5s infinite ease-in-out;
+            text-shadow: 0 0 8px rgba(0, 255, 102, 0.8);
+            box-shadow: 0 0 14px rgba(0, 255, 102, 0.3), inset 0 0 6px rgba(0, 255, 102, 0.15);
+            transition: all 0.2s ease;
         }
-        @keyframes cyberPulseGlow {
-            0%, 100% {
-                box-shadow: 0 0 10px rgba(0, 255, 102, 0.25), inset 0 0 6px rgba(0, 255, 102, 0.05);
-                border-color: rgba(0, 255, 102, 0.7);
-            }
-            50% {
-                box-shadow: 0 0 22px rgba(0, 255, 102, 0.65), inset 0 0 10px rgba(0, 255, 102, 0.2);
-                border-color: #00ff66;
-            }
-        }
-        .btn-auto-harvest:hover {
+        .btn-command-chat:hover {
             background: #00ff66;
             color: #010502;
             text-shadow: none;
             box-shadow: 0 0 25px rgba(0, 255, 102, 0.95);
             transform: translateY(-1px);
         }
-        .btn-auto-harvest:active { transform: translateY(0) scale(0.98); }
 
-        /* Quick Utility Bar */
         .left-utility-bar {
             display: flex;
             gap: 6px;
@@ -192,7 +176,6 @@
             box-shadow: 0 0 12px rgba(0, 255, 102, 0.4);
         }
 
-        /* CLI COMMAND LINE PROMPT WRAPPER */
         .cli-prompt-bar {
             display: flex;
             align-items: center;
@@ -201,33 +184,12 @@
             border-radius: 4px;
             padding: 0 8px;
             margin-bottom: 8px;
-            transition: all 0.2s ease;
-        }
-        .cli-prompt-bar:focus-within {
-            border-color: var(--hacker-green);
-            box-shadow: 0 0 14px rgba(0, 255, 102, 0.5), inset 0 0 6px rgba(0, 255, 102, 0.15);
         }
         .cli-prefix {
             font-size: 11px;
             font-weight: 800;
             color: var(--hacker-green);
-            text-shadow: 0 0 6px rgba(0, 255, 102, 0.6);
             margin-right: 4px;
-            user-select: none;
-            white-space: nowrap;
-            display: flex;
-            align-items: center;
-        }
-        .cli-prefix::after {
-            content: '█';
-            font-size: 9px;
-            margin-left: 3px;
-            color: #00ff66;
-            animation: blinkCaret 1s infinite steps(2, start);
-        }
-        @keyframes blinkCaret {
-            0%, 50% { opacity: 1; }
-            51%, 100% { opacity: 0; }
         }
         .district-search {
             background: transparent;
@@ -240,325 +202,189 @@
             outline: none;
             caret-color: var(--hacker-green);
         }
-        .district-search::placeholder {
-            color: #4ade80;
-            opacity: 0.5;
-            font-weight: 500;
-        }
-        .district-search:focus {
-            color: #00ff66;
-            text-shadow: 0 0 4px rgba(0, 255, 102, 0.6);
-        }
+        .district-search::placeholder { color: #4ade80; opacity: 0.5; }
 
-        /* Total Districts Summary Box */
         .total-districts-card {
-            background: rgba(2, 12, 6, 0.6);
-            border: 1px dashed var(--border-glass);
-            border-radius: 4px;
-            padding: 8px 10px;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            padding: 7px 10px;
+            background: rgba(4, 25, 12, 0.7);
+            border: 1px solid var(--border-glass);
+            border-radius: 4px;
             margin-bottom: 8px;
-            cursor: default;
-            pointer-events: none;
-            user-select: none;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
         }
-        .td-left { display: flex; flex-direction: column; gap: 1px; }
-        .td-title {
-            font-size: 11.5px;
-            font-weight: 800;
-            color: #ffffff;
-            letter-spacing: 0.3px;
-            text-shadow: 0 0 4px rgba(0, 0, 0, 0.9);
-        }
-        .td-sub {
-            font-size: 10px;
-            color: #86efac;
-            letter-spacing: 0.2px;
-        }
+        .td-title { font-size: 11px; font-weight: 800; color: #ffffff; }
+        .td-sub { font-size: 9px; color: #86efac; opacity: 0.8; font-weight: 600; }
         .td-badge {
-            background: rgba(0, 255, 102, 0.15);
-            border: 1px solid rgba(0, 255, 102, 0.6);
+            background: rgba(0, 255, 102, 0.2);
+            border: 1px solid #00ff66;
             color: #00ff66;
-            text-shadow: 0 0 6px rgba(0, 255, 102, 0.7);
-            font-size: 11px;
-            font-weight: 800;
             padding: 3px 8px;
             border-radius: 3px;
-            letter-spacing: 0.3px;
+            font-size: 10px;
+            font-weight: 800;
         }
 
-        /* Scrollable States & Districts List */
         .districts-scroll {
             flex: 1;
             overflow-y: auto;
+            padding-right: 4px;
             display: flex;
             flex-direction: column;
-            gap: 4px;
-            padding-right: 3px;
-            background: transparent;
+            gap: 6px;
         }
         .districts-scroll::-webkit-scrollbar { width: 4px; }
-        .districts-scroll::-webkit-scrollbar-track { background: transparent; }
         .districts-scroll::-webkit-scrollbar-thumb { background: rgba(0, 255, 102, 0.4); border-radius: 2px; }
 
-        /* State Group & Accordion Header */
-        .state-group {
-            display: flex;
-            flex-direction: column;
-            margin-bottom: 3px;
-            background: transparent;
-        }
+        .state-group { display: flex; flex-direction: column; gap: 2px; margin-bottom: 4px; }
         .state-card {
-            background: rgba(3, 14, 8, 0.65);
-            border: 1px solid var(--border-faint);
+            background: rgba(4, 20, 10, 0.7);
+            border: 1px solid var(--border-glass);
             border-radius: 4px;
-            padding: 8px 10px;
+            padding: 6px 8px;
             display: flex;
             justify-content: space-between;
             align-items: center;
             cursor: pointer;
-            transition: all 0.18s cubic-bezier(0.4, 0, 0.2, 1);
-            position: relative;
-            overflow: hidden;
-            user-select: none;
+            transition: all 0.15s;
         }
         .state-card:hover {
             background: rgba(0, 255, 102, 0.12);
-            border-color: var(--hacker-green);
-            transform: translateY(-1px);
-            box-shadow: 0 0 12px rgba(0, 255, 102, 0.4);
-        }
-        .state-card.expanded {
-            background: rgba(0, 255, 102, 0.08);
-            border-color: var(--hacker-green);
-            box-shadow: 0 0 14px rgba(0, 255, 102, 0.4);
+            border-color: #00ff66;
         }
         .state-card.active-state {
-            background: rgba(0, 255, 102, 0.22) !important;
-            border-color: #00ff66 !important;
-            box-shadow: 0 0 16px rgba(0, 255, 102, 0.55), inset 0 0 8px rgba(0, 255, 102, 0.2) !important;
+            background: rgba(0, 255, 102, 0.25);
+            border-color: #00ff66;
+            box-shadow: 0 0 10px rgba(0, 255, 102, 0.3);
         }
-        .sc-left {
-            display: flex;
-            flex-direction: column;
-            gap: 1px;
-        }
-        .sc-name {
-            font-size: 12px;
-            font-weight: 800;
-            color: #ffffff;
-            letter-spacing: 0.3px;
-            text-transform: uppercase;
-            text-shadow: 0 0 4px rgba(0, 0, 0, 0.95);
-        }
-        .sc-count {
-            font-size: 10px;
-            color: #86efac;
-        }
-        .sc-right {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
+        .sc-name { font-size: 11.5px; font-weight: 700; color: #f0fdf4; }
+        .sc-count { font-size: 9.5px; color: #86efac; opacity: 0.8; margin-left: 4px; }
         .sc-badge {
-            font-size: 10px;
-            font-weight: 800;
-            padding: 2px 6px;
-            border-radius: 3px;
-            letter-spacing: 0.2px;
-        }
-        .sc-badge-active {
-            background: rgba(0, 255, 102, 0.18);
-            color: #00ff66;
-            border: 1px solid #00ff66;
-            text-shadow: 0 0 6px rgba(0, 255, 102, 0.8);
-            box-shadow: 0 0 8px rgba(0, 255, 102, 0.35);
-        }
-        .sc-badge-zero {
-            background: rgba(20, 50, 28, 0.3);
-            color: #4ade80;
-            border: 1px solid rgba(34, 197, 94, 0.25);
-        }
-        .sc-chevron {
-            font-size: 9px;
-            color: #4ade80;
-            transition: transform 0.2s ease;
-        }
-        .state-card.expanded .sc-chevron {
-            color: var(--hacker-green);
-        }
-
-        /* Collapsible Districts List */
-        .state-districts-list {
-            display: none;
-            flex-direction: column;
-            gap: 3px;
-            padding: 4px 0 4px 6px;
-            border-left: 2px solid rgba(0, 255, 102, 0.45);
-            margin-left: 8px;
-            margin-top: 3px;
-            background: transparent;
-        }
-        .state-districts-list.open {
-            display: flex;
-        }
-
-        /* District Card inside State */
-        .d-item {
-            background: rgba(2, 12, 6, 0.6);
-            border: 1px solid var(--border-faint);
-            border-radius: 4px;
-            padding: 6px 9px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            cursor: pointer;
-            text-decoration: none;
-            color: inherit;
-            transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
-            position: relative;
-            overflow: hidden;
-        }
-        .d-item:hover {
-            background: rgba(0, 255, 102, 0.15);
-            border-color: var(--hacker-green);
-            transform: translateX(4px);
-            box-shadow: 0 0 12px rgba(0, 255, 102, 0.4);
-        }
-        .d-item.active {
-            background: rgba(0, 255, 102, 0.22);
-            border-color: var(--hacker-green);
-            box-shadow: 0 0 16px rgba(0, 255, 102, 0.55);
-        }
-        .d-info-name {
-            font-weight: 700;
-            font-size: 11.5px;
-            color: #ffffff;
-            text-transform: uppercase;
-            text-shadow: 0 0 4px rgba(0, 0, 0, 0.95);
-        }
-        .d-badge-count {
-            background: rgba(0, 255, 102, 0.15);
-            color: #4ade80;
-            border: 1px solid rgba(0, 255, 102, 0.5);
-            font-size: 10px;
+            font-size: 9.5px;
             font-weight: 800;
             padding: 1px 6px;
             border-radius: 3px;
-            white-space: nowrap;
         }
-        .btn-harvest-mini {
-            background: transparent;
-            border: 1px solid rgba(0, 255, 102, 0.4);
-            color: #4ade80;
-            padding: 2px 6px;
+        .sc-badge-active { background: rgba(0, 255, 102, 0.2); color: #39ff14; border: 1px solid #00ff66; }
+        .sc-badge-zero { background: rgba(148, 163, 184, 0.1); color: #94a3b8; border: 1px solid rgba(148, 163, 184, 0.3); }
+        .sc-chevron { font-size: 9px; color: #86efac; margin-left: 6px; }
+
+        .state-districts-list {
+            display: none;
+            flex-direction: column;
+            gap: 2px;
+            padding-left: 8px;
+            margin-top: 2px;
+            border-left: 2px solid rgba(0, 255, 102, 0.3);
+        }
+        .state-districts-list.open { display: flex; }
+
+        .d-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 4px 6px;
+            background: rgba(2, 12, 6, 0.5);
+            border: 1px solid rgba(0, 255, 102, 0.15);
             border-radius: 3px;
-            font-size: 10px;
-            font-weight: 700;
-            cursor: pointer;
-            transition: all 0.15s ease;
-            white-space: nowrap;
+            text-decoration: none;
+            color: #dcfce7;
+            font-size: 11px;
+            transition: all 0.12s;
         }
-        .btn-harvest-mini:hover {
+        .d-item:hover {
+            background: rgba(0, 255, 102, 0.18);
+            border-color: #00ff66;
+            color: #ffffff;
+            padding-left: 9px;
+        }
+        .d-item.active {
             background: #00ff66;
             color: #010502;
+            font-weight: 800;
             border-color: #00ff66;
-            box-shadow: 0 0 10px rgba(0, 255, 102, 0.7);
+            box-shadow: 0 0 10px rgba(0, 255, 102, 0.6);
+        }
+        .d-item.active .d-badge-count { background: #010502; color: #00ff66; }
+        .d-badge-count {
+            font-size: 9.5px;
+            font-weight: 800;
+            padding: 1px 5px;
+            border-radius: 2px;
+            background: rgba(0, 255, 102, 0.15);
+            color: #86efac;
+            border: 1px solid rgba(0, 255, 102, 0.35);
         }
 
-        /* RIGHT PANEL: Pure Hacker Green Terminal Outreach CRM */
+        /* RIGHT PANEL (Outreach CRM Table) */
         .right-panel {
             background: var(--surface-glass);
             border: 1.5px solid var(--border-glass);
             border-radius: 6px;
-            padding: 10px 14px;
             display: flex;
             flex-direction: column;
-            height: 100%;
+            padding: 10px;
+            box-shadow: 0 0 20px rgba(0, 255, 102, 0.08), inset 0 0 15px rgba(0, 255, 102, 0.03);
+            backdrop-filter: blur(10px);
             overflow: hidden;
-            box-shadow: 0 0 25px rgba(0, 0, 0, 0.85), inset 0 0 2px rgba(0, 255, 102, 0.25);
         }
 
-        /* Active District Banner */
         .top-banner {
-            background: rgba(2, 12, 6, 0.65);
-            border: 1px solid var(--border-glass);
-            border-radius: 4px;
-            padding: 8px 14px;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            background: rgba(2, 12, 6, 0.7);
+            border: 1.5px solid var(--border-glass);
+            border-radius: 4px;
+            padding: 8px 12px;
             margin-bottom: 8px;
-            position: relative;
-            overflow: hidden;
         }
-        .tb-left { display: flex; align-items: baseline; gap: 10px; }
         .tb-left h2 {
             margin: 0;
             font-size: 15px;
             font-weight: 800;
             color: #ffffff;
-            letter-spacing: 0.3px;
             text-transform: uppercase;
             text-shadow: 0 0 8px rgba(0, 255, 102, 0.6);
         }
-        .tb-left span {
-            color: #86efac;
-            font-size: 11px;
-            font-weight: 600;
-        }
+        .tb-left span { color: #86efac; font-size: 11px; font-weight: 600; }
+        .tb-right { display: flex; gap: 6px; align-items: center; }
 
-        .tb-right { display: flex; gap: 8px; align-items: center; }
-        .btn-tb {
-            padding: 6px 12px;
+        .btn-tb-action {
+            padding: 6px 10px;
             border-radius: 4px;
-            font-size: 11px;
+            font-size: 10.5px;
             font-weight: 800;
             cursor: pointer;
-            border: 1px solid transparent;
+            border: 1.2px solid var(--border-glass);
+            background: rgba(2, 12, 6, 0.7);
+            color: #86efac;
+            text-decoration: none;
             display: inline-flex;
             align-items: center;
-            gap: 5px;
+            gap: 4px;
             text-transform: uppercase;
-            letter-spacing: 0.3px;
-            transition: all 0.18s ease;
+            transition: all 0.15s ease;
         }
-        .btn-tb-copy {
-            background: rgba(2, 12, 6, 0.6);
-            border: 1.5px solid var(--border-glass);
-            color: #86efac;
-        }
-        .btn-tb-copy:hover {
+        .btn-tb-action:hover {
             border-color: #00ff66;
             color: #00ff66;
-            box-shadow: 0 0 14px rgba(0, 255, 102, 0.5);
+            background: rgba(0, 255, 102, 0.15);
+            box-shadow: 0 0 12px rgba(0, 255, 102, 0.5);
             transform: translateY(-1px);
         }
-
-        /* District Harvest Button */
-        .btn-tb-harvest {
-            background: rgba(0, 255, 102, 0.1);
-            border: 1.5px solid #00ff66;
+        .btn-tb-highlight {
+            background: rgba(0, 255, 102, 0.15);
+            border-color: #00ff66;
             color: #00ff66;
-            text-shadow: 0 0 6px rgba(0, 255, 102, 0.7);
-            box-shadow: 0 0 10px rgba(0, 255, 102, 0.3), inset 0 0 6px rgba(0, 255, 102, 0.1);
-            animation: cyberPulseGlow 4s infinite ease-in-out;
-        }
-        .btn-tb-harvest:hover {
-            background: #00ff66;
-            color: #010502;
-            text-shadow: none;
-            box-shadow: 0 0 22px rgba(0, 255, 102, 0.95);
-            transform: translateY(-1px);
+            text-shadow: 0 0 6px rgba(0, 255, 102, 0.6);
         }
 
         /* CLI Filter Strip */
         .filter-strip {
             display: flex;
-            gap: 8px;
+            gap: 6px;
             margin-bottom: 8px;
             align-items: center;
         }
@@ -568,282 +394,97 @@
             background: rgba(2, 12, 6, 0.65);
             border: 1.5px solid var(--border-glass);
             border-radius: 4px;
-            padding: 0 10px;
+            padding: 0 8px;
             flex: 1;
-            transition: all 0.2s ease;
-        }
-        .cli-search-box:focus-within {
-            border-color: var(--hacker-green);
-            box-shadow: 0 0 14px rgba(0, 255, 102, 0.5), inset 0 0 6px rgba(0, 255, 102, 0.15);
         }
         .search-field {
             background: transparent;
             border: none;
             color: #ffffff;
-            padding: 7px 4px;
-            font-size: 12px;
+            padding: 6px 4px;
+            font-size: 11.5px;
             font-weight: 600;
             width: 100%;
             outline: none;
             caret-color: var(--hacker-green);
         }
         .search-field::placeholder { color: #4ade80; opacity: 0.5; }
-        .search-field:focus {
-            color: #00ff66;
-            text-shadow: 0 0 4px rgba(0, 255, 102, 0.6);
-        }
 
         .cat-select {
-            background: rgba(2, 12, 6, 0.8);
+            background: rgba(2, 12, 6, 0.85);
             border: 1.5px solid var(--border-glass);
             color: #f0fdf4;
-            padding: 7px 10px;
+            padding: 6px 8px;
             border-radius: 4px;
             font-size: 11px;
             font-weight: 700;
             outline: none;
             cursor: pointer;
         }
-        .cat-select:focus { border-color: var(--hacker-green); }
+        .cat-select option { background: #020d06; color: #f0fdf4; }
 
-        .btn-submit-search {
-            background: rgba(0, 255, 102, 0.15);
-            border: 1.5px solid #00ff66;
-            color: #00ff66;
-            padding: 7px 14px;
+        .btn-submit-search, .btn-reset-search {
+            padding: 6px 10px;
             border-radius: 4px;
-            font-size: 11px;
+            font-size: 10.5px;
             font-weight: 800;
             cursor: pointer;
             text-transform: uppercase;
-            transition: all 0.15s ease;
-        }
-        .btn-submit-search:hover {
-            background: #00ff66;
-            color: #010502;
-            box-shadow: 0 0 14px rgba(0, 255, 102, 0.8);
-        }
-        .btn-reset-search {
-            background: rgba(2, 12, 6, 0.6);
-            border: 1.5px solid var(--border-faint);
-            color: #86efac;
-            padding: 7px 10px;
-            border-radius: 4px;
-            font-size: 11px;
-            font-weight: 700;
             text-decoration: none;
-            text-transform: uppercase;
-            transition: all 0.15s ease;
         }
-        .btn-reset-search:hover { color: #ffffff; border-color: #00ff66; }
+        .btn-submit-search {
+            background: rgba(0, 255, 102, 0.2);
+            border: 1.5px solid #00ff66;
+            color: #00ff66;
+        }
+        .btn-submit-search:hover { background: #00ff66; color: #000; }
+        .btn-reset-search {
+            background: rgba(2, 12, 6, 0.7);
+            border: 1.5px solid var(--border-glass);
+            color: #86efac;
+        }
+        .btn-reset-search:hover { border-color: #ef4444; color: #ef4444; }
 
-        /* Table & Scroll Container */
+        /* Customers Table */
         .table-scroll {
             flex: 1;
             overflow-y: auto;
-            border: 1.5px solid var(--border-glass);
+            border: 1px solid var(--border-glass);
             border-radius: 4px;
-            background: rgba(2, 10, 5, 0.6);
-            box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.5);
-            position: relative;
+            background: rgba(2, 10, 5, 0.65);
         }
-        .table-scroll::-webkit-scrollbar { width: 5px; }
-        .table-scroll::-webkit-scrollbar-thumb { background: rgba(0, 255, 102, 0.4); border-radius: 2px; }
-
-        table { width: 100%; border-collapse: collapse; text-align: left; position: relative; z-index: 2; background: transparent; }
-        thead th {
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 11.5px;
+        }
+        thead {
             position: sticky;
             top: 0;
-            background: rgba(2, 10, 5, 0.95);
-            color: #86efac;
-            font-size: 10px;
+            background: rgba(3, 18, 9, 0.98);
+            border-bottom: 2px solid var(--border-glass);
+            z-index: 10;
+        }
+        th {
+            color: var(--hacker-green);
             font-weight: 800;
             text-transform: uppercase;
-            letter-spacing: 0.6px;
-            padding: 9px 12px;
-            border-bottom: 1.5px solid var(--border-glass);
-            z-index: 6;
-        }
-        tbody td {
-            padding: 8px 12px;
-            border-bottom: 1px solid rgba(10, 45, 22, 0.4);
-            font-size: 11.5px;
-            vertical-align: middle;
-            color: #ffffff;
-            text-shadow: 0 0 3px rgba(0, 0, 0, 0.95);
+            padding: 8px 6px;
+            text-align: left;
+            font-size: 10.5px;
+            letter-spacing: 0.3px;
         }
         tbody tr {
-            background: transparent;
-            transition: all 0.12s ease;
-            animation: terminalRowSlide 0.25s cubic-bezier(0.2, 0, 0.2, 1) forwards;
+            border-bottom: 1px solid rgba(0, 255, 102, 0.1);
+            transition: background 0.1s;
         }
-        @keyframes terminalRowSlide {
-            0% { opacity: 0; transform: translateX(-6px); }
-            100% { opacity: 1; transform: translateX(0); }
-        }
-        tbody tr:hover {
-            background: rgba(0, 255, 102, 0.12);
-            box-shadow: inset 3px 0 0 #00ff66, 0 0 15px rgba(0, 255, 102, 0.2);
-        }
+        tbody tr:hover { background: rgba(0, 255, 102, 0.08); }
+        td { padding: 7px 6px; vertical-align: middle; }
 
-        /* Hacker Badges */
-        .cat-badge {
-            display: inline-block;
-            padding: 2px 6px;
-            border-radius: 3px;
-            font-size: 10px;
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 0.3px;
-        }
-        .cat-stamp {
-            background: rgba(2, 22, 10, 0.7);
-            color: #86efac;
-            border: 1px solid rgba(34, 197, 94, 0.8);
-            text-shadow: 0 0 4px rgba(134, 239, 172, 0.6);
-        }
-        .cat-csc {
-            background: rgba(2, 26, 12, 0.7);
-            color: #00ff66;
-            border: 1px solid rgba(0, 255, 102, 0.8);
-            text-shadow: 0 0 4px rgba(0, 255, 102, 0.6);
-        }
-        .cat-typist {
-            background: rgba(3, 20, 10, 0.7);
-            color: #4ade80;
-            border: 1px solid rgba(74, 222, 128, 0.8);
-            text-shadow: 0 0 4px rgba(74, 222, 128, 0.6);
-        }
-        .cat-advocate {
-            background: rgba(5, 18, 9, 0.7);
-            color: #a7f3d0;
-            border: 1px solid rgba(52, 211, 153, 0.8);
-        }
-        .cat-gmaps {
-            background: rgba(2, 18, 12, 0.7);
-            color: #38bdf8;
-            border: 1px solid rgba(56, 189, 248, 0.8);
-            text-shadow: 0 0 4px rgba(56, 189, 248, 0.6);
-        }
-        .cat-jd {
-            background: rgba(20, 15, 2, 0.7);
-            color: #fbbf24;
-            border: 1px solid rgba(251, 191, 36, 0.8);
-            text-shadow: 0 0 4px rgba(251, 191, 36, 0.6);
-        }
-        .cat-trade {
-            background: rgba(18, 5, 20, 0.7);
-            color: #c084fc;
-            border: 1px solid rgba(192, 132, 252, 0.8);
-            text-shadow: 0 0 4px rgba(192, 132, 252, 0.6);
-        }
-
-        .phone-text {
-            font-size: 11.5px;
-            font-weight: 800;
-            color: #00ff66;
-            text-shadow: 0 0 6px rgba(0, 255, 102, 0.6);
-            background: rgba(2, 12, 6, 0.8);
-            border: 1px solid rgba(0, 255, 102, 0.4);
-            padding: 2px 6px;
-            border-radius: 3px;
-            letter-spacing: 0.5px;
-        }
-        .btn-cp {
-            background: rgba(2, 12, 6, 0.7);
-            border: 1px solid var(--border-glass);
-            color: #86efac;
-            padding: 2px 5px;
-            border-radius: 3px;
-            cursor: pointer;
-            font-size: 10px;
-            font-weight: 800;
-            margin-left: 5px;
-            transition: all 0.12s;
-        }
-        .btn-cp:hover {
-            background: #00ff66;
-            color: #010502;
-            border-color: #00ff66;
-        }
-
-        /* WhatsApp Action (Terminal Phosphor Green Wireframe) */
-        .btn-wa-hacker {
-            background: rgba(1, 10, 5, 0.7);
-            border: 1px solid #00ff66;
-            color: #00ff66;
-            text-shadow: 0 0 6px rgba(0, 255, 102, 0.8);
-            box-shadow: 0 0 8px rgba(0, 255, 102, 0.3);
-            padding: 3px 8px;
-            border-radius: 3px;
-            font-size: 10.5px;
-            font-weight: 800;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 4px;
-            letter-spacing: 0.3px;
-            white-space: nowrap;
-            transition: all 0.15s ease;
-            animation: waPulse 2.8s infinite ease-in-out;
-        }
-        @keyframes waPulse {
-            0%, 100% {
-                box-shadow: 0 0 6px rgba(0, 255, 102, 0.25);
-                border-color: rgba(0, 255, 102, 0.7);
-            }
-            50% {
-                box-shadow: 0 0 14px rgba(0, 255, 102, 0.7);
-                border-color: #00ff66;
-            }
-        }
-        .btn-wa-hacker:hover {
-            background: #00ff66;
-            color: #010402;
-            text-shadow: none;
-            box-shadow: 0 0 18px rgba(0, 255, 102, 0.95);
-            transform: translateY(-1px);
-        }
-
-        /* Compact In-Scroll Pagination */
-        .scroll-pagination {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 12px;
-            padding: 10px;
-            background: rgba(2, 10, 5, 0.7);
-            border-top: 1px solid var(--border-glass);
-        }
-        .btn-mini-page {
-            background: rgba(2, 12, 6, 0.7);
-            border: 1px solid var(--border-glass);
-            color: #4ade80;
-            padding: 4px 10px;
-            border-radius: 3px;
-            font-size: 11px;
-            font-weight: 800;
-            text-decoration: none;
-            text-transform: uppercase;
-            transition: all 0.15s;
-        }
-        .btn-mini-page:hover:not(.disabled) {
-            background: #00ff66;
-            color: #010502;
-            box-shadow: 0 0 10px rgba(0, 255, 102, 0.7);
-        }
-        .btn-mini-page.disabled { opacity: 0.25; pointer-events: none; }
-        .page-indicator {
-            font-size: 10.5px;
-            color: #86efac;
-            font-weight: 700;
-            letter-spacing: 0.3px;
-        }
-    
-        /* STATUS BADGES & REPLY STYLING */
+        /* STATUS BADGES & REPLIES */
         .status-badge {
             display: inline-block;
-            padding: 2px 6px;
+            padding: 3px 6px;
             border-radius: 3px;
             font-size: 9.5px;
             font-weight: 800;
@@ -862,86 +503,304 @@
             text-shadow: 0 0 5px rgba(56, 189, 248, 0.5);
         }
         .status-replied {
-            background: rgba(0, 255, 102, 0.2);
+            background: rgba(0, 255, 102, 0.22);
             border: 1.2px solid #00ff66;
             color: #00ff66;
-            text-shadow: 0 0 6px rgba(0, 255, 102, 0.8);
-            box-shadow: 0 0 8px rgba(0, 255, 102, 0.3);
+            text-shadow: 0 0 6px rgba(0, 255, 102, 0.9);
+            box-shadow: 0 0 10px rgba(0, 255, 102, 0.4);
         }
         .status-hot {
-            background: rgba(245, 158, 11, 0.2);
+            background: rgba(245, 158, 11, 0.25);
             border: 1.2px solid #f59e0b;
             color: #fbbf24;
-            text-shadow: 0 0 6px rgba(245, 158, 11, 0.8);
+            text-shadow: 0 0 6px rgba(245, 158, 11, 0.9);
         }
-        .reply-snippet {
-            font-size: 10.5px;
-            color: #39ff14;
-            font-weight: 600;
-            margin-top: 3px;
-            opacity: 0.9;
-            background: rgba(0, 255, 102, 0.08);
-            padding: 2px 4px;
-            border-left: 2px solid #00ff66;
-            border-radius: 2px;
-        }
-        .btn-mark-reply {
-            background: rgba(0, 255, 102, 0.08);
+
+        .reply-bubble {
+            background: rgba(0, 255, 102, 0.1);
             border: 1px solid rgba(0, 255, 102, 0.4);
+            border-left: 3px solid #00ff66;
+            padding: 4px 7px;
+            border-radius: 3px;
+            font-size: 11px;
+            line-height: 1.3;
+        }
+        .reply-bubble-header {
+            font-size: 9.5px;
+            font-weight: 800;
             color: #86efac;
+            margin-bottom: 2px;
+        }
+        .reply-bubble-text {
+            color: #39ff14;
+            font-weight: 700;
+        }
+        .reply-pending {
+            font-size: 10px;
+            color: #38bdf8;
+            opacity: 0.85;
+            font-weight: 600;
+        }
+        .reply-not-sent {
+            font-size: 10px;
+            color: #64748b;
+            opacity: 0.7;
+            font-weight: 600;
+        }
+
+        /* DIRECT ACTION BUTTONS */
+        .btn-wa-direct {
+            background: rgba(0, 255, 102, 0.18);
+            border: 1.2px solid #00ff66;
+            color: #00ff66;
+            padding: 4px 8px;
+            border-radius: 3px;
+            font-size: 10px;
+            font-weight: 800;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+            text-shadow: 0 0 6px rgba(0, 255, 102, 0.7);
+            transition: all 0.15s;
+            white-space: nowrap;
+        }
+        .btn-wa-direct:hover {
+            background: #00ff66;
+            color: #010502;
+            text-shadow: none;
+            box-shadow: 0 0 14px rgba(0, 255, 102, 0.9);
+            transform: scale(1.02);
+        }
+
+        .btn-log-reply {
+            background: rgba(245, 158, 11, 0.12);
+            border: 1px solid rgba(245, 158, 11, 0.5);
+            color: #fbbf24;
             padding: 3px 6px;
             border-radius: 3px;
-            font-size: 9.5px;
-            font-weight: 700;
+            font-size: 9px;
+            font-weight: 800;
             cursor: pointer;
+            text-transform: uppercase;
             transition: all 0.15s;
+            white-space: nowrap;
         }
-        .btn-mark-reply:hover {
-            background: #00ff66;
+        .btn-log-reply:hover {
+            background: #f59e0b;
             color: #000;
-            border-color: #00ff66;
+            border-color: #f59e0b;
         }
+
+        .cat-badge {
+            display: inline-block;
+            padding: 1px 4px;
+            border-radius: 2px;
+            font-size: 8.5px;
+            font-weight: 800;
+            letter-spacing: 0.2px;
+        }
+        .cat-typist { background: rgba(56, 189, 248, 0.12); color: #7dd3fc; border: 1px solid rgba(56, 189, 248, 0.35); }
+        .cat-stamp { background: rgba(245, 158, 11, 0.12); color: #fcd34d; border: 1px solid rgba(245, 158, 11, 0.35); }
+        .cat-csc { background: rgba(168, 85, 247, 0.12); color: #d8b4fe; border: 1px solid rgba(168, 85, 247, 0.35); }
+        .cat-advocate { background: rgba(239, 68, 68, 0.12); color: #fca5a5; border: 1px solid rgba(239, 68, 68, 0.35); }
+
+        .btn-cp {
+            background: transparent;
+            border: 1px solid rgba(0, 255, 102, 0.4);
+            color: #86efac;
+            font-size: 9px;
+            font-weight: 700;
+            padding: 1px 4px;
+            border-radius: 2px;
+            cursor: pointer;
+            margin-left: 3px;
+        }
+        .btn-cp:hover { background: #00ff66; color: #000; }
+
+        .scroll-pagination {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 6px 10px;
+            background: rgba(3, 18, 9, 0.95);
+            border-top: 1px solid var(--border-glass);
+        }
+        .btn-mini-page {
+            background: rgba(0, 255, 102, 0.12);
+            border: 1px solid var(--border-glass);
+            color: #86efac;
+            padding: 3px 8px;
+            border-radius: 3px;
+            text-decoration: none;
+            font-size: 10px;
+            font-weight: 700;
+        }
+        .btn-mini-page:hover { background: #00ff66; color: #000; }
+        .btn-mini-page.disabled { opacity: 0.3; pointer-events: none; }
+        .page-indicator { font-size: 10px; color: #86efac; font-weight: 700; }
+    
+        /* WHATSAPP MODAL & HUD BADGE */
+        .btn-wa-link {
+            background: rgba(0, 255, 102, 0.15);
+            border: 1.5px solid #00ff66;
+            color: #00ff66;
+            padding: 6px 11px;
+            border-radius: 4px;
+            font-size: 10.5px;
+            font-weight: 800;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 0.4px;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            box-shadow: 0 0 12px rgba(0, 255, 102, 0.4);
+            transition: all 0.2s;
+        }
+        .btn-wa-link:hover {
+            background: #00ff66;
+            color: #010502;
+            box-shadow: 0 0 20px rgba(0, 255, 102, 0.9);
+            transform: translateY(-1px);
+        }
+        .wa-status-dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            display: inline-block;
+        }
+        .dot-green { background: #00ff66; box-shadow: 0 0 8px #00ff66; animation: pulseGlow 1.8s infinite; }
+        .dot-yellow { background: #fbbf24; box-shadow: 0 0 8px #fbbf24; }
+        .dot-red { background: #ef4444; box-shadow: 0 0 8px #ef4444; }
+
+        /* MODAL POPUP */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 5, 2, 0.85);
+            backdrop-filter: blur(8px);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+        .modal-box {
+            background: #020f06;
+            border: 2px solid #00ff66;
+            box-shadow: 0 0 35px rgba(0, 255, 102, 0.35);
+            border-radius: 6px;
+            width: 460px;
+            max-width: 95vw;
+            padding: 20px;
+            position: relative;
+            color: #f0fdf4;
+        }
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(0, 255, 102, 0.3);
+            padding-bottom: 10px;
+            margin-bottom: 14px;
+        }
+        .modal-title {
+            font-size: 13px;
+            font-weight: 800;
+            color: #00ff66;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .btn-modal-close {
+            background: transparent;
+            border: 1px solid rgba(239, 68, 68, 0.5);
+            color: #ef4444;
+            padding: 2px 8px;
+            border-radius: 3px;
+            cursor: pointer;
+            font-weight: 800;
+            font-size: 11px;
+        }
+        .btn-modal-close:hover { background: #ef4444; color: #fff; }
+        .qr-display-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 15px;
+            background: rgba(1, 8, 4, 0.8);
+            border: 1px solid rgba(0, 255, 102, 0.25);
+            border-radius: 4px;
+            margin-bottom: 14px;
+            min-height: 240px;
+        }
+        .qr-img {
+            width: 210px;
+            height: 210px;
+            border: 4px solid #ffffff;
+            border-radius: 4px;
+            background: #fff;
+        }
+        .qr-instructions {
+            font-size: 11px;
+            color: #86efac;
+            line-height: 1.5;
+            background: rgba(0, 255, 102, 0.06);
+            border-left: 3px solid #00ff66;
+            padding: 8px 10px;
+            margin-bottom: 12px;
+        }
+        .qr-instructions ol { margin: 4px 0 0 16px; padding: 0; }
+        .qr-instructions li { margin-bottom: 3px; }
 
     </style>
 </head>
 <body>
     <div class="main-container">
-        <!-- LEFT PANEL: 333 Districts Recon -->
+        <!-- LEFT PANEL: Territories -->
         <div class="left-panel">
             <!-- Terminal HUD Bar -->
             <div class="terminal-hud">
                 <div class="hud-left">
                     <span class="hud-pulse"></span>
-                    <span class="hud-title" onmouseenter="decryptText(this)">[SYS_OP: RECON_333]</span>
+                    <span class="hud-title">[SYS_OP // CRM_OUTREACH]</span>
                 </div>
                 <div class="hud-right">
-                    <span class="hud-badge">10 STATES</span>
+                    <span class="hud-badge">19 STATES</span>
                     <span class="hud-badge">ONLINE</span>
                 </div>
             </div>
 
             <!-- Command with Chat Button -->
-            <button onclick="commandWithChat()" class="btn-auto-harvest" title="Command with Chat">
+            <button onclick="commandWithChat()" class="btn-command-chat" title="Interactive Outreach Console & Command Runner">
                 [ &gt;_ COMMAND WITH CHAT ]
             </button>
 
             <!-- Quick Utility Bar -->
             <div class="left-utility-bar">
                 <a href="/download" class="btn-mini-util" title="Download Master Database (.xlsx)">[ EXCEL_DB ({{ total_master_leads }}) ]</a>
-                <a href="/?phones_only=1" class="btn-mini-util" id="btnMobileOnly" onclick="filterMobileOnly(event)" title="View all verified direct mobile leads">[ MOB.NO ({{ total_mobile_leads }}) ]</a>
+                <a href="/?phones_only=1" class="btn-mini-util" title="View all verified mobile leads">[ ALL_MOBILES ({{ total_mobile_leads }}) ]</a>
             </div>
 
-            <!-- CLI Search Districts Bar (Hacker Typing Experience) -->
+            <!-- CLI Search Districts Bar -->
             <div class="cli-prompt-bar">
-                <span class="cli-prefix">root@recon:~$</span>
+                <span class="cli-prefix">root@crm:~$</span>
                 <input type="text" id="districtSearchInput" class="district-search" placeholder="filter --district (e.g. Haridwar)..." onkeyup="filterDistricts()" autocomplete="off" spellcheck="false">
             </div>
 
-            <!-- Total Districts Summary Box (Non-Clickable, Distinct Styling) -->
+            <!-- Total Districts Summary Box -->
             <div class="total-districts-card">
                 <div class="td-left">
-                    <div class="td-title">[ ROOT_TARGETS // 333 DISTRICTS ]</div>
-                    <div class="td-sub">10 HINDI STATES // RECON MATRIX</div>
+                    <div class="td-title">[ ROOT_TARGETS // 456 DISTRICTS ]</div>
+                    <div class="td-sub">19 HINDI &amp; BILINGUAL STATES</div>
                 </div>
                 <div class="td-badge" id="totalLeadsBadge">{{ total_master_leads }} LEADS</div>
             </div>
@@ -967,18 +826,32 @@
                 </div>
             </div>
 
-            <!-- Top District Banner -->
+            <!-- Top District Banner with Useful Action Buttons -->
             <div class="top-banner">
                 <div class="tb-left">
                     <h2 id="activeBannerTitle">{{ active_district }}</h2>
                     <span>[ {{ active_district_count }} TARGETS READY // STATE: {{ active_state }} ]</span>
                 </div>
                 <div class="tb-right">
-                    <button onclick="copyDistrictPhones()" class="btn-tb btn-tb-copy" title="Copy all numbers on this page to clipboard">
-                        [ &gt;_ EXTRACT_KEYS ]
+                    <button onclick="toggleBroadcast()" id="broadcastBtn" class="btn-tb-action" style="background:rgba(0,255,102,0.18); border-color:#00ff66; color:#00ff66;" title="Start/Pause 2-Minute Automated Outreach">
+                        <span id="broadcastDot" class="wa-status-dot dot-green"></span>
+                        <span id="broadcastText">[ ▶ 2-MIN OUTREACH: ACTIVE ]</span>
                     </button>
-                    <button onclick="openCampaignConsole()" class="btn-tb btn-tb-harvest" title="Open Daily 120 Batch Campaign Console">
-                        [ &gt;_ CAMPAIGN_CONSOLE ]
+                    <button onclick="toggleAutoReply()" id="autoReplyBtn" class="btn-tb-action" style="background:rgba(239,68,68,0.12); border-color:rgba(239,68,68,0.5); color:#fca5a5;" title="Turn AI Auto-Reply ON/OFF">
+                        [ 🤖 AI AUTO-REPLY: OFF ]
+                    </button>
+                    <button onclick="openWaModal()" id="waHeaderBtn" class="btn-wa-link" title="Connect WhatsApp via Cloud QR Code">
+                        <span id="waStatusDot" class="wa-status-dot dot-yellow"></span>
+                        <span id="waStatusText">[ 📱 LINK WHATSAPP ]</span>
+                    </button>
+                    <a href="/?today_only=1" class="btn-tb-action btn-tb-highlight" title="Load Today's 120 Queued Leads">
+                        [ &gt;_ TODAY'S 120 TARGETS ]
+                    </a>
+                    <a href="/?status=REPLIED" class="btn-tb-action" title="Filter Only Customers Who Replied">
+                        [ &gt;_ REPLIED ({{ total_replied }}) ]
+                    </a>
+                    <button onclick="openAddLeadModal()" class="btn-tb-action" title="Add a new customer lead to database">
+                        [ + ADD NEW LEAD ]
                     </button>
                 </div>
             </div>
@@ -991,17 +864,12 @@
                 
                 <div class="cli-search-box">
                     <span class="cli-prefix">grep -i</span>
-                    <input type="text" name="search" class="search-field" placeholder="query --customer (name, mobile, court)..." value="{{ search }}" autocomplete="off" spellcheck="false">
+                    <input type="text" name="search" class="search-field" placeholder="query --customer (name, mobile, district, reply)..." value="{{ search }}" autocomplete="off" spellcheck="false">
                 </div>
                 
                 <select name="category" class="cat-select" onchange="this.form.submit()">
                     <option value="">[ ALL CATEGORIES ]</option>
                     {{ category_dropdown_options }}
-                </select>
-
-                <select name="source" class="cat-select" onchange="this.form.submit()">
-                    <option value="">[ ALL SOURCES ]</option>
-                    {{ source_dropdown_options }}
                 </select>
 
                 <select name="status" class="cat-select" onchange="this.form.submit()">
@@ -1013,17 +881,18 @@
                 <a href="/?district={{ active_district }}&state={{ active_state }}" class="btn-reset-search">[ RESET ]</a>
             </form>
 
-            <!-- Customers Table (100% Transparent, No Radar Scanline) -->
+            <!-- Customers Table: Mobile Number 1st Column, Name 2nd, Reply Status & Text 3rd, Direct WA & Reply Buttons 4th -->
             <div class="table-scroll">
                 <table>
                     <thead>
                         <tr>
-                            <th style="width:45px;">#</th>
-                            <th style="width:145px;">[CLASS // SOURCE]</th>
-                            <th>[TARGET // ENTITY NAME]</th>
-                            <th style="width:180px;">[COMM_KEY // MOBILE]</th>
-                            <th>[COORDINATES // LOCATION]</th>
-                            <th style="width:115px; text-align:center;">[TRANSMIT]</th>
+                            <th style="width:45px; text-align:center;">#ID</th>
+                            <th style="width:160px;">[COMM_KEY // MOBILE]</th>
+                            <th style="width:190px;">[CUSTOMER NAME // CAT]</th>
+                            <th style="width:105px; text-align:center;">[STATUS]</th>
+                            <th>[INBOUND REPLY // CONVERSATION]</th>
+                            <th style="width:160px;">[TERRITORY // LOCATION]</th>
+                            <th style="width:150px; text-align:center;">[DIRECT ACTIONS]</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -1033,222 +902,48 @@
 
                 <!-- Compact In-Scroll Pagination -->
                 <div class="scroll-pagination">
-                    <a href="/?district={{ active_district }}&state={{ active_state }}&page={{ prev_page }}&search={{ search }}&category={{ category }}&source={{ source }}&phones_only={{ phones_only }}" class="btn-mini-page {{ prev_disabled }}">&larr; [ PREV ]</a>
+                    <a href="/?district={{ active_district }}&state={{ active_state }}&page={{ prev_page }}&search={{ search }}&category={{ category }}&status={{ status }}&phones_only={{ phones_only }}&today_only={{ today_only }}" class="btn-mini-page {{ prev_disabled }}">&larr; [ PREV ]</a>
                     <span class="page-indicator">[ PAGE {{ page }} OF {{ total_pages }} // {{ filtered_count }} TARGETS ]</span>
-                    <a href="/?district={{ active_district }}&state={{ active_state }}&page={{ next_page }}&search={{ search }}&category={{ category }}&source={{ source }}&phones_only={{ phones_only }}" class="btn-mini-page {{ next_disabled }}">[ NEXT ] &rarr;</a>
+                    <a href="/?district={{ active_district }}&state={{ active_state }}&page={{ next_page }}&search={{ search }}&category={{ category }}&status={{ status }}&phones_only={{ phones_only }}&today_only={{ today_only }}" class="btn-mini-page {{ next_disabled }}">[ NEXT ] &rarr;</a>
                 </div>
             </div>
         </div>
     </div>
 
     <script>
-        // 1. LIVE CYBER TEXT DECRYPT / SCRAMBLE ANIMATION
-        function decryptText(element, finalString, speed) {
-            if (!element) return;
-            var chars = "0123456789ABCDEF";
-            var iteration = 0;
-            var original = finalString || element.getAttribute("data-original") || element.innerText;
-            element.setAttribute("data-original", original);
-            clearInterval(element._decryptInterval);
-            
-            element._decryptInterval = setInterval(function() {
-                element.innerText = original.split("").map(function(char, index) {
-                    if (index < iteration) {
-                        return original[index];
-                    }
-                    if (char === " " || char === "\n") return char;
-                    return chars[Math.floor(Math.random() * chars.length)];
-                }).join("");
-                
-                if (iteration >= original.length) {
-                    clearInterval(element._decryptInterval);
-                }
-                iteration += 1 / (speed || 2);
-            }, 25);
-        }
-
-        // Run text scramble on load for banner and badge
-        window.addEventListener("DOMContentLoaded", function() {
-            var banner = document.getElementById("activeBannerTitle");
-            if (banner) decryptText(banner, null, 1.5);
-            var badge = document.getElementById("totalLeadsBadge");
-            if (badge) decryptText(badge, null, 2);
-        });
-
-        // 3. LIVE HUD CLOCK & TELEMETRY ADDRESS TICKER
-        (function initTelemetry() {
-            var clkEl = document.getElementById("telemetryClock");
-            var addrEl = document.getElementById("telemetryAddr");
-            var hexPool = ["0x7F4A", "0x3B8C", "0x9E01", "0x12FA", "0x6CD4", "0x44BE", "0x890F"];
-
-            function updateTime() {
-                var now = new Date();
-                var h = String(now.getHours()).padStart(2, '0');
-                var m = String(now.getMinutes()).padStart(2, '0');
-                var s = String(now.getSeconds()).padStart(2, '0');
-                if (clkEl) clkEl.innerText = h + ":" + m + ":" + s;
-            }
-            updateTime();
-            setInterval(updateTime, 1000);
-
-            setInterval(function() {
-                if (addrEl) {
-                    var r = hexPool[Math.floor(Math.random() * hexPool.length)];
-                    addrEl.innerText = r;
-                }
-            }, 3000);
-        })();
-
-        var stateOpenTimes = {};
-
-        // 4. SELECT STATE & LOAD STATE-WIDE LEADS VIA AJAX
-        function selectState(e, sname, slug, cardEl) {
-            var isChevron = e && e.target && e.target.classList && e.target.classList.contains("sc-chevron");
+        // 1. SELECT STATE / ACCORDION
+        function selectState(event, stateName, slug, elem) {
             var list = document.getElementById("state-districts-" + slug);
-            var chevron = cardEl.querySelector(".sc-chevron");
-            var isOpen = list && list.classList.contains("open");
-
-            if (isChevron && isOpen) {
-                if (e.stopPropagation) e.stopPropagation();
-                list.classList.remove("open");
-                cardEl.classList.remove("expanded");
-                if (chevron) chevron.innerText = "▼";
-                return;
-            }
-
-            // Open accordion if closed
-            if (list && !isOpen) {
-                list.classList.add("open");
-                cardEl.classList.add("expanded");
-                if (chevron) chevron.innerText = "▲";
-                stateOpenTimes[slug] = Date.now();
-            }
-
-            // Active highlighting
-            document.querySelectorAll(".d-item").forEach(function(item) {
-                item.classList.remove("active");
-            });
-            document.querySelectorAll(".state-card").forEach(function(c) {
-                c.classList.remove("active-state");
-            });
-            cardEl.classList.add("active-state");
-
-            // Decrypt text
-            decryptText(cardEl.querySelector(".sc-name"), null, 1.5);
-
-            // Fetch state leads
-            var targetUrl = "/?state=" + encodeURIComponent(sname);
-            fetch(targetUrl)
-                .then(function(res) { return res.text(); })
-                .then(function(html) {
-                    var parser = new DOMParser();
-                    var doc = parser.parseFromString(html, "text/html");
-                    var newRight = doc.querySelector(".right-panel");
-                    if (newRight) {
-                        document.querySelector(".right-panel").innerHTML = newRight.innerHTML;
-                        var newTitle = document.getElementById("activeBannerTitle");
-                        if (newTitle) {
-                            decryptText(newTitle, sname.toUpperCase(), 1.5);
-                        }
-                    }
-                    window.history.pushState({}, "", targetUrl);
-                })
-                .catch(function() {
-                    window.location.href = targetUrl;
-                });
-        }
-
-        // DOUBLE-CLICK ACCORDION MINIMIZE / TOGGLE
-        function toggleStateAccordion(e, slug, cardEl) {
-            if (e) {
-                if (e.preventDefault) e.preventDefault();
-                if (e.stopPropagation) e.stopPropagation();
-            }
-            var list = document.getElementById("state-districts-" + slug);
-            var chevron = cardEl ? cardEl.querySelector(".sc-chevron") : null;
-            if (!list) return;
-
-            var lastOpened = stateOpenTimes[slug] || 0;
-            var justOpened = (Date.now() - lastOpened) < 450;
-
-            if (list.classList.contains("open")) {
-                if (!justOpened) {
+            if (list) {
+                var isOpen = list.classList.contains("open");
+                if (isOpen) {
                     list.classList.remove("open");
-                    if (cardEl) cardEl.classList.remove("expanded");
-                    if (chevron) chevron.innerText = "▼";
+                    elem.classList.remove("expanded");
+                    elem.querySelector(".sc-chevron").innerText = "▼";
+                } else {
+                    list.classList.add("open");
+                    elem.classList.add("expanded");
+                    elem.querySelector(".sc-chevron").innerText = "▲";
                 }
-            } else {
-                list.classList.add("open");
-                if (cardEl) cardEl.classList.add("expanded");
-                if (chevron) chevron.innerText = "▲";
-                stateOpenTimes[slug] = Date.now();
+            }
+            window.location.href = "/?state=" + encodeURIComponent(stateName);
+        }
+
+        function toggleStateAccordion(event, slug, elem) {
+            event.preventDefault();
+            event.stopPropagation();
+            var list = document.getElementById("state-districts-" + slug);
+            if (list) {
+                list.classList.toggle("open");
+                elem.classList.toggle("expanded");
+                var chevron = elem.querySelector(".sc-chevron");
+                if (chevron) {
+                    chevron.innerText = list.classList.contains("open") ? "▲" : "▼";
+                }
             }
         }
 
-        // FILTER VERIFIED DIRECT MOBILES ONLY
-        function filterMobileOnly(e) {
-            if (e && e.preventDefault) e.preventDefault();
-            document.querySelectorAll(".state-card").forEach(function(c) {
-                c.classList.remove("active-state");
-            });
-            document.querySelectorAll(".d-item").forEach(function(item) {
-                item.classList.remove("active");
-            });
-
-            var targetUrl = "/?phones_only=1";
-            fetch(targetUrl)
-                .then(function(res) { return res.text(); })
-                .then(function(html) {
-                    var parser = new DOMParser();
-                    var doc = parser.parseFromString(html, "text/html");
-                    var newRight = doc.querySelector(".right-panel");
-                    if (newRight) {
-                        document.querySelector(".right-panel").innerHTML = newRight.innerHTML;
-                        var newTitle = document.getElementById("activeBannerTitle");
-                        if (newTitle) {
-                            decryptText(newTitle, "VERIFIED MOBILES", 1.5);
-                        }
-                    }
-                    window.history.pushState({}, "", targetUrl);
-                })
-                .catch(function() {
-                    window.location.href = targetUrl;
-                });
-        }
-
-        // 5. DISTRICT SELECTION VIA AJAX WITH TARGET DECRYPT ANIMATION
-        function selectDistrict(e, dname, dstate, el) {
-            e.preventDefault();
-            document.querySelectorAll(".state-card").forEach(function(c) {
-                c.classList.remove("active-state");
-            });
-            document.querySelectorAll(".d-item").forEach(function(item) {
-                item.classList.remove("active");
-            });
-            if (el) el.classList.add("active");
-
-            var targetUrl = "/?district=" + encodeURIComponent(dname) + "&state=" + encodeURIComponent(dstate);
-            fetch(targetUrl)
-                .then(function(res) { return res.text(); })
-                .then(function(html) {
-                    var parser = new DOMParser();
-                    var doc = parser.parseFromString(html, "text/html");
-                    var newRight = doc.querySelector(".right-panel");
-                    if (newRight) {
-                        document.querySelector(".right-panel").innerHTML = newRight.innerHTML;
-                        var newTitle = document.getElementById("activeBannerTitle");
-                        if (newTitle) {
-                            decryptText(newTitle, dname.toUpperCase(), 1.5);
-                        }
-                    }
-                    window.history.pushState({}, "", targetUrl);
-                })
-                .catch(function() {
-                    window.location.href = targetUrl;
-                });
-        }
-
-        // 6. SEARCH ACROSS STATES AND DISTRICTS
+        // 2. SEARCH ACROSS DISTRICTS
         function filterDistricts() {
             var q = document.getElementById("districtSearchInput").value.toLowerCase().trim();
             var stateGroups = document.querySelectorAll(".state-group");
@@ -1298,45 +993,18 @@
             });
         }
 
-        // 7. COPY MOBILE NUMBERS
-        function copyDistrictPhones() {
-            var phones = [];
-            document.querySelectorAll(".phone-display, .phone-text").forEach(function(el) {
-                var p = el.innerText.trim();
-                if (p && p !== "—") {
-                    phones.push(p);
-                }
-            });
-            if (phones.length === 0) {
-                alert("[RECON_WARN] No phone numbers found on this page.");
-                return;
-            }
-            var text = phones.join("\n");
-            navigator.clipboard.writeText(text).then(function() {
-                alert("[COMM_KEYS EXTRACTED] Copied " + phones.length + " verified mobile numbers to clipboard!");
-            });
-        }
-
-        // 8. COMMAND WITH CHAT
-        function commandWithChat() {
-            var promptMsg = prompt("[COMMAND WITH CHAT] Enter operator command or outreach filter query:", "send pitch to all legal typists");
-            if (promptMsg) {
-                alert("[SYSTEM_ACK] Command registered: " + promptMsg);
-            }
-        }
-
-    
-        // OUTREACH ACTIONS & REPLY TRACKING
+        // 3. OUTREACH AUTO-TRACKING ON WA CLICK
         function markLeadSent(phone) {
             fetch('/api/outreach/mark-status?phone=' + encodeURIComponent(phone) + '&status=SENT', { method: 'POST' });
         }
 
-        function promptMarkReplied(phone, name) {
-            var reply = prompt('Enter reply received from ' + name + ' (' + phone + '):', 'Interested in free demo');
-            if (reply !== null) {
-                var isHot = confirm('Is this customer a HOT LEAD (Interested in demo)? Click OK for HOT_LEAD, Cancel for standard REPLIED');
+        // 4. LOG CUSTOMER REPLY DIRECTLY
+        function promptLogReply(phone, name) {
+            var reply = prompt('[RECORD CUSTOMER REPLY] Enter response received from ' + name + ' (' + phone + '):', 'Interested in free demo');
+            if (reply !== null && reply.trim() !== '') {
+                var isHot = confirm('Is this customer a HOT LEAD (Ready for AI demo/sale)?\n\n[OK] = HOT_LEAD\n[Cancel] = Standard REPLIED');
                 var st = isHot ? 'HOT_LEAD' : 'REPLIED';
-                fetch('/api/outreach/mark-status?phone=' + encodeURIComponent(phone) + '&status=' + st + '&reply_text=' + encodeURIComponent(reply), { method: 'POST' })
+                fetch('/api/outreach/mark-status?phone=' + encodeURIComponent(phone) + '&status=' + st + '&reply_text=' + encodeURIComponent(reply.trim()), { method: 'POST' })
                     .then(function(r) { return r.json(); })
                     .then(function(data) {
                         alert('[STATUS UPDATED] ' + name + ' -> ' + st);
@@ -1345,28 +1013,293 @@
             }
         }
 
-        function openCampaignConsole() {
-            fetch('/api/outreach/today-batch?batch_size=120')
+        // 5. ADD NEW LEAD DIRECTLY
+        function openAddLeadModal() {
+            var name = prompt('Enter Customer / Shop Name:', 'Sharma Typing Center');
+            if (!name) return;
+            var phone = prompt('Enter 10-digit Mobile Number:', '9876543210');
+            if (!phone) return;
+            var dist = prompt('Enter District Name:', '{{ active_district }}');
+            if (!dist) return;
+            var st = prompt('Enter State Name:', '{{ active_state }}');
+            if (!st) return;
+            var cat = prompt('Enter Category (e.g. Legal Typist / Stamp Vendor / CSC):', 'Legal Typist');
+
+            fetch('/api/outreach/add-lead?name=' + encodeURIComponent(name) + '&phone=' + encodeURIComponent(phone) + '&district=' + encodeURIComponent(dist) + '&state=' + encodeURIComponent(st) + '&category=' + encodeURIComponent(cat || 'Legal Typist'), { method: 'POST' })
                 .then(function(r) { return r.json(); })
                 .then(function(data) {
-                    var leads = data.leads || [];
-                    var msg = '[OUTREACH CAMPAIGN RUNNER (120/DAY)]\n\n' +
-                              'Queued in today batch: ' + leads.length + ' leads\n\n' +
-                              'Sample Next 5 Leads:\n' +
-                              leads.slice(0, 5).map(function(l, i){ return (i+1) + '. ' + l.Name + ' (' + l.Phone + ') - ' + l.District; }).join('\n') +
-                              '\n\n[DISPATCH OPTIONS]:\n1. Click [>_ PING_WA] on any table row to auto-transmit personalized pitch and mark as SENT.\n2. Or click OK to copy the next 10 numbers to clipboard.';
-                    if (confirm(msg)) {
-                        var phones = leads.slice(0, 10).map(function(l){ return l.Phone; }).join('\n');
-                        navigator.clipboard.writeText(phones);
-                        alert('[COMM_KEYS COPIED] Copied next 10 numbers to clipboard!');
+                    if (data.status === 'success') {
+                        alert('[CUSTOMER ADDED] ' + data.message);
+                        window.location.reload();
+                    } else {
+                        alert('[ERROR] ' + (data.error || 'Failed to add lead'));
                     }
                 });
         }
 
+        // 6. COMMAND WITH CHAT MODAL
         function commandWithChat() {
-            openCampaignConsole();
+            var action = prompt('[COMMAND WITH CHAT CONSOLE]\n\nChoose action:\n1. Type "today" to view today\'s 120 targets\n2. Type "replied" to view all replies\n3. Type "add" to add new customer\n4. Type search query to filter leads:', 'today');
+            if (action) {
+                var act = action.toLowerCase().trim();
+                if (act === 'today' || act === '1') {
+                    window.location.href = '/?today_only=1';
+                } else if (act === 'replied' || act === '2') {
+                    window.location.href = '/?status=REPLIED';
+                } else if (act === 'add' || act === '3') {
+                    openAddLeadModal();
+                } else {
+                    window.location.href = '/?district={{ active_district }}&state={{ active_state }}&search=' + encodeURIComponent(action);
+                }
+            }
+        }
+    
+        // ============================================================================
+        // WHATSAPP CLOUD GATEWAY SCRIPTS
+        // ============================================================================
+        var waPollTimer = null;
+
+        function checkWaStatus() {
+            fetch('/api/whatsapp/status')
+                .then(function(res) { return res.json(); })
+                .then(function(data) {
+                    var dot = document.getElementById('waStatusDot');
+                    var txt = document.getElementById('waStatusText');
+                    if (data.status === 'CONNECTED') {
+                        if (dot) dot.className = 'wa-status-dot dot-green';
+                        if (txt) txt.innerText = '[ 🟢 WA LIVE: ' + (data.phone ? data.phone.replace(/\D/g,'').slice(-10) : 'CONNECTED') + ' ]';
+                    } else if (data.status === 'CONNECTING') {
+                        if (dot) dot.className = 'wa-status-dot dot-yellow';
+                        if (txt) txt.innerText = '[ 🟡 WA: SCAN QR ]';
+                    } else {
+                        if (dot) dot.className = 'wa-status-dot dot-red';
+                        if (txt) txt.innerText = '[ 📱 LINK WHATSAPP ]';
+                    }
+                })
+                .catch(function(e) { console.log('WA status error:', e); });
         }
 
+        function openWaModal() {
+            document.getElementById('waQrModal').style.display = 'flex';
+            refreshQrCode();
+            if (!waPollTimer) {
+                waPollTimer = setInterval(refreshQrCode, 4000);
+            }
+        }
+
+        function closeWaModal() {
+            document.getElementById('waQrModal').style.display = 'none';
+            if (waPollTimer) {
+                clearInterval(waPollTimer);
+                waPollTimer = null;
+            }
+            checkWaStatus();
+        }
+
+        function refreshQrCode() {
+            fetch('/api/whatsapp/qr')
+                .then(function(res) { return res.json(); })
+                .then(function(data) {
+                    var loading = document.getElementById('qrLoading');
+                    var img = document.getElementById('qrImage');
+                    var connectedBox = document.getElementById('qrConnectedBox');
+                    var phoneDisplay = document.getElementById('connectedPhoneDisplay');
+
+                    if (data.connected) {
+                        loading.style.display = 'none';
+                        img.style.display = 'none';
+                        connectedBox.style.display = 'block';
+                        if (phoneDisplay) phoneDisplay.innerText = 'Connected Number: ' + (data.phone || 'Ready');
+                        checkWaStatus();
+                    } else if (data.qr) {
+                        connectedBox.style.display = 'none';
+                        loading.style.display = 'none';
+                        img.style.display = 'block';
+                        img.src = data.qr;
+                        checkWaStatus();
+                    } else {
+                        img.style.display = 'none';
+                        connectedBox.style.display = 'none';
+                        loading.style.display = 'block';
+                    }
+                })
+                .catch(function(e) { console.log('QR error:', e); });
+        }
+
+        function logoutWhatsApp() {
+            if (confirm('Kya aap WhatsApp session disconnect karna chahte hain?')) {
+                fetch('/api/whatsapp/logout', { method: 'POST' })
+                    .then(function(res) { return res.json(); })
+                    .then(function() {
+                        alert('[LOGGED OUT] WhatsApp session reset.');
+                        refreshQrCode();
+                        checkWaStatus();
+                    });
+            }
+        }
+
+        // Check WA status on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            checkWaStatus();
+            setInterval(checkWaStatus, 10000);
+        });
+
+    
+        // ============================================================================
+        // TEST CONSOLE DIRECT ACTIONS (9084714807)
+        // ============================================================================
+        function sendCloudMessageDirect(phone, defaultMsg) {
+            var msg = prompt('[DIRECT CLOUD DISPATCH // ' + phone + ']
+Enter pitch message to send directly via Render Evolution API:', defaultMsg);
+            if (msg !== null && msg.trim() !== '') {
+                fetch('/api/whatsapp/send?phone=' + encodeURIComponent(phone) + '&message=' + encodeURIComponent(msg.trim()), { method: 'POST' })
+                    .then(function(res) { return res.json(); })
+                    .then(function(data) {
+                        if (data.status === 'success') {
+                            alert('⚡ [MESSAGE TRANSMITTED] Successfully delivered to ' + phone + ' via Cloud WhatsApp Gateway!');
+                            window.location.reload();
+                        } else {
+                            alert('[GATEWAY ERROR] ' + (data.error || 'Check if WhatsApp is connected via QR code'));
+                        }
+                    })
+                    .catch(function(err) {
+                        alert('[NETWORK ERROR] ' + err);
+                    });
+            }
+        }
+
+        function simulateInboundReply(phone) {
+            var reply = prompt('[SIMULATE INBOUND CUSTOMER REPLY]
+Enter reply message from ' + phone + ' to test webhook:', 'Namaste, software ka free trial link bhejiye');
+            if (reply !== null && reply.trim() !== '') {
+                fetch('/api/outreach/webhook', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ sender: phone, message: reply.trim() })
+                })
+                .then(function(res) { return res.json(); })
+                .then(function(data) {
+                    alert('💬 [REPLY CAPTURED] Webhook received reply from ' + phone + '!');
+                    window.location.reload();
+                });
+            }
+        }
+
+        function resetTestLead(phone) {
+            if (confirm('Reset test status for ' + phone + ' to [QUEUED]?')) {
+                fetch('/api/outreach/mark-status?phone=' + encodeURIComponent(phone) + '&status=QUEUED&reply_text=', { method: 'POST' })
+                    .then(function() {
+                        window.location.reload();
+                    });
+            }
+        }
+
+    
+        // ============================================================================
+        // 2-MINUTE OUTREACH BROADCAST & AUTO-REPLY SCRIPTS
+        // ============================================================================
+        function checkBroadcastStatus() {
+            fetch('/api/outreach/broadcast/status')
+                .then(function(res) { return res.json(); })
+                .then(function(data) {
+                    var bBtn = document.getElementById('broadcastBtn');
+                    var bDot = document.getElementById('broadcastDot');
+                    var bTxt = document.getElementById('broadcastText');
+                    var arBtn = document.getElementById('autoReplyBtn');
+
+                    if (data.active) {
+                        if (data.is_quiet_hours) {
+                            if (bDot) bDot.className = 'wa-status-dot dot-yellow';
+                            if (bTxt) bTxt.innerText = '[ 🌙 QUIET HOURS: 10PM-7AM ]';
+                        } else {
+                            if (bDot) bDot.className = 'wa-status-dot dot-green';
+                            if (bTxt) bTxt.innerText = '[ ⚡ ' + data.status + ' ]';
+                        }
+                    } else {
+                        if (bDot) bDot.className = 'wa-status-dot dot-red';
+                        if (bTxt) bTxt.innerText = '[ ⏸ OUTREACH PAUSED ]';
+                    }
+
+                    if (arBtn) {
+                        if (data.auto_reply_enabled) {
+                            arBtn.style.borderColor = '#00ff66';
+                            arBtn.style.color = '#00ff66';
+                            arBtn.style.background = 'rgba(0,255,102,0.15)';
+                            arBtn.innerText = '[ 🤖 AI AUTO-REPLY: ON ]';
+                        } else {
+                            arBtn.style.borderColor = 'rgba(239,68,68,0.5)';
+                            arBtn.style.color = '#fca5a5';
+                            arBtn.style.background = 'rgba(239,68,68,0.12)';
+                            arBtn.innerText = '[ 🤖 AI AUTO-REPLY: OFF ]';
+                        }
+                    }
+                })
+                .catch(function(e) {});
+        }
+
+        function toggleBroadcast() {
+            fetch('/api/outreach/broadcast/status')
+                .then(function(r) { return r.json(); })
+                .then(function(d) {
+                    var endpoint = d.active ? '/api/outreach/broadcast/pause' : '/api/outreach/broadcast/start';
+                    fetch(endpoint, { method: 'POST' })
+                        .then(function() { checkBroadcastStatus(); });
+                });
+        }
+
+        function toggleAutoReply() {
+            fetch('/api/outreach/toggle-auto-reply', { method: 'POST' })
+                .then(function(r) { return r.json(); })
+                .then(function(d) {
+                    alert('[AI AUTO-REPLY] ' + (d.auto_reply_enabled ? 'ENABLED: AI will automatically converse with replying leads.' : 'DISABLED: Replies will only be recorded on dashboard. No auto-replies.'));
+                    checkBroadcastStatus();
+                });
+        }
+
+        setInterval(checkBroadcastStatus, 5000);
+
     </script>
+
+    <!-- WHATSAPP CLOUD QR MODAL -->
+    <div id="waQrModal" class="modal-overlay">
+        <div class="modal-box">
+            <div class="modal-header">
+                <div class="modal-title">
+                    <span class="hud-pulse"></span>
+                    <span>[ CLOUD WHATSAPP GATEWAY // QR LINK ]</span>
+                </div>
+                <button onclick="closeWaModal()" class="btn-modal-close">[ ✕ CLOSE ]</button>
+            </div>
+            
+            <div class="qr-instructions">
+                <strong>📲 WHATSAPP SCAN INSTRUCTIONS:</strong>
+                <ol>
+                    <li>Apne phone me WhatsApp open karein.</li>
+                    <li><strong>Settings (⋮) &gt; Linked Devices &gt; Link a Device</strong> par tap karein.</li>
+                    <li>Niche diye gaye QR Code ko scan karein.</li>
+                </ol>
+            </div>
+
+            <div class="qr-display-container" id="qrContainer">
+                <div id="qrLoading" style="color:#86efac; font-size:12px; text-align:center;">
+                    <div style="margin-bottom:8px;">⚡ FETCHING LIVE QR CODE FROM CLOUD GATEWAY...</div>
+                    <span style="font-size:10px; color:#4ade80; opacity:0.8;">[https://smartwork-wa-evolution.onrender.com]</span>
+                </div>
+                <img id="qrImage" class="qr-img" style="display:none;" alt="Scan WhatsApp QR">
+                <div id="qrConnectedBox" style="display:none; text-align:center; padding:15px;">
+                    <div style="font-size:28px; margin-bottom:6px;">🟢</div>
+                    <div style="font-size:14px; font-weight:800; color:#00ff66; margin-bottom:4px;">WHATSAPP LIVE CONNECTED!</div>
+                    <div style="font-size:12px; color:#f0fdf4;" id="connectedPhoneDisplay">Phone: +91XXXXXXXXXX</div>
+                    <div style="font-size:10px; color:#86efac; margin-top:8px; opacity:0.8;">AI Auto-Reply & Webhook Engine is active.</div>
+                </div>
+            </div>
+
+            <div style="display:flex; justify-content:space-between; align-items:center;">
+                <button onclick="refreshQrCode()" class="btn-tb-action" style="font-size:10px;">[ ⟳ REFRESH QR ]</button>
+                <button onclick="logoutWhatsApp()" class="btn-tb-action" style="border-color:#ef4444; color:#ef4444; font-size:10px;">[ ⏻ DISCONNECT / LOGOUT ]</button>
+            </div>
+        </div>
+    </div>
+
 </body>
 </html>
