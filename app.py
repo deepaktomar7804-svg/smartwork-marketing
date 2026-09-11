@@ -778,14 +778,17 @@ def is_quiet_hours() -> bool:
     now_ist = datetime.now(ist_zone)
     return now_ist.hour >= 22 or now_ist.hour < 7
 
+WORKER_LOCK = threading.Lock()
+
 def outreach_broadcast_worker():
     """
     STRICT REAL-TIME BROADCAST WORKER:
     1. Pauses completely if WhatsApp is not linked via QR code.
-    2. Verifies if number is registered on WhatsApp via socket.
-    3. If number is NOT on WhatsApp: marks as 'NO_WHATSAPP' and IMMEDIATELY switches to next lead (0 delay).
-    4. ONLY when message is CONFIRMED SENT on real WhatsApp: marks as 'SENT' and starts 2-minute countdown.
-    5. Honors quiet hours (10:00 PM - 07:00 AM IST).
+    2. Atomic single-lead locking prevents duplicate sending.
+    3. Verifies if number is registered on WhatsApp via socket.
+    4. If number is NOT on WhatsApp: marks as 'NO_WHATSAPP' and IMMEDIATELY switches to next lead (0 delay).
+    5. ONLY when message is CONFIRMED SENT on real WhatsApp: marks as 'SENT' and starts 2-minute countdown.
+    6. Honors quiet hours (10:00 PM - 07:00 AM IST).
     """
     import time
     while True:
@@ -807,27 +810,34 @@ def outreach_broadcast_worker():
                 elapsed = now_ts - BROADCAST_STATE["last_sent_time"]
                 
                 if elapsed >= BROADCAST_STATE["interval_sec"]:
-                    # Find next queued lead
-                    df_master, _, _, _, _ = get_master_data()
-                    if not df_master.empty:
-                        queued_mask = (df_master["OutreachStatus"].str.upper() == "QUEUED") & (df_master["Phone"].str.len() >= 10)
-                        queued_indices = df_master[queued_mask].index
-                        
-                        if len(queued_indices) > 0:
-                            idx = queued_indices[0]
-                            lead = df_master.iloc[idx].to_dict()
-                            phone = re.sub(r"\D", "", str(lead.get("Phone", "")))
-                            if len(phone) >= 10:
-                                phone = phone[-10:]
-                            
-                            name = lead.get("Name", "bhai")
-                            clean_name = re.sub(r"\[.*?\]", "", name).strip() or "bhai"
-                            if "/" in clean_name:
-                                clean_name = clean_name.split("/")[0].strip()
-                            if len(clean_name) > 25:
-                                clean_name = "bhai"
+                    # Acquire lock to ensure only ONE dispatch can ever occur at a time
+                    if WORKER_LOCK.acquire(blocking=False):
+                        try:
+                            df_master, _, _, _, _ = get_master_data()
+                            if not df_master.empty:
+                                queued_mask = (df_master["OutreachStatus"].str.upper() == "QUEUED") & (df_master["Phone"].str.len() >= 10)
+                                queued_indices = df_master[queued_mask].index
+                                
+                                if len(queued_indices) > 0:
+                                    idx = queued_indices[0]
+                                    lead = df_master.iloc[idx].to_dict()
+                                    phone = re.sub(r"\D", "", str(lead.get("Phone", "")))
+                                    if len(phone) >= 10:
+                                        phone = phone[-10:]
+                                    
+                                    name = lead.get("Name", "bhai")
+                                    clean_name = re.sub(r"\[.*?\]", "", name).strip() or "bhai"
+                                    if "/" in clean_name:
+                                        clean_name = clean_name.split("/")[0].strip()
+                                    if len(clean_name) > 25:
+                                        clean_name = "bhai"
 
-                            pitch_text = f"""Hello {clean_name}, हमने तुम्हारे काम का एक AI tool बनाया है जो दो काम करता है:
+                                    # Immediately mark as PROCESSING and reset timer so no other thread/poll picks this
+                                    df_master.at[idx, "OutreachStatus"] = "PROCESSING"
+                                    save_master_data(df_master)
+                                    BROADCAST_STATE["last_sent_time"] = time.time()
+
+                                    pitch_text = f"""Hello {clean_name}, हमने तुम्हारे काम का एक AI tool बनाया है जो दो काम करता है:
 
 1. Handwritten paper की photo लेकर उसे editable MS Word document में बदल देता है। (matlab koi customer hath se likha hua paper leke aaya, aap website se unka photo khinchna or document ms word me teyar ho jayega, kuch v likhne ki jarurat nhi)
 2. Voice से application/document तैयार कर देता है। (matlab koi customer aata hai kuch letter likhwane ko to unko website ke mic me bolne ko kahe, website khud pura letter teyar kr degi, agr wo bolte time glti v krta hai fir v ai usko sahi kr dega)
@@ -835,56 +845,63 @@ def outreach_broadcast_worker():
 tool free hai jb chahe website se kaam krwa skte ho. Abhi try v kr skte ho link ye raha: https://thesmartwork.onrender.com
 ya google me ye search kro: thesmartwork.onrender.com"""
 
-                            payload = {"number": f"91{phone}", "text": pitch_text}
-                            gw_url = f"{EVOLUTION_API_URL}/message/sendText/smartwork_outreach"
-                            
-                            try:
-                                req_data = json.dumps(payload).encode("utf-8")
-                                req = urllib.request.Request(gw_url, data=req_data, headers={"Content-Type": "application/json", "User-Agent": "SmartWork-Broadcast"}, method="POST")
-                                with urllib.request.urlopen(req, timeout=15) as res:
-                                    res_data = json.loads(res.read().decode("utf-8"))
-                                    send_status = res_data.get("status")
+                                    payload = {"number": f"91{phone}", "text": pitch_text}
+                                    gw_url = f"{EVOLUTION_API_URL}/message/sendText/smartwork_outreach"
+                                    
+                                    try:
+                                        req_data = json.dumps(payload).encode("utf-8")
+                                        req = urllib.request.Request(gw_url, data=req_data, headers={"Content-Type": "application/json", "User-Agent": "SmartWork-Broadcast"}, method="POST")
+                                        with urllib.request.urlopen(req, timeout=20) as res:
+                                            res_data = json.loads(res.read().decode("utf-8"))
+                                            send_status = res_data.get("status")
 
-                                    if send_status == "not_on_whatsapp":
-                                        # Number has no WhatsApp -> mark NO_WHATSAPP and switch to next immediately (0 sec delay)
-                                        print(f"[NO_WA_SKIP] {clean_name} ({phone}) is NOT on WhatsApp. Skipping immediately to next lead.")
-                                        df_master.at[idx, "OutreachStatus"] = "NO_WHATSAPP"
-                                        df_master.at[idx, "SentAt"] = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+                                            if send_status == "not_on_whatsapp":
+                                                # Number has no WhatsApp -> mark NO_WHATSAPP and switch to next immediately (0 sec delay)
+                                                print(f"[NO_WA_SKIP] {clean_name} ({phone}) is NOT on WhatsApp. Skipping immediately to next lead.")
+                                                df_master.at[idx, "OutreachStatus"] = "NO_WHATSAPP"
+                                                df_master.at[idx, "SentAt"] = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+                                                save_master_data(df_master)
+                                                BROADCAST_STATE["status"] = f"SKIPPED_NO_WA ({phone})"
+                                                # Reset last_sent_time so next loop can immediately try the next lead
+                                                BROADCAST_STATE["last_sent_time"] = 0
+                                                time.sleep(1)
+                                            elif send_status == "sent":
+                                                # Real WhatsApp Message Sent!
+                                                now_iso = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+                                                df_master.at[idx, "OutreachStatus"] = "SENT"
+                                                df_master.at[idx, "SentAt"] = now_iso
+                                                save_master_data(df_master)
+
+                                                BROADCAST_STATE["last_sent_time"] = time.time()
+                                                BROADCAST_STATE["last_sent_phone"] = phone
+                                                BROADCAST_STATE["last_sent_name"] = clean_name
+                                                BROADCAST_STATE["last_sent_iso"] = now_iso
+                                                BROADCAST_STATE["sent_today"] += 1
+                                                BROADCAST_STATE["status"] = f"SENT TO {clean_name} ({phone})"
+                                                print(f"[REAL_WHATSAPP_DISPATCH] Confirmed message sent to {clean_name} ({phone})!")
+                                            else:
+                                                print(f"[SEND_UNCONFIRMED] Gateway returned status: {send_status}. Resetting to QUEUED.")
+                                                df_master.at[idx, "OutreachStatus"] = "QUEUED"
+                                                save_master_data(df_master)
+                                                time.sleep(10)
+                                    except urllib.error.HTTPError as http_err:
+                                        err_body = http_err.read().decode("utf-8")
+                                        print(f"[GATEWAY_HTTP_ERR] Code {http_err.code}: {err_body}")
+                                        df_master.at[idx, "OutreachStatus"] = "QUEUED"
                                         save_master_data(df_master)
-                                        BROADCAST_STATE["status"] = f"SKIPPED_NO_WA ({phone})"
-                                        # Do not reset last_sent_time so next loop immediately tries the next lead!
-                                        time.sleep(2)
-                                        continue
-
-                                    elif send_status == "sent":
-                                        # Real WhatsApp Message Sent!
-                                        now_iso = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-                                        df_master.at[idx, "OutreachStatus"] = "SENT"
-                                        df_master.at[idx, "SentAt"] = now_iso
-                                        save_master_data(df_master)
-
-                                        BROADCAST_STATE["last_sent_time"] = time.time()
-                                        BROADCAST_STATE["last_sent_phone"] = phone
-                                        BROADCAST_STATE["last_sent_name"] = clean_name
-                                        BROADCAST_STATE["last_sent_iso"] = now_iso
-                                        BROADCAST_STATE["sent_today"] += 1
-                                        BROADCAST_STATE["status"] = f"SENT TO {clean_name} ({phone})"
-                                        print(f"[REAL_WHATSAPP_DISPATCH] Confirmed message sent to {clean_name} ({phone})!")
-                                    else:
-                                        print(f"[SEND_UNCONFIRMED] Gateway returned status: {send_status}. Keeping lead as QUEUED.")
+                                        BROADCAST_STATE["status"] = "WHATSAPP_NOT_LINKED (Scan QR First)" if http_err.code == 503 else f"GATEWAY_ERR_{http_err.code}"
                                         time.sleep(10)
-                            except urllib.error.HTTPError as http_err:
-                                err_body = http_err.read().decode("utf-8")
-                                print(f"[GATEWAY_HTTP_ERR] Code {http_err.code}: {err_body}")
-                                BROADCAST_STATE["status"] = "WHATSAPP_NOT_LINKED (Scan QR First)" if http_err.code == 503 else f"GATEWAY_ERR_{http_err.code}"
-                                time.sleep(10)
-                            except Exception as err:
-                                print(f"[SCHEDULER_CONN_WARN] Could not reach WhatsApp gateway: {err}")
-                                BROADCAST_STATE["status"] = "GATEWAY_UNREACHABLE"
-                                time.sleep(10)
-                        else:
-                            BROADCAST_STATE["status"] = "ALL_LEADS_CONTACTED"
-                            time.sleep(30)
+                                    except Exception as err:
+                                        print(f"[SCHEDULER_CONN_WARN] Could not reach WhatsApp gateway: {err}")
+                                        df_master.at[idx, "OutreachStatus"] = "QUEUED"
+                                        save_master_data(df_master)
+                                        BROADCAST_STATE["status"] = "GATEWAY_UNREACHABLE"
+                                        time.sleep(10)
+                                else:
+                                    BROADCAST_STATE["status"] = "ALL_LEADS_CONTACTED"
+                                    time.sleep(30)
+                        finally:
+                            WORKER_LOCK.release()
                 else:
                     remaining = int(BROADCAST_STATE["interval_sec"] - elapsed)
                     BROADCAST_STATE["status"] = f"NEXT SEND IN {remaining}s"
