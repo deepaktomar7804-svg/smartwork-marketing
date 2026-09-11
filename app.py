@@ -26,7 +26,7 @@ if hasattr(sys.stdout, "reconfigure"):
 
 app = FastAPI(title="SmartWork AI - Outreach Hub")
 
-BASE_DIR = r"c:\smartwork marketor"
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 EXCEL_MASTER = os.path.join(BASE_DIR, "FINAL_COMMON_TYPISTS.xlsx")
 TEMPLATE_PATH = os.path.join(BASE_DIR, "templates", "dashboard.html")
 DISTRICTS_PATH = os.path.join(BASE_DIR, "hindi_belt_districts.json")
