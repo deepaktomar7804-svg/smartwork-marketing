@@ -11,6 +11,8 @@ import sys
 import math
 import json
 import re
+import time
+import threading
 import urllib.parse
 import urllib.request
 from datetime import datetime, timezone, timedelta
@@ -755,6 +757,112 @@ def generate_gemini_sales_reply(lead: dict, incoming_msg: str) -> tuple[str, boo
 
 
 # ============================================================================
+# EVOLUTION / WHATSAPP GATEWAY INTEGRATION ENDPOINTS
+# ============================================================================
+
+EVOLUTION_API_URL = os.environ.get("EVOLUTION_API_URL", "https://smartwork-wa-evolution.onrender.com")
+
+@app.get("/api/whatsapp/status")
+def get_whatsapp_status():
+    """Checks WhatsApp connection status from Render Evolution Gateway."""
+    try:
+        req = urllib.request.Request(f"{EVOLUTION_API_URL}/instance/connectionState/smartwork_outreach", headers={"User-Agent": "SmartWork-Hub"})
+        with urllib.request.urlopen(req, timeout=8) as res:
+            data = json.loads(res.read().decode("utf-8"))
+            inst = data.get("instance", {})
+            state = inst.get("state", "close")
+            user = inst.get("user")
+            phone = user.get("id") if user else None
+            return {
+                "status": "CONNECTED" if state == "open" else ("CONNECTING" if state == "connecting" else "DISCONNECTED"),
+                "state": state,
+                "phone": phone,
+                "gateway_url": EVOLUTION_API_URL
+            }
+    except Exception as e:
+        return {"status": "DISCONNECTED", "state": "close", "phone": None, "error": str(e), "gateway_url": EVOLUTION_API_URL}
+
+@app.get("/api/whatsapp/qr")
+def get_whatsapp_qr():
+    """Fetches live base64 QR code from Render Evolution Gateway."""
+    try:
+        req = urllib.request.Request(f"{EVOLUTION_API_URL}/instance/connect/smartwork_outreach", headers={"User-Agent": "SmartWork-Hub"})
+        with urllib.request.urlopen(req, timeout=10) as res:
+            data = json.loads(res.read().decode("utf-8"))
+            qr_b64 = data.get("base64") or data.get("qrcode", {}).get("base64")
+            state = data.get("state", "connecting")
+            is_connected = state == "open" or data.get("connected", False)
+            phone = data.get("phone")
+            return {
+                "connected": is_connected,
+                "qr": qr_b64,
+                "state": state,
+                "phone": phone
+            }
+    except Exception as e:
+        return {"connected": False, "qr": None, "error": str(e)}
+
+@app.post("/api/whatsapp/send")
+def send_whatsapp_direct(
+    phone: str = Query(...),
+    message: str = Query(...)
+):
+    """Sends outbound WhatsApp message directly through Render Evolution Gateway."""
+    clean_ph = re.sub(r"\D", "", str(phone))
+    if len(clean_ph) >= 10:
+        clean_ph = clean_ph[-10:]
+
+    payload = {
+        "number": f"91{clean_ph}",
+        "text": message.strip()
+    }
+    
+    try:
+        req_data = json.dumps(payload).encode("utf-8")
+        req = urllib.request.Request(
+            f"{EVOLUTION_API_URL}/message/sendText/smartwork_outreach",
+            data=req_data,
+            headers={"Content-Type": "application/json", "User-Agent": "SmartWork-Hub"},
+            method="POST"
+        )
+        with urllib.request.urlopen(req, timeout=15) as res:
+            res_data = json.loads(res.read().decode("utf-8"))
+            
+            # Update Lead in Excel as SENT
+            df_master, _, _, _, _ = get_master_data()
+            if not df_master.empty:
+                match_idx = df_master[df_master["Phone"].str.endswith(clean_ph)].index
+                if len(match_idx) > 0:
+                    idx = match_idx[0]
+                    now_iso = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+                    df_master.at[idx, "OutreachStatus"] = "SENT"
+                    if not df_master.at[idx, "SentAt"]:
+                        df_master.at[idx, "SentAt"] = now_iso
+                    save_master_data(df_master)
+                    
+            return {"status": "success", "phone": clean_ph, "response": res_data}
+    except urllib.error.HTTPError as e:
+        err_msg = e.read().decode("utf-8")
+        return JSONResponse(status_code=e.code, content={"error": err_msg})
+    except Exception as e:
+        return JSONResponse(status_code=500, content={"error": str(e)})
+
+@app.post("/api/whatsapp/logout")
+def logout_whatsapp():
+    """Logs out WhatsApp session on Render Evolution Gateway."""
+    try:
+        req = urllib.request.Request(
+            f"{EVOLUTION_API_URL}/instance/logout/smartwork_outreach",
+            headers={"User-Agent": "SmartWork-Hub"},
+            method="DELETE"
+        )
+        with urllib.request.urlopen(req, timeout=10) as res:
+            return json.loads(res.read().decode("utf-8"))
+    except Exception as e:
+        return {"status": "error", "message": str(e)}
+
+
+# ============================================================================
 # AUTOMATED 2-MINUTE OUTREACH BROADCAST ENGINE & SCHEDULER
 # ============================================================================
 
@@ -790,7 +898,6 @@ def outreach_broadcast_worker():
     5. ONLY when message is CONFIRMED SENT on real WhatsApp: marks as 'SENT' and starts 2-minute countdown.
     6. Honors quiet hours (10:00 PM - 07:00 AM IST).
     """
-    import time
     while True:
         try:
             if BROADCAST_STATE["active"]:
@@ -913,7 +1020,6 @@ ya google me ye search kro: thesmartwork.onrender.com"""
         time.sleep(5)
 
 # Start Background Scheduler Thread on server startup
-import threading
 threading.Thread(target=outreach_broadcast_worker, daemon=True).start()
 
 # Scheduler Control APIs
@@ -1068,112 +1174,6 @@ def download_excel():
             filename="FINAL_COMMON_TYPISTS.xlsx"
         )
     return JSONResponse(status_code=404, content={"error": "File not found."})
-
-
-# ============================================================================
-# EVOLUTION / WHATSAPP GATEWAY INTEGRATION ENDPOINTS
-# ============================================================================
-
-EVOLUTION_API_URL = os.environ.get("EVOLUTION_API_URL", "https://smartwork-wa-evolution.onrender.com")
-
-@app.get("/api/whatsapp/status")
-def get_whatsapp_status():
-    """Checks WhatsApp connection status from Render Evolution Gateway."""
-    try:
-        req = urllib.request.Request(f"{EVOLUTION_API_URL}/instance/connectionState/smartwork_outreach", headers={"User-Agent": "SmartWork-Hub"})
-        with urllib.request.urlopen(req, timeout=8) as res:
-            data = json.loads(res.read().decode("utf-8"))
-            inst = data.get("instance", {})
-            state = inst.get("state", "close")
-            user = inst.get("user")
-            phone = user.get("id") if user else None
-            return {
-                "status": "CONNECTED" if state == "open" else ("CONNECTING" if state == "connecting" else "DISCONNECTED"),
-                "state": state,
-                "phone": phone,
-                "gateway_url": EVOLUTION_API_URL
-            }
-    except Exception as e:
-        return {"status": "DISCONNECTED", "state": "close", "phone": None, "error": str(e), "gateway_url": EVOLUTION_API_URL}
-
-@app.get("/api/whatsapp/qr")
-def get_whatsapp_qr():
-    """Fetches live base64 QR code from Render Evolution Gateway."""
-    try:
-        req = urllib.request.Request(f"{EVOLUTION_API_URL}/instance/connect/smartwork_outreach", headers={"User-Agent": "SmartWork-Hub"})
-        with urllib.request.urlopen(req, timeout=10) as res:
-            data = json.loads(res.read().decode("utf-8"))
-            qr_b64 = data.get("base64") or data.get("qrcode", {}).get("base64")
-            state = data.get("state", "connecting")
-            is_connected = state == "open" or data.get("connected", False)
-            phone = data.get("phone")
-            return {
-                "connected": is_connected,
-                "qr": qr_b64,
-                "state": state,
-                "phone": phone
-            }
-    except Exception as e:
-        return {"connected": False, "qr": None, "error": str(e)}
-
-@app.post("/api/whatsapp/send")
-def send_whatsapp_direct(
-    phone: str = Query(...),
-    message: str = Query(...)
-):
-    """Sends outbound WhatsApp message directly through Render Evolution Gateway."""
-    clean_ph = re.sub(r"\D", "", str(phone))
-    if len(clean_ph) >= 10:
-        clean_ph = clean_ph[-10:]
-
-    payload = {
-        "number": f"91{clean_ph}",
-        "text": message.strip()
-    }
-    
-    try:
-        req_data = json.dumps(payload).encode("utf-8")
-        req = urllib.request.Request(
-            f"{EVOLUTION_API_URL}/message/sendText/smartwork_outreach",
-            data=req_data,
-            headers={"Content-Type": "application/json", "User-Agent": "SmartWork-Hub"},
-            method="POST"
-        )
-        with urllib.request.urlopen(req, timeout=15) as res:
-            res_data = json.loads(res.read().decode("utf-8"))
-            
-            # Update Lead in Excel as SENT
-            df_master, _, _, _, _ = get_master_data()
-            if not df_master.empty:
-                match_idx = df_master[df_master["Phone"].str.endswith(clean_ph)].index
-                if len(match_idx) > 0:
-                    idx = match_idx[0]
-                    now_iso = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-                    df_master.at[idx, "OutreachStatus"] = "SENT"
-                    if not df_master.at[idx, "SentAt"]:
-                        df_master.at[idx, "SentAt"] = now_iso
-                    save_master_data(df_master)
-                    
-            return {"status": "success", "phone": clean_ph, "response": res_data}
-    except urllib.error.HTTPError as e:
-        err_msg = e.read().decode("utf-8")
-        return JSONResponse(status_code=e.code, content={"error": err_msg})
-    except Exception as e:
-        return JSONResponse(status_code=500, content={"error": str(e)})
-
-@app.post("/api/whatsapp/logout")
-def logout_whatsapp():
-    """Logs out WhatsApp session on Render Evolution Gateway."""
-    try:
-        req = urllib.request.Request(
-            f"{EVOLUTION_API_URL}/instance/logout/smartwork_outreach",
-            headers={"User-Agent": "SmartWork-Hub"},
-            method="DELETE"
-        )
-        with urllib.request.urlopen(req, timeout=10) as res:
-            return json.loads(res.read().decode("utf-8"))
-    except Exception as e:
-        return {"status": "error", "message": str(e)}
 
 if __name__ == "__main__":
     import uvicorn
