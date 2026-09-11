@@ -869,14 +869,14 @@ def logout_whatsapp():
 AUTO_REPLY_ENABLED = False  # Set to False by default as requested
 
 BROADCAST_STATE = {
-    "active": True,           # Broadcast starts active
+    "active": False,          # Permanently stopped
     "interval_sec": 120,      # 1 lead every 2 minutes
     "last_sent_phone": "",
     "last_sent_name": "",
     "last_sent_time": 0,
     "last_sent_iso": "",
     "sent_today": 0,
-    "status": "RUNNING",
+    "status": "STOPPED",
     "quiet_hours": "10:00 PM - 07:00 AM IST"
 }
 
