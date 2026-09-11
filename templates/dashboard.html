@@ -839,6 +839,69 @@
             font-weight: 700;
             letter-spacing: 0.3px;
         }
+    
+        /* STATUS BADGES & REPLY STYLING */
+        .status-badge {
+            display: inline-block;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-size: 9.5px;
+            font-weight: 800;
+            letter-spacing: 0.3px;
+            text-transform: uppercase;
+        }
+        .status-queued {
+            background: rgba(148, 163, 184, 0.12);
+            border: 1px solid rgba(148, 163, 184, 0.4);
+            color: #94a3b8;
+        }
+        .status-sent {
+            background: rgba(56, 189, 248, 0.15);
+            border: 1px solid rgba(56, 189, 248, 0.6);
+            color: #38bdf8;
+            text-shadow: 0 0 5px rgba(56, 189, 248, 0.5);
+        }
+        .status-replied {
+            background: rgba(0, 255, 102, 0.2);
+            border: 1.2px solid #00ff66;
+            color: #00ff66;
+            text-shadow: 0 0 6px rgba(0, 255, 102, 0.8);
+            box-shadow: 0 0 8px rgba(0, 255, 102, 0.3);
+        }
+        .status-hot {
+            background: rgba(245, 158, 11, 0.2);
+            border: 1.2px solid #f59e0b;
+            color: #fbbf24;
+            text-shadow: 0 0 6px rgba(245, 158, 11, 0.8);
+        }
+        .reply-snippet {
+            font-size: 10.5px;
+            color: #39ff14;
+            font-weight: 600;
+            margin-top: 3px;
+            opacity: 0.9;
+            background: rgba(0, 255, 102, 0.08);
+            padding: 2px 4px;
+            border-left: 2px solid #00ff66;
+            border-radius: 2px;
+        }
+        .btn-mark-reply {
+            background: rgba(0, 255, 102, 0.08);
+            border: 1px solid rgba(0, 255, 102, 0.4);
+            color: #86efac;
+            padding: 3px 6px;
+            border-radius: 3px;
+            font-size: 9.5px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.15s;
+        }
+        .btn-mark-reply:hover {
+            background: #00ff66;
+            color: #000;
+            border-color: #00ff66;
+        }
+
     </style>
 </head>
 <body>
@@ -857,9 +920,9 @@
                 </div>
             </div>
 
-            <!-- Master Auto-Harvest Button (Terminal Command Wireframe) -->
-            <button onclick="triggerAutoHarvestBatch()" class="btn-auto-harvest" title="Inspects completed places and automatically harvests all next pending districts with all tools & gov sources">
-                [ &gt;_ EXECUTE: AUTO_HARVEST_BATCH ]
+            <!-- Command with Chat Button -->
+            <button onclick="commandWithChat()" class="btn-auto-harvest" title="Command with Chat">
+                [ &gt;_ COMMAND WITH CHAT ]
             </button>
 
             <!-- Quick Utility Bar -->
@@ -898,8 +961,9 @@
                     <span class="hud-title">[TARGET_SECTOR // <span id="hudDistrictName">{{ active_district }}</span>]</span>
                 </div>
                 <div class="hud-right">
-                    <span class="hud-telemetry">[ADDR: <span id="telemetryAddr">0x7F4A</span> // CLK: <span id="telemetryClock">--:--:--</span>]</span>
-                    <span class="hud-badge">ACQUIRED: {{ active_district_count }}</span>
+                    <span class="hud-badge" title="Total Delivered/Sent">SENT: {{ total_sent }}</span>
+                    <span class="hud-badge" style="border-color:#00ff66; color:#00ff66;" title="Total Inbound Customer Replies">REPLIED: {{ total_replied }} ({{ reply_rate }})</span>
+                    <span class="hud-badge" style="border-color:#38bdf8; color:#38bdf8;" title="Today Outreach (Paced at 120/day)">TODAY: {{ sent_today }}/120</span>
                 </div>
             </div>
 
@@ -910,11 +974,11 @@
                     <span>[ {{ active_district_count }} TARGETS READY // STATE: {{ active_state }} ]</span>
                 </div>
                 <div class="tb-right">
-                    <button onclick="copyDistrictPhones()" class="btn-tb btn-tb-copy" title="Copy all numbers on this page to clipboard for AI WhatsApp bot">
+                    <button onclick="copyDistrictPhones()" class="btn-tb btn-tb-copy" title="Copy all numbers on this page to clipboard">
                         [ &gt;_ EXTRACT_KEYS ]
                     </button>
-                    <button onclick="harvestCurrentDistrict()" class="btn-tb btn-tb-harvest" title="Run full multi-source harvest (Web + Gov + CSC) for {{ active_district }}">
-                        [ &gt;_ HARVEST // {{ active_district }} ]
+                    <button onclick="openCampaignConsole()" class="btn-tb btn-tb-harvest" title="Open Daily 120 Batch Campaign Console">
+                        [ &gt;_ CAMPAIGN_CONSOLE ]
                     </button>
                 </div>
             </div>
@@ -938,6 +1002,11 @@
                 <select name="source" class="cat-select" onchange="this.form.submit()">
                     <option value="">[ ALL SOURCES ]</option>
                     {{ source_dropdown_options }}
+                </select>
+
+                <select name="status" class="cat-select" onchange="this.form.submit()">
+                    <option value="">[ ALL STATUS ]</option>
+                    {{ status_dropdown_options }}
                 </select>
 
                 <button type="submit" class="btn-submit-search">[ EXEC_GREP ]</button>
@@ -1248,34 +1317,56 @@
             });
         }
 
-        // 8. AUTO HARVEST NEXT BATCH
-        function triggerAutoHarvestBatch() {
-            if (confirm("[RECON_INIT] Inspect completed places and execute automated harvesting on next pending districts?")) {
-                fetch("/api/auto-harvest-batch", { method: "POST" })
-                    .then(r => r.json())
-                    .then(data => {
-                        alert(data.message);
+        // 8. COMMAND WITH CHAT
+        function commandWithChat() {
+            var promptMsg = prompt("[COMMAND WITH CHAT] Enter operator command or outreach filter query:", "send pitch to all legal typists");
+            if (promptMsg) {
+                alert("[SYSTEM_ACK] Command registered: " + promptMsg);
+            }
+        }
+
+    
+        // OUTREACH ACTIONS & REPLY TRACKING
+        function markLeadSent(phone) {
+            fetch('/api/outreach/mark-status?phone=' + encodeURIComponent(phone) + '&status=SENT', { method: 'POST' });
+        }
+
+        function promptMarkReplied(phone, name) {
+            var reply = prompt('Enter reply received from ' + name + ' (' + phone + '):', 'Interested in free demo');
+            if (reply !== null) {
+                var isHot = confirm('Is this customer a HOT LEAD (Interested in demo)? Click OK for HOT_LEAD, Cancel for standard REPLIED');
+                var st = isHot ? 'HOT_LEAD' : 'REPLIED';
+                fetch('/api/outreach/mark-status?phone=' + encodeURIComponent(phone) + '&status=' + st + '&reply_text=' + encodeURIComponent(reply), { method: 'POST' })
+                    .then(function(r) { return r.json(); })
+                    .then(function(data) {
+                        alert('[STATUS UPDATED] ' + name + ' -> ' + st);
+                        window.location.reload();
                     });
             }
         }
 
-        // 9. HARVEST SINGLE DISTRICT
-        function harvestDistrict(distName, stateName) {
-            if (confirm("[TARGET_ACQUIRE] Execute multi-source scraping for " + distName + " (" + stateName + ")?")) {
-                fetch("/api/harvest-district?district=" + encodeURIComponent(distName) + "&state=" + encodeURIComponent(stateName), { method: "POST" })
-                    .then(r => r.json())
-                    .then(data => {
-                        alert(data.message);
-                        window.location.href = "/?district=" + encodeURIComponent(distName) + "&state=" + encodeURIComponent(stateName);
-                    });
-            }
+        function openCampaignConsole() {
+            fetch('/api/outreach/today-batch?batch_size=120')
+                .then(function(r) { return r.json(); })
+                .then(function(data) {
+                    var leads = data.leads || [];
+                    var msg = '[OUTREACH CAMPAIGN RUNNER (120/DAY)]\n\n' +
+                              'Queued in today batch: ' + leads.length + ' leads\n\n' +
+                              'Sample Next 5 Leads:\n' +
+                              leads.slice(0, 5).map(function(l, i){ return (i+1) + '. ' + l.Name + ' (' + l.Phone + ') - ' + l.District; }).join('\n') +
+                              '\n\n[DISPATCH OPTIONS]:\n1. Click [>_ PING_WA] on any table row to auto-transmit personalized pitch and mark as SENT.\n2. Or click OK to copy the next 10 numbers to clipboard.';
+                    if (confirm(msg)) {
+                        var phones = leads.slice(0, 10).map(function(l){ return l.Phone; }).join('\n');
+                        navigator.clipboard.writeText(phones);
+                        alert('[COMM_KEYS COPIED] Copied next 10 numbers to clipboard!');
+                    }
+                });
         }
 
-        function harvestCurrentDistrict() {
-            var bannerTitle = document.getElementById("activeBannerTitle");
-            var distName = bannerTitle ? bannerTitle.innerText.trim() : "{{ active_district }}";
-            harvestDistrict(distName, "{{ active_state }}");
+        function commandWithChat() {
+            openCampaignConsole();
         }
+
     </script>
 </body>
 </html>
