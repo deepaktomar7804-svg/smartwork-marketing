@@ -672,6 +672,13 @@
             border-radius: 50%;
             display: inline-block;
         }
+        .wa-status-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            display: inline-block;
+            margin-right: 4px;
+        }
         .dot-green { background: #00ff66; box-shadow: 0 0 8px #00ff66; animation: pulseGlow 1.8s infinite; }
         .dot-yellow { background: #fbbf24; box-shadow: 0 0 8px #fbbf24; }
         .dot-red { background: #ef4444; box-shadow: 0 0 8px #ef4444; }
@@ -840,7 +847,7 @@
                     <button onclick="toggleAutoReply()" id="autoReplyBtn" class="btn-tb-action" style="background:rgba(239,68,68,0.12); border-color:rgba(239,68,68,0.5); color:#fca5a5;" title="Turn AI Auto-Reply ON/OFF">
                         [ 🤖 AI AUTO-REPLY: OFF ]
                     </button>
-                    <button onclick="openWaModal()" id="waHeaderBtn" class="btn-wa-link" title="Connect WhatsApp via Cloud QR Code">
+                    <button onclick="openWaModal()" id="waHeaderBtn" class="btn-tb-action btn-tb-highlight" style="border-color:#fbbf24; color:#fbbf24; background:rgba(251,191,36,0.15); cursor:pointer;" title="Connect WhatsApp via Cloud QR Code">
                         <span id="waStatusDot" class="wa-status-dot dot-yellow"></span>
                         <span id="waStatusText">[ 📱 LINK WHATSAPP ]</span>
                     </button>
@@ -1080,7 +1087,10 @@
         }
 
         function openWaModal() {
-            document.getElementById('waQrModal').style.display = 'flex';
+            var modal = document.getElementById('waQrModal');
+            if (modal) {
+                modal.style.display = 'flex';
+            }
             refreshQrCode();
             if (!waPollTimer) {
                 waPollTimer = setInterval(refreshQrCode, 4000);
@@ -1088,7 +1098,10 @@
         }
 
         function closeWaModal() {
-            document.getElementById('waQrModal').style.display = 'none';
+            var modal = document.getElementById('waQrModal');
+            if (modal) {
+                modal.style.display = 'none';
+            }
             if (waPollTimer) {
                 clearInterval(waPollTimer);
                 waPollTimer = null;
@@ -1097,13 +1110,15 @@
         }
 
         function refreshQrCode() {
+            var loading = document.getElementById('qrLoading');
+            var img = document.getElementById('qrImage');
+            var connectedBox = document.getElementById('qrConnectedBox');
+            var phoneDisplay = document.getElementById('connectedPhoneDisplay');
+
             fetch('/api/whatsapp/qr')
                 .then(function(res) { return res.json(); })
                 .then(function(data) {
-                    var loading = document.getElementById('qrLoading');
-                    var img = document.getElementById('qrImage');
-                    var connectedBox = document.getElementById('qrConnectedBox');
-                    var phoneDisplay = document.getElementById('connectedPhoneDisplay');
+                    if (!loading || !img || !connectedBox) return;
 
                     if (data.connected) {
                         loading.style.display = 'none';
@@ -1138,10 +1153,23 @@
             }
         }
 
-        // Check WA status on page load
+        window.openWaModal = openWaModal;
+        window.closeWaModal = closeWaModal;
+        window.refreshQrCode = refreshQrCode;
+        window.logoutWhatsApp = logoutWhatsApp;
+        window.checkWaStatus = checkWaStatus;
+
+        // Check WA status on page load & setup button listeners
         document.addEventListener('DOMContentLoaded', function() {
+            var waBtn = document.getElementById('waHeaderBtn');
+            if (waBtn) {
+                waBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    openWaModal();
+                });
+            }
             checkWaStatus();
-            setInterval(checkWaStatus, 10000);
+            setInterval(checkWaStatus, 8000);
         });
 
     
@@ -1149,8 +1177,7 @@
         // TEST CONSOLE DIRECT ACTIONS (9084714807)
         // ============================================================================
         function sendCloudMessageDirect(phone, defaultMsg) {
-            var msg = prompt('[DIRECT CLOUD DISPATCH // ' + phone + ']
-Enter pitch message to send directly via Render Evolution API:', defaultMsg);
+            var msg = prompt('[DIRECT CLOUD DISPATCH // ' + phone + ']\nEnter pitch message to send directly via Render Evolution API:', defaultMsg);
             if (msg !== null && msg.trim() !== '') {
                 fetch('/api/whatsapp/send?phone=' + encodeURIComponent(phone) + '&message=' + encodeURIComponent(msg.trim()), { method: 'POST' })
                     .then(function(res) { return res.json(); })
@@ -1169,8 +1196,7 @@ Enter pitch message to send directly via Render Evolution API:', defaultMsg);
         }
 
         function simulateInboundReply(phone) {
-            var reply = prompt('[SIMULATE INBOUND CUSTOMER REPLY]
-Enter reply message from ' + phone + ' to test webhook:', 'Namaste, software ka free trial link bhejiye');
+            var reply = prompt('[SIMULATE INBOUND CUSTOMER REPLY]\nEnter reply message from ' + phone + ' to test webhook:', 'Namaste, software ka free trial link bhejiye');
             if (reply !== null && reply.trim() !== '') {
                 fetch('/api/outreach/webhook', {
                     method: 'POST',
