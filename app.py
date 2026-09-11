@@ -2,8 +2,8 @@
 SmartWork AI - Customer Acquisition & Outreach Hub Server
 =========================================================
 Two-Panel High-Precision Operator Console on http://localhost:8000:
-- Left: Territory Explorer (All 333 Districts with live count & auto-harvester)
-- Right: Direct Customer Outreach CRM (WhatsApp demo pitch, 1-click copy)
+- Left: Territory Explorer (19 States & 456 Districts with live count)
+- Right: Direct Customer Outreach CRM with Status & Reply Tracking
 """
 
 import os
@@ -12,11 +12,12 @@ import math
 import json
 import re
 import urllib.parse
+from datetime import datetime, timezone
 from collections import OrderedDict
 from typing import Optional
 
 import pandas as pd
-from fastapi import FastAPI
+from fastapi import FastAPI, Query, Body, Request
 from fastapi.responses import HTMLResponse, FileResponse, JSONResponse
 
 if hasattr(sys.stdout, "reconfigure"):
@@ -24,7 +25,7 @@ if hasattr(sys.stdout, "reconfigure"):
 
 app = FastAPI(title="SmartWork AI - Outreach Hub")
 
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+BASE_DIR = r"c:\smartwork marketor"
 EXCEL_MASTER = os.path.join(BASE_DIR, "FINAL_COMMON_TYPISTS.xlsx")
 TEMPLATE_PATH = os.path.join(BASE_DIR, "templates", "dashboard.html")
 DISTRICTS_PATH = os.path.join(BASE_DIR, "hindi_belt_districts.json")
@@ -56,6 +57,12 @@ def get_master_data():
         try:
             df = pd.read_excel(EXCEL_MASTER, dtype=str).fillna("")
             total = len(df)
+            
+            # Ensure outreach columns exist
+            for col, def_val in [("OutreachStatus", "QUEUED"), ("SentAt", ""), ("ReplyText", ""), ("ReplyAt", "")]:
+                if col not in df.columns:
+                    df[col] = def_val
+                    
             phone_s = df["Phone"].str.strip()
             total_phones = int((phone_s.str.len() >= 10).sum())
             if "Source" not in df.columns:
@@ -92,6 +99,22 @@ def get_master_data():
             print(f"Error loading master excel cache: {e}")
     return _CACHE["df"], _CACHE["counts"], _CACHE["total"], _CACHE.get("total_phones", 0), _CACHE.get("sources", [])
 
+def save_master_data(df: pd.DataFrame):
+    """Saves updated dataframe back to Excel safely."""
+    global _CACHE
+    try:
+        tmp_path = os.path.join(BASE_DIR, "FINAL_COMMON_TYPISTS_tmp.xlsx")
+        df.to_excel(tmp_path, index=False)
+        if os.path.exists(EXCEL_MASTER):
+            os.remove(EXCEL_MASTER)
+        os.rename(tmp_path, EXCEL_MASTER)
+        _CACHE["mtime"] = os.path.getmtime(EXCEL_MASTER)
+        _CACHE["df"] = df
+        return True
+    except Exception as e:
+        print(f"Error saving master excel: {e}")
+        return False
+
 @app.get("/", response_class=HTMLResponse)
 def dashboard(
     district: Optional[str] = None,
@@ -100,11 +123,31 @@ def dashboard(
     search: Optional[str] = None,
     category: Optional[str] = None,
     source: Optional[str] = None,
+    status: Optional[str] = None,
     page: int = 1,
     page_size: int = 25
 ):
     df_master, district_counts, total_master_leads, total_mobile_leads, available_sources = get_master_data()
     all_districts_list = get_all_districts()
+
+    # Calculate Global Outreach Metrics
+    total_queued = 0
+    total_sent = 0
+    total_replied = 0
+    total_hot_leads = 0
+    sent_today = 0
+    today_str = datetime.now().strftime("%Y-%m-%d")
+
+    if not df_master.empty and "OutreachStatus" in df_master.columns:
+        status_counts = df_master["OutreachStatus"].str.upper().value_counts().to_dict()
+        total_queued = status_counts.get("QUEUED", 0)
+        total_sent = sum(status_counts.get(s, 0) for s in ["SENT", "REPLIED", "HOT_LEAD", "CONVERTED"])
+        total_replied = sum(status_counts.get(s, 0) for s in ["REPLIED", "HOT_LEAD", "CONVERTED"])
+        total_hot_leads = status_counts.get("HOT_LEAD", 0) + status_counts.get("CONVERTED", 0)
+        if "SentAt" in df_master.columns:
+            sent_today = int(df_master["SentAt"].str.startswith(today_str).sum())
+
+    reply_rate = f"{(total_replied / total_sent * 100):.1f}%" if total_sent > 0 else "0.0%"
 
     # Determine Active State & District
     is_mobile_view = bool(phones_only)
@@ -175,7 +218,7 @@ def dashboard(
             badge_html = (
                 f'<span class="d-badge-count">{cnt:,} Leads</span>'
                 if cnt > 0 else
-                f'<span class="d-badge-count sc-badge-zero" style="opacity:0.4;">0 Leads</span>'
+                f'<span class="d-badge-count sc-badge-zero" style="opacity:0.4;">0</span>'
             )
 
             districts_in_state_html += f"""
@@ -221,7 +264,7 @@ def dashboard(
             phone_s = df_master["Phone"].str.strip()
             df_district = df_master[phone_s.str.len() >= 10].copy()
         elif is_state_view:
-            df_district = df_master[df_master["State"].str.contains(active_state, case=False, na=False)]
+            df_district = df_master[df_master["State"].str.contains(active_state, case=False, na=False)].copy()
         else:
             active_base = active_district.split(" (")[0].strip().lower()
             df_district = df_master[
@@ -229,11 +272,11 @@ def dashboard(
                 (df_master["District"].str.lower() == active_district.lower()) |
                 (df_master["District"].str.lower() == active_base) |
                 (df_master["Location"].str.lower() == active_base)
-            ]
+            ].copy()
             if df_district.empty and active_district == "All":
                 df_district = df_master.copy()
 
-    # Category dropdown options (No emojis)
+    # Category dropdown options
     cat_defs = [
         ("stamp", "Stamp Vendors (e-Stamp ACC)"),
         ("csc", "CSC / Jan Seva Kendras"),
@@ -245,7 +288,7 @@ def dashboard(
         c_sel = "selected" if category and category.lower() == c_val else ""
         category_dropdown_options += f'<option value="{c_val}" {c_sel}>{c_lbl}</option>'
 
-    # Source dropdown options (Multi-Engine & Tools)
+    # Source dropdown options
     source_defs = [
         ("Google Maps", "Google Maps"),
         ("Justdial", "Justdial"),
@@ -264,13 +307,27 @@ def dashboard(
         s_sel = "selected" if source and source.lower() == s_val.lower() else ""
         source_dropdown_options += f'<option value="{s_val}" {s_sel}>{s_lbl}</option>'
 
-    # Apply search, category, and source filters
+    # Status dropdown options
+    status_defs = [
+        ("QUEUED", f"Queued / Pending ({total_queued:,})"),
+        ("SENT", f"Sent ({total_sent:,})"),
+        ("REPLIED", f"Replied ({total_replied:,})"),
+        ("HOT_LEAD", f"Hot Leads / Interested ({total_hot_leads:,})")
+    ]
+    status_dropdown_options = ""
+    for st_val, st_lbl in status_defs:
+        st_sel = "selected" if status and status.upper() == st_val else ""
+        status_dropdown_options += f'<option value="{st_val}" {st_sel}>{st_lbl}</option>'
+
+    # Apply search, category, source, and status filters
     df_filtered = df_district.copy()
     if not df_filtered.empty:
         if category:
             df_filtered = df_filtered[df_filtered["Category"].str.contains(category, case=False, na=False)]
         if source:
             df_filtered = df_filtered[df_filtered["Source"].str.lower() == source.lower()]
+        if status:
+            df_filtered = df_filtered[df_filtered["OutreachStatus"].str.upper() == status.upper()]
         if search:
             s = search.lower()
             df_filtered = df_filtered[
@@ -278,7 +335,8 @@ def dashboard(
                 df_filtered["Phone"].str.contains(s) |
                 df_filtered["Address"].str.lower().str.contains(s) |
                 df_filtered["Location"].str.lower().str.contains(s) |
-                df_filtered["Source"].str.lower().str.contains(s)
+                df_filtered["Source"].str.lower().str.contains(s) |
+                df_filtered["ReplyText"].str.lower().str.contains(s)
             ]
 
     filtered_count = len(df_filtered)
@@ -291,9 +349,6 @@ def dashboard(
     leads = df_page.to_dict(orient="records")
 
     # Render Table Rows
-    pitch_text = f"Namaste! We noticed your document typing and registry work in {active_district}. We built SmartWork AI (https://thesmartwork.onrender.com) which converts handwritten notes & voice memos directly into editable MS Word (.docx) files in 5 seconds. Would you like a free demo?"
-    encoded_pitch = urllib.parse.quote(pitch_text)
-
     rows_html = ""
     for idx, lead in enumerate(leads, (page - 1) * page_size + 1):
         name = lead.get("Name", "N/A")
@@ -301,13 +356,32 @@ def dashboard(
         cat = lead.get("Category", "Legal Typist")
         addr = lead.get("Address", "")
         lead_source = lead.get("Source", "Google Maps")
+        lead_status = str(lead.get("OutreachStatus", "QUEUED")).upper().strip()
+        reply_msg = str(lead.get("ReplyText", "")).strip()
+        sent_time = str(lead.get("SentAt", "")).strip()
+
+        # Status badge
+        if lead_status == "REPLIED":
+            status_badge = '<span class="status-badge status-replied">[REPLIED]</span>'
+        elif lead_status in ["HOT_LEAD", "CONVERTED"]:
+            status_badge = '<span class="status-badge status-hot">[HOT_LEAD]</span>'
+        elif lead_status == "SENT":
+            status_badge = f'<span class="status-badge status-sent" title="Sent: {sent_time}">[SENT]</span>'
+        else:
+            status_badge = '<span class="status-badge status-queued">[QUEUED]</span>'
+
+        # Personalized pitch text for this lead
+        pitch_text = f"Namaste {name}! We noticed your document typing and registry work in {active_district}. We built SmartWork AI (https://thesmartwork.onrender.com) which converts handwritten notes & voice memos directly into editable MS Word (.docx) files in 5 seconds. Would you like a free demo?"
+        encoded_pitch = urllib.parse.quote(pitch_text)
 
         wa_btn = ""
         copy_btn = ""
+        status_action_btn = ""
         if phone:
             wa_url = f"https://wa.me/91{phone}?text={encoded_pitch}"
-            wa_btn = f'<a href="{wa_url}" target="_blank" class="btn-wa-hacker" title="Transmit AI pitch to {name}">[>_ PING_WA]</a>'
+            wa_btn = f'<a href="{wa_url}" target="_blank" onclick="markLeadSent(\'{phone}\')" class="btn-wa-hacker" title="Transmit AI pitch to {name}">[>_ PING_WA]</a>'
             copy_btn = f'<button onclick="navigator.clipboard.writeText(\'{phone}\'); alert(\'[COMM_KEY COPIED] {phone}\');" class="btn-cp" title="Copy Number">[CP]</button>'
+            status_action_btn = f'<button onclick="promptMarkReplied(\'{phone}\', \'{name}\')" class="btn-mark-reply" title="Record customer reply manually">[+REPLY]</button>'
         else:
             wa_btn = '<span style="color:#14532d; font-size:10.5px; font-weight:700;">[NO_COMM]</span>'
 
@@ -331,9 +405,16 @@ def dashboard(
         elif "csc" in lead_source.lower():
             src_badge = '<span class="cat-badge cat-csc">[CSC_GOV]</span>'
 
+        reply_snippet_html = ""
+        if reply_msg:
+            reply_snippet_html = f'<div class="reply-snippet" title="Reply: {reply_msg}">&gt;&gt; [INCOMING]: "{reply_msg[:45]}..."</div>'
+
         rows_html += f"""
         <tr>
             <td style="color:#22c55e; font-weight:800; font-size:11px; opacity:0.65;">#{idx:02d}</td>
+            <td>
+                {status_badge}
+            </td>
             <td>
                 <div style="display:flex; flex-direction:column; gap:2px;">
                     {cat_badge}
@@ -342,6 +423,7 @@ def dashboard(
             </td>
             <td>
                 <div style="font-weight:700; color:#f0fdf4; font-size:12.5px;">{name}</div>
+                {reply_snippet_html}
             </td>
             <td>
                 <div style="display:flex; align-items:center;">
@@ -350,17 +432,22 @@ def dashboard(
                 </div>
             </td>
             <td style="color:#86efac; font-size:11px; opacity:0.85;" title="{addr}">
-                &gt; {addr[:65] + '...' if len(addr) > 65 else addr}
+                &gt; {addr[:55] + '...' if len(addr) > 55 else addr}
             </td>
-            <td style="text-align:center;">{wa_btn}</td>
+            <td style="text-align:center;">
+                <div style="display:flex; gap:4px; justify-content:center; align-items:center;">
+                    {wa_btn}
+                    {status_action_btn}
+                </div>
+            </td>
         </tr>
         """
 
     if not rows_html:
         rows_html = f'''
         <tr>
-            <td colspan="6" style="text-align:center; padding: 48px; color: #86efac; font-size: 13px; opacity: 0.8;">
-                [RECON_NOTICE] No verified customer records found for <strong>{active_district}</strong>.
+            <td colspan="7" style="text-align:center; padding: 48px; color: #86efac; font-size: 13px; opacity: 0.8;">
+                [RECON_NOTICE] No customer records found matching current filters for <strong>{active_district}</strong>.
             </td>
         </tr>
         '''
@@ -376,15 +463,23 @@ def dashboard(
     replacements = {
         "{{ total_master_leads }}": f"{total_master_leads:,}",
         "{{ total_mobile_leads }}": f"{total_mobile_leads:,}",
+        "{{ total_queued }}": f"{total_queued:,}",
+        "{{ total_sent }}": f"{total_sent:,}",
+        "{{ total_replied }}": f"{total_replied:,}",
+        "{{ total_hot_leads }}": f"{total_hot_leads:,}",
+        "{{ sent_today }}": f"{sent_today}",
+        "{{ reply_rate }}": reply_rate,
         "{{ active_district }}": active_district,
         "{{ active_state }}": active_state,
         "{{ active_district_count }}": f"{len(df_district):,}",
         "{{ states_list_html }}": states_list_html,
         "{{ category_dropdown_options }}": category_dropdown_options,
         "{{ source_dropdown_options }}": source_dropdown_options,
+        "{{ status_dropdown_options }}": status_dropdown_options,
         "{{ search }}": search or "",
         "{{ category }}": category or "",
         "{{ source }}": source or "",
+        "{{ status }}": status or "",
         "{{ phones_only }}": "1" if is_mobile_view else "0",
         "{{ rows_html }}": rows_html,
         "{{ filtered_count }}": f"{filtered_count:,}",
@@ -401,6 +496,90 @@ def dashboard(
 
     return HTMLResponse(content=template)
 
+# ============================================================================
+# OUTREACH APIS & REPLY WEBHOOK
+# ============================================================================
+
+@app.post("/api/outreach/mark-status")
+def mark_outreach_status(
+    phone: str = Query(...),
+    status: str = Query("SENT"),
+    reply_text: Optional[str] = Query(None)
+):
+    """Updates lead outreach status (SENT, REPLIED, HOT_LEAD) with timestamps."""
+    df_master, _, _, _, _ = get_master_data()
+    if df_master.empty:
+        return JSONResponse(status_code=404, content={"error": "Database empty"})
+
+    clean_ph = re.sub(r"\D", "", str(phone))
+    if len(clean_ph) >= 10:
+        clean_ph = clean_ph[-10:]
+
+    match_idx = df_master[df_master["Phone"].str.endswith(clean_ph)].index
+    if len(match_idx) == 0:
+        return JSONResponse(status_code=404, content={"error": f"Lead {phone} not found"})
+
+    idx = match_idx[0]
+    now_iso = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+
+    df_master.at[idx, "OutreachStatus"] = status.upper()
+    if status.upper() == "SENT" and not df_master.at[idx, "SentAt"]:
+        df_master.at[idx, "SentAt"] = now_iso
+    elif status.upper() in ["REPLIED", "HOT_LEAD", "CONVERTED"]:
+        df_master.at[idx, "ReplyAt"] = now_iso
+        if reply_text:
+            df_master.at[idx, "ReplyText"] = reply_text
+
+    save_master_data(df_master)
+    return {
+        "status": "success",
+        "phone": clean_ph,
+        "new_status": status.upper(),
+        "timestamp": now_iso
+    }
+
+@app.post("/api/outreach/webhook")
+async def incoming_reply_webhook(request: Request):
+    """
+    Receives incoming WhatsApp messages from gateway / multi-device session
+    and automatically matches the lead, updates status to REPLIED, and records reply text.
+    Payload: {"sender": "919876543210", "message": "Haan demo link bhejo"}
+    """
+    try:
+        body = await request.json()
+        sender = str(body.get("sender", body.get("phone", body.get("from", ""))))
+        message = str(body.get("message", body.get("text", body.get("body", ""))))
+
+        clean_ph = re.sub(r"\D", "", sender)
+        if len(clean_ph) >= 10:
+            clean_ph = clean_ph[-10:]
+
+        df_master, _, _, _, _ = get_master_data()
+        match_idx = df_master[df_master["Phone"].str.endswith(clean_ph)].index
+        if len(match_idx) > 0:
+            idx = match_idx[0]
+            now_iso = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+            df_master.at[idx, "OutreachStatus"] = "REPLIED"
+            df_master.at[idx, "ReplyText"] = message
+            df_master.at[idx, "ReplyAt"] = now_iso
+            save_master_data(df_master)
+            return {"status": "matched_and_updated", "phone": clean_ph, "name": df_master.at[idx, "Name"]}
+        return {"status": "received_unmatched_lead", "phone": clean_ph}
+    except Exception as e:
+        return JSONResponse(status_code=400, content={"error": str(e)})
+
+@app.get("/api/outreach/today-batch")
+def get_today_batch(batch_size: int = 120):
+    """Returns today's 120 queued leads for sequencing."""
+    df_master, _, _, _, _ = get_master_data()
+    if df_master.empty:
+        return {"batch": []}
+    queued_df = df_master[df_master["OutreachStatus"].str.upper() == "QUEUED"].head(batch_size)
+    return {
+        "batch_size": len(queued_df),
+        "leads": queued_df[["Name", "Phone", "District", "State", "Category"]].to_dict(orient="records")
+    }
+
 @app.get("/download")
 def download_excel():
     if os.path.exists(EXCEL_MASTER):
@@ -410,7 +589,6 @@ def download_excel():
             filename="FINAL_COMMON_TYPISTS.xlsx"
         )
     return JSONResponse(status_code=404, content={"error": "File not found."})
-
 
 if __name__ == "__main__":
     import uvicorn
