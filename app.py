@@ -16,7 +16,7 @@ from collections import OrderedDict
 from typing import Optional
 
 import pandas as pd
-from fastapi import FastAPI, BackgroundTasks, Query
+from fastapi import FastAPI
 from fastapi.responses import HTMLResponse, FileResponse, JSONResponse
 
 if hasattr(sys.stdout, "reconfigure"):
@@ -25,32 +25,9 @@ if hasattr(sys.stdout, "reconfigure"):
 app = FastAPI(title="SmartWork AI - Outreach Hub")
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-SCRAPERS_DIR = os.path.join(BASE_DIR, "scrapers")
-if SCRAPERS_DIR not in sys.path:
-    sys.path.append(SCRAPERS_DIR)
-
-try:
-    from unified_harvester import harvest_district_all_sources
-    from directory_scrapers import auto_harvest_pending_districts
-except Exception:
-    try:
-        from directory_scrapers import (
-            harvest_district_all_sources,
-            auto_harvest_pending_districts
-        )
-    except Exception:
-        harvest_district_all_sources = None
-        auto_harvest_pending_districts = None
-
 EXCEL_MASTER = os.path.join(BASE_DIR, "FINAL_COMMON_TYPISTS.xlsx")
 TEMPLATE_PATH = os.path.join(BASE_DIR, "templates", "dashboard.html")
 DISTRICTS_PATH = os.path.join(BASE_DIR, "hindi_belt_districts.json")
-
-scraper_status = {
-    "running": False,
-    "last_run": None,
-    "last_message": "Engine Ready"
-}
 
 def get_all_districts():
     if os.path.exists(DISTRICTS_PATH):
@@ -61,33 +38,6 @@ def get_all_districts():
             print(f"Error loading districts: {e}")
     return []
 
-ALL_DISTRICTS = get_all_districts()
-
-def run_auto_harvest_batch_task(batch_size: int = 3):
-    global scraper_status
-    scraper_status["running"] = True
-    scraper_status["last_message"] = f"Auto-harvesting next {batch_size} pending districts (Web + CSC + Govt)..."
-    try:
-        results = auto_harvest_pending_districts(batch_size=batch_size, districts_path=DISTRICTS_PATH, master_file=EXCEL_MASTER)
-        dist_names = ", ".join(r["district"] for r in results) if results else "None (all districts have leads!)"
-        scraper_status["last_message"] = f"Auto-harvest finished for: {dist_names}!"
-    except Exception as e:
-        scraper_status["last_message"] = f"Auto-harvest error: {str(e)}"
-    finally:
-        scraper_status["running"] = False
-        scraper_status["last_run"] = pd.Timestamp.now().strftime("%Y-%m-%d %H:%M:%S")
-
-def run_district_multi_source_task(district: str, state: str):
-    global scraper_status
-    scraper_status["running"] = True
-    scraper_status["last_message"] = f"Harvesting {district} ({state}) using Web + CSC + Govt directories..."
-    try:
-        summary = harvest_district_all_sources(district=district, state=state)
-        scraper_status["last_message"] = f"Harvested {district}: {summary['new_unique_saved']} fresh unique leads added!"
-    except Exception as e:
-        scraper_status["last_message"] = f"District harvest error: {str(e)}"
-    finally:
-        scraper_status["running"] = False
 _CACHE = {
     "mtime": 0,
     "df": pd.DataFrame(),
@@ -222,11 +172,11 @@ def dashboard(
             cnt = district_counts.get(dname, 0)
             is_active = "active" if (not is_state_view and dname.lower() == active_district.lower()) else ""
 
-            badge_html = ""
-            if cnt > 0:
-                badge_html = f'<span class="d-badge-count">{cnt:,} Leads</span>'
-            else:
-                badge_html = f'<button onclick="event.preventDefault(); event.stopPropagation(); harvestDistrict(\'{dname}\', \'{st_name}\');" class="btn-harvest-mini">+ Get Leads</button>'
+            badge_html = (
+                f'<span class="d-badge-count">{cnt:,} Leads</span>'
+                if cnt > 0 else
+                f'<span class="d-badge-count sc-badge-zero" style="opacity:0.4;">0 Leads</span>'
+            )
 
             districts_in_state_html += f"""
             <a href="/?district={urllib.parse.quote(dname)}&state={urllib.parse.quote(st_name)}" 
@@ -409,11 +359,8 @@ def dashboard(
     if not rows_html:
         rows_html = f'''
         <tr>
-            <td colspan="6" style="text-align:center; padding: 48px; color: #94a3b8; font-size: 14px;">
-                No customer leads found for <strong>{active_district}</strong> yet.<br><br>
-                <button onclick="harvestCurrentDistrict()" class="btn-tb btn-tb-harvest" style="margin: 0 auto; display:inline-flex;">
-                    [+ HARVEST LEADS FOR {active_district.upper()} NOW]
-                </button>
+            <td colspan="6" style="text-align:center; padding: 48px; color: #86efac; font-size: 13px; opacity: 0.8;">
+                [RECON_NOTICE] No verified customer records found for <strong>{active_district}</strong>.
             </td>
         </tr>
         '''
@@ -464,25 +411,6 @@ def download_excel():
         )
     return JSONResponse(status_code=404, content={"error": "File not found."})
 
-@app.post("/api/auto-harvest-batch")
-def trigger_auto_harvest_batch(background_tasks: BackgroundTasks, batch_size: int = 3):
-    global scraper_status
-    if scraper_status["running"]:
-        return {"status": "busy", "message": f"Scraper is currently running ({scraper_status['last_message']}). Please wait."}
-    background_tasks.add_task(run_auto_harvest_batch_task, batch_size)
-    return {"status": "started", "message": f"[AUTO-HARVEST INITIATED] Next {batch_size} pending districts being harvested with Web + CSC + Govt sources in background."}
-
-@app.post("/api/harvest-district")
-def trigger_district_harvest(background_tasks: BackgroundTasks, district: str = Query(...), state: str = Query("Uttarakhand")):
-    global scraper_status
-    if scraper_status["running"]:
-        return {"status": "busy", "message": f"Scraper is currently running ({scraper_status['last_message']}). Please wait."}
-    background_tasks.add_task(run_district_multi_source_task, district, state)
-    return {"status": "started", "message": f"[HARVEST INITIATED] Full multi-source harvest started for {district} ({state}) in background."}
-
-@app.get("/api/status")
-def get_scraper_status():
-    return scraper_status
 
 if __name__ == "__main__":
     import uvicorn
